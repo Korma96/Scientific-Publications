@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mail>
+    <subject>Your publication is denied</subject>
+    <body isHtml="false">
+        Hello {0},
+        
+        Bad news, your publication '{1}' is denied.
+        It does not meet our publication criteria, below is detailed description.
+        
+        {2}
+        
+        Best regards,
+        Tech Giant
+    </body>
+</mail>
