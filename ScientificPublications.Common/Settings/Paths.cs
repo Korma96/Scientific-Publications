@@ -7,5 +7,7 @@
         public string PublicationDeniedMail { get; set; }
 
         public string PublicationAcceptedMail { get; set; }
+
+        public string PublicationXsdSchema { get; set; }
     }
 }

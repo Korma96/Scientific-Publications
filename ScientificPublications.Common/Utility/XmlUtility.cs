@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using ScientificPublications.Common.Exceptions;
+using System;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace ScientificPublications.Common.Utility
@@ -16,6 +20,34 @@ namespace ScientificPublications.Common.Utility
             }
 
             return obj;
+        }
+
+        // wraps exception into validation exception
+        public static XDocument Parse(string xmlContent)
+        {
+            try
+            {
+                return XDocument.Parse(xmlContent);
+            }
+            catch(Exception ex)
+            {
+                throw new ValidationException(ex.Message, ex);
+            }
+        }
+
+        // throws validation exception if xml is not valid against xsd
+        public static void ValidateXmlAgainstXsd(XDocument xDocument, string xsdSchemaPath)
+        {
+            var schemas = new XmlSchemaSet();
+            schemas.Add(null, xsdSchemaPath);
+
+            string message = string.Empty;
+            xDocument.Validate(schemas, (o, e) => {
+                message += e.Message + Environment.NewLine;
+            });
+
+            if (!string.IsNullOrEmpty(message))
+                throw new ValidationException(message);
         }
     }
 }
