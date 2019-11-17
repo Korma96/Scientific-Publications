@@ -5,11 +5,11 @@ namespace ScientificPublications.Common.Utility
 {
     public static class FileUtility
     {
-        public static async Task<MemoryStream> ReadAsStreamAsync(string filename)
+        public static async Task<MemoryStream> ReadAsStreamAsync(string filePath)
         {
             var memory = new MemoryStream();
 
-            using (var stream = new FileStream(filename, FileMode.Open))
+            using (var stream = new FileStream(filePath, FileMode.Open))
             {
                 await stream.CopyToAsync(memory);
             }

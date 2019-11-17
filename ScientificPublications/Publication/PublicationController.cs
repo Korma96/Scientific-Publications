@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
 using ScientificPublications.Common;
+using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
@@ -15,22 +16,21 @@ namespace ScientificPublications.Publication
     {
         private readonly IPublicationService _publicationService;
 
-        private readonly AppSettings _appSettings;
-
-        public PublicationController(IPublicationService publicationService, IOptions<AppSettings> appSettings)
+        public PublicationController(IOptions<AppSettings> appSettings, IPublicationService publicationService) : base(appSettings)
         {
             _publicationService = publicationService;
-            _appSettings = appSettings.Value;
         }
 
         [HttpGet("xsd-schema")]
+        [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> GetXsdSchemaFileAsync()
         {
             var file = await _publicationService.GetXsdSchemaAsync();
-            return File(file, Constants.XmlContentType, _appSettings.Paths.PublicationXsdSchema);
+            return File(file, Constants.XmlContentType, AppSettings.Paths.PublicationXsdSchema);
         }
 
         [HttpPost("upload")]
+        [AuthorizationFilter(Role.Author)]
         public IActionResult UploadFile(IFormFile file)
         {
             if (file.Length == 0)
@@ -50,6 +50,7 @@ namespace ScientificPublications.Publication
         }
 
         [HttpGet("send-accepted-mail/{recipient}")]
+        [AuthorizationFilter(Role.JournalEditor)]
         public async Task<IActionResult> SendAcceptedMailAsync([FromRoute] string recipient)
         {
             await _publicationService.AcceptPublicationAsync(recipient);
@@ -57,6 +58,7 @@ namespace ScientificPublications.Publication
         }
 
         [Consumes(Constants.XmlContentType)]
+        [AuthorizationFilter(Role.JournalEditor)]
         [HttpPost("send-denied-mail")]
         public async Task<IActionResult> SendDeniedMailAsync([FromBody] DenyPublicationDto denyPublicationDto)
         {

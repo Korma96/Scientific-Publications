@@ -9,5 +9,7 @@
         public string PublicationAcceptedMail { get; set; }
 
         public string PublicationXsdSchema { get; set; }
+
+        public string Users { get; set; }
     }
 }

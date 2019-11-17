@@ -9,7 +9,7 @@ namespace ScientificPublications.Common.Utility
 {
     public static class XmlUtility
     {
-        public static T Deserialize<T>(string filename)
+        public static T DeserializeFromFile<T>(string filename)
         {
             T obj;
 
@@ -20,6 +20,21 @@ namespace ScientificPublications.Common.Utility
             }
 
             return obj;
+        }
+
+        public static T Deserialize<T>(string xmlString)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            StringReader rdr = new StringReader(xmlString);
+            return (T)serializer.Deserialize(rdr);
+        }
+
+        public static string Serialize<T>(T obj)
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            var stringWriter = new StringWriter();
+            serializer.Serialize(stringWriter, obj);
+            return stringWriter.ToString();
         }
 
         // wraps exception into validation exception

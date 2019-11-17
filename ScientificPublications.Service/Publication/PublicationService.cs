@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AutoMapper;
+using Microsoft.Extensions.Options;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.Service.Email;
@@ -11,7 +12,11 @@ namespace ScientificPublications.Service.Publication
     {
         private readonly IEmailService _emailService;
 
-        public PublicationService(IOptions<AppSettings> options, IEmailService emailService) : base(options)
+        public PublicationService(
+            IOptions<AppSettings> appSettings, 
+            IMapper mapper,
+            IEmailService emailService) 
+            : base(appSettings, mapper)
         {
             _emailService = emailService;
         }
@@ -19,7 +24,7 @@ namespace ScientificPublications.Service.Publication
         public async Task AcceptPublicationAsync(string email)
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationAcceptedMail);
-            var emailData = XmlUtility.Deserialize<EmailEntity>(path);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
             var body = string.Format(emailData.Body, "Mr. Author", "Applied AI");
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
         }
@@ -27,7 +32,7 @@ namespace ScientificPublications.Service.Publication
         public async Task DenyPublicationAsync(string email, string text)
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationDeniedMail);
-            var emailData = XmlUtility.Deserialize<EmailEntity>(path);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
             var body = string.Format(emailData.Body, "Mr. Author", "Applied AI", text);
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
         }

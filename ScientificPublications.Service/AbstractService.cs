@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AutoMapper;
+using Microsoft.Extensions.Options;
 using ScientificPublications.Common.Settings;
 
 namespace ScientificPublications.Service
@@ -7,9 +8,12 @@ namespace ScientificPublications.Service
     {
         protected AppSettings AppSettings { get; private set; }
 
-        public AbstractService(IOptions<AppSettings> appSettings)
+        protected IMapper Mapper { get; private set; }
+
+        public AbstractService(IOptions<AppSettings> appSettings, IMapper mapper)
         {
             AppSettings = appSettings.Value;
+            Mapper = mapper;
         }
     }
 }

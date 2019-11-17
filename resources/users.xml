@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <username>j_editor</username>
+	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>JournalEditor</role>
+	<name>Petar Petrovic</name>
+	<email>markoradovic996+1@gmail.com</email>
+    <city>Novi Sad</city>
+    <country>Serbia</country>
+  </user>
+  <user>
+    <username>reviewer1</username>
+	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>Reviewer</role>
+    <name>Luka Lukic</name>
+	<email>markoradovic996+2@gmail.com</email>
+    <city>Belgrade</city>
+    <country>Serbia</country>
+  </user>
+  <user>
+    <username>reviewer2</username>
+	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>Reviewer</role>
+    <name>Nikola Nikolic</name>
+	<email>markoradovic996+3@gmail.com</email>
+    <city>Nis</city>
+    <country>Serbia</country>
+  </user>
+  <user>
+    <username>auThor</username>
+	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>Author</role>
+    <name>Marko Markovic</name>
+	<email>markoradovic996+4@gmail.com</email>
+    <city>Novi Sad</city>
+    <country>Serbia</country>
+  </user>
+</users>
