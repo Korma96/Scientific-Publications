@@ -6,6 +6,8 @@
 
         public Paths Paths { get; set; }
 
+        public DbProxyUrls DbProxyUrls { get; set; }
+
         public string Secret { get; set; }
 
         public double JwtTokenExpiresInSeconds { get; set; }

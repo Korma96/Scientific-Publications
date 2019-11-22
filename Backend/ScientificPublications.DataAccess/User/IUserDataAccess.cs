@@ -1,7 +1,9 @@
-﻿namespace ScientificPublications.DataAccess.User
+﻿using System.Threading.Tasks;
+
+namespace ScientificPublications.DataAccess.User
 {
     public interface IUserDataAccess : IDataAccess
     {
-        Model.User FindByUsername(string username);
+        Task<Model.User> FindByUsername(string username);
     }
 }

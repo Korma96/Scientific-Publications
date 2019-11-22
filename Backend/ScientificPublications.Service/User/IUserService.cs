@@ -1,9 +1,10 @@
 ﻿using ScientificPublications.Common.Models;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.User
 {
     public interface IUserService : ISingletonService
     {
-        UserDto Login(string username, string password);
+        Task<UserDto> Login(string username, string password);
     }
 }

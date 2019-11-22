@@ -17,6 +17,8 @@
             public const string EmptyFile = "Emtpy file";
 
             public const string InvalidUsernameOrPassword = "Invalid username and/or password";
+
+            public const string DatabaseException = "Database exception";
         }
     }
 }

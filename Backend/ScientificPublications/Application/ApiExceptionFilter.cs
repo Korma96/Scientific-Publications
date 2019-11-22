@@ -21,13 +21,18 @@ namespace ScientificPublications.Application
         {
             if (context.Exception is ValidationException)
             {
-                Log(context, (int)HttpStatusCode.BadRequest, LogLevel.Warning);
-                CreateHttpResponse(context, statusCode: (int)HttpStatusCode.BadRequest, message: context.Exception.Message);
+                Log(context, LogLevel.Warning);
+                CreateHttpResponse(context, (int)HttpStatusCode.BadRequest, context.Exception.Message);
+            }
+            else if (context.Exception is ProxyException)
+            {
+                Log(context, LogLevel.Error);
+                CreateHttpResponse(context, (int)HttpStatusCode.BadGateway, context.Exception.Message);
             }
             else
             {
-                Log(context, (int)HttpStatusCode.InternalServerError, LogLevel.Error);
-                CreateHttpResponse(context, statusCode: (int)HttpStatusCode.InternalServerError, message: context.Exception.Message);
+                Log(context, LogLevel.Error);
+                CreateHttpResponse(context, (int)HttpStatusCode.InternalServerError, context.Exception.Message);
             }
             context.ExceptionHandled = true;
         }
@@ -46,7 +51,7 @@ namespace ScientificPublications.Application
 
         private string GetRequest(ExceptionContext context) => context.HttpContext?.Request?.Body?.StreamToString();
 
-        private void Log(ExceptionContext context, int statusCode, LogLevel logLevel)
+        private void Log(ExceptionContext context, LogLevel logLevel)
         {
             var sb = new StringBuilder();
             string url = GetRelativeUrl(context);

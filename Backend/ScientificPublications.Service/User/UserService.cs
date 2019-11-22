@@ -6,6 +6,7 @@ using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.User;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.User
 {
@@ -22,9 +23,9 @@ namespace ScientificPublications.Service.User
             _userDataAccess = userDataAccess;
         }
 
-        public UserDto Login(string username, string password)
+        public async Task<UserDto> Login(string username, string password)
         {
-            var user = _userDataAccess.FindByUsername(username);
+            var user = await _userDataAccess.FindByUsername(username);
             if (user == null)
                 throw new ValidationException(Constants.ExceptionMessages.InvalidUsernameOrPassword);
 

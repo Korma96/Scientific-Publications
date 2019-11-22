@@ -1,27 +1,30 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using ScientificPublications.Common;
+using ScientificPublications.Common.Exceptions;
+using ScientificPublications.Common.Helpers;
 using ScientificPublications.Common.Settings;
-using ScientificPublications.Common.Utility;
-using ScientificPublications.DataAccess.Model;
-using System.IO;
-using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.DataAccess.User
 {
-    public class UserDataAccess : IUserDataAccess
+    public class UserDataAccess : AbstractDataAccess, IUserDataAccess
     {
-        private readonly AppSettings _appSettings;
+        public UserDataAccess(IOptions<AppSettings> appSettings, ILogger<UserDataAccess> logger) 
+            : base(appSettings, logger) { }
 
-        private string UsersPath { get => Path.Combine(_appSettings.Paths.BasePath, _appSettings.Paths.Users); }
-
-        public UserDataAccess(IOptions<AppSettings> appSettings)
+        public async Task<Model.User> FindByUsername(string username)
         {
-            _appSettings = appSettings.Value;
-        }
-
-        public Model.User FindByUsername(string username)
-        {
-            var allUsers = XmlUtility.DeserializeFromFile<AllUsers>(UsersPath);
-            return allUsers.Users.FirstOrDefault(u => u.Username == username);
+            try
+            {
+                var path = AppSettings.DbProxyUrls.Base + username;
+                return await HttpHelper.Get<Model.User>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
         }
     }
 }

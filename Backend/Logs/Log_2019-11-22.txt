@@ -1,0 +1,231 @@
+
+16:47:22 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:52:23 [Error] 
+	url => /api/User/login
+System.InvalidOperationException: There is an error in XML document (0, 0). ---> System.Xml.XmlException: Root element is missing.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlTextReader.Read()
+   at System.Xml.XmlReader.MoveToContent()
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderUser.Read3_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at ScientificPublications.Common.Utility.XmlUtility.Deserialize[T](String xmlString) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 29
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 41
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:52:39 [Error] 
+	url => /api/User/login
+System.InvalidOperationException: There is an error in XML document (0, 0). ---> System.Xml.XmlException: Root element is missing.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlTextReader.Read()
+   at System.Xml.XmlReader.MoveToContent()
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderUser.Read3_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at ScientificPublications.Common.Utility.XmlUtility.Deserialize[T](String xmlString) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 29
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 41
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:54:57 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 32
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:57:42 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:58:26 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:58:33 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:58:36 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:59:02 [Error] 
+	url => /api/User/login
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.<>c__DisplayClass1_0.<<FindByUsername>b__0>d.MoveNext() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 24
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+17:06:20 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 39
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 22
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 28
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+17:10:15 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 32
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+17:10:25 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 35
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()

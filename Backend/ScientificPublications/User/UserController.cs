@@ -8,6 +8,7 @@ using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.Service.User;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.User
 {
@@ -28,9 +29,9 @@ namespace ScientificPublications.User
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] LoginDto loginDto)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            var user = _userService.Login(loginDto.Username, loginDto.Password);
+            var user = await _userService.Login(loginDto.Username, loginDto.Password);
             var sessionDto = _mapper.Map<SessionDto>(user);
             var idToken = JwtUtility.CreateJwtToken(AppSettings, sessionDto);
             Request.HttpContext.Response.Headers.Add(Constants.AccessToken, idToken);

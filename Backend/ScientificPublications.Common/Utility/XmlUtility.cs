@@ -24,6 +24,9 @@ namespace ScientificPublications.Common.Utility
 
         public static T Deserialize<T>(string xmlString)
         {
+            if (string.IsNullOrWhiteSpace(xmlString))
+                return default(T);
+
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             StringReader rdr = new StringReader(xmlString);
             return (T)serializer.Deserialize(rdr);
