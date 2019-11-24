@@ -8,6 +8,7 @@ namespace ScientificPublications.Service
         public MappingProfile()
         {
             CreateMap<DataAccess.Model.User, UserDto>();
+            CreateMap<RegisterDto, DataAccess.Model.User>();
         }
     }
 }

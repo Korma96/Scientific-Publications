@@ -2,18 +2,12 @@
 {
     public class AppSettings
     {
-        public SmtpSettings SmtpSettings { get; set; }
+        public SmtpSettings Smtp { get; set; }
 
-        public Paths Paths { get; set; }
+        public PathSettings Paths { get; set; }
 
-        public DbProxyUrls DbProxyUrls { get; set; }
+        public JwtSettings Jwt { get; set; }
 
-        public string Secret { get; set; }
-
-        public double JwtTokenExpiresInSeconds { get; set; }
-
-        public string Issuer { get; set; }
-
-        public string Audience { get; set; }
+        public string DbProxyUrl { get; set; }
     }
 }

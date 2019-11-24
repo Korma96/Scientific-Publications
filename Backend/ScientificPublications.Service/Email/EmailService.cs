@@ -19,7 +19,7 @@ namespace ScientificPublications.Service.Email
         {
             var message = new MailMessage
             {
-                From = new MailAddress(_appSettings.SmtpSettings.Username),
+                From = new MailAddress(_appSettings.Smtp.Username),
                 Subject = subject,
                 Body = body
             };
@@ -37,11 +37,11 @@ namespace ScientificPublications.Service.Email
         {
             return new SmtpClient
             {
-                Host = _appSettings.SmtpSettings.Host,
-                Port = _appSettings.SmtpSettings.Port,
+                Host = _appSettings.Smtp.Host,
+                Port = _appSettings.Smtp.Port,
                 EnableSsl = true,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(_appSettings.SmtpSettings.Username, _appSettings.SmtpSettings.Password)
+                Credentials = new NetworkCredential(_appSettings.Smtp.Username, _appSettings.Smtp.Password)
             };
         }
     }

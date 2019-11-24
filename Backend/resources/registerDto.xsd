@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tekst">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="roleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Author"/>
+            <xs:enumeration value="Reviewer"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="RegisterDto">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="password" type="tekst"></xs:element> 
+                <xs:element name="username" type="tekst"></xs:element>
+                <xs:element name="role" type="roleType"></xs:element> 
+                <xs:element name="name" type="tekst"></xs:element> 
+                <xs:element name="email" type="emailType"></xs:element> 
+                <xs:element name="city" type="tekst"></xs:element> 
+                <xs:element name="country" type="tekst"></xs:element> 
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

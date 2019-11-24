@@ -12,17 +12,17 @@ namespace ScientificPublications.Common.Utility
     {
         public static string CreateJwtToken(AppSettings appSettings, SessionDto sessionInfo)
         {
-            var key = Encoding.UTF8.GetBytes(appSettings.Secret);
+            var key = Encoding.UTF8.GetBytes(appSettings.Jwt.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(Constants.SessionInfo, XmlUtility.Serialize(sessionInfo))
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(appSettings.JwtTokenExpiresInSeconds),
+                Expires = DateTime.UtcNow.AddSeconds(appSettings.Jwt.JwtTokenExpiresInSeconds),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Issuer = appSettings.Issuer,
-                Audience = appSettings.Audience
+                Issuer = appSettings.Jwt.Issuer,
+                Audience = appSettings.Jwt.Audience
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();

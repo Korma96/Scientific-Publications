@@ -1,0 +1,243 @@
+
+15:34:32 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:34:54 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:36:01 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The 'RegisterDto' element is not declared.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:38:47 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_register()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:00:53 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The 'role' element is invalid - The value 'string' is invalid according to its datatype 'roleType' - The Enumeration constraint failed.
+The 'email' element is invalid - The value 'string' is invalid according to its datatype 'emailType' - The Pattern constraint failed.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:03:57 [Error] 
+	url => /api/User/register
+System.Xml.XmlException: Name cannot begin with the ')' character, hexadecimal value 0x29. Line 5, position 37.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Schema.Parser.Parse(XmlReader reader, String targetNamespace)
+   at System.Xml.Schema.XmlSchemaSet.ParseSchema(String targetNamespace, XmlReader reader)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:05:42 [Error] 
+	url => /api/User/register
+System.Xml.XmlException: Name cannot begin with the ')' character, hexadecimal value 0x29. Line 5, position 37.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Schema.Parser.Parse(XmlReader reader, String targetNamespace)
+   at System.Xml.Schema.XmlSchemaSet.ParseSchema(String targetNamespace, XmlReader reader)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:08:35 [Error] 
+	url => /api/User/register
+System.Xml.XmlException: Name cannot begin with the ')' character, hexadecimal value 0x29. Line 5, position 37.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Schema.Parser.Parse(XmlReader reader, String targetNamespace)
+   at System.Xml.Schema.XmlSchemaSet.ParseSchema(String targetNamespace, XmlReader reader)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:08:40 [Error] 
+	url => /api/User/register
+System.Xml.XmlException: Name cannot begin with the ')' character, hexadecimal value 0x29. Line 5, position 37.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Schema.Parser.Parse(XmlReader reader, String targetNamespace)
+   at System.Xml.Schema.XmlSchemaSet.ParseSchema(String targetNamespace, XmlReader reader)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:08:52 [Error] 
+	url => /api/User/register
+System.Xml.XmlException: Name cannot begin with the ')' character, hexadecimal value 0x29. Line 5, position 37.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Schema.Parser.Parse(XmlReader reader, String targetNamespace)
+   at System.Xml.Schema.XmlSchemaSet.ParseSchema(String targetNamespace, XmlReader reader)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:12:44 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+16:12:59 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The 'role' element is invalid - The value 'JournalEditor' is invalid according to its datatype 'roleType' - The Enumeration constraint failed.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()

@@ -8,6 +8,7 @@ import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
+import org.xmldb.api.modules.XUpdateQueryService;
 import javax.xml.transform.OutputKeys;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +18,44 @@ import java.nio.file.Paths;
 @Repository
 public class BaseRepository {
 
-    protected XMLResource getResource(String collectionId, String documentId) throws Exception {
+    protected void executeXUpdate(String collectionId, String documentId, String xPathElement, String xUpdateStr) throws Exception{
+        Collection collection = getCollection(collectionId);
+        XUpdateQueryService xupdateService = (XUpdateQueryService) collection.getService("XUpdateQueryService", "1.0");
+        xupdateService.setProperty("indent", "yes");
+
+        System.out.println("[INFO] Updating " + xPathElement + " node.");
+        long mods = xupdateService.updateResource(documentId, xUpdateStr);
+        System.out.println("[INFO] " + mods + " modifications processed.");
+    }
+
+    protected String executeXQuery(String collectionId, String xQueryStr) throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        CompiledExpression compiledExpression = xQueryService.compile(xQueryStr);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+            try {
+                resource = i.nextResource();
+                XMLResource xmlResource = (XMLResource) resource;
+                return xmlResource.getContent().toString();
+            } finally {
+                freeXmlResources(resource);
+            }
+        }
+        return null;
+    }
+
+    protected String readXQueryFile(String xQueryPath) throws Exception {
+        String classPath = new ClassPathResource(xQueryPath).getFile().getPath();
+        return loadFileContent(classPath);
+    }
+
+    private XMLResource getResource(String collectionId, String documentId) throws Exception {
         ExistAuthUtility.ConnectionProperties conn = establishDbConnection();
         Collection col = null;
         XMLResource res = null;
@@ -46,7 +84,7 @@ public class BaseRepository {
         }
     }
 
-    protected Collection getCollection(String collectionId) throws Exception {
+    private Collection getCollection(String collectionId) throws Exception {
         ExistAuthUtility.ConnectionProperties conn = establishDbConnection();
         Collection collection = null;
 
@@ -64,33 +102,6 @@ public class BaseRepository {
         }
     }
 
-    protected String ExecuteXQuery(String collectionId, String xQueryStr) throws Exception {
-        Collection collection = getCollection(collectionId);
-        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
-        xQueryService.setProperty("indent", "yes");
-
-        CompiledExpression compiledExpression = xQueryService.compile(xQueryStr);
-        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
-        ResourceIterator i = resourceSet.getIterator();
-
-        org.xmldb.api.base.Resource resource = null;
-        if(i.hasMoreResources()) {
-            try {
-                resource = i.nextResource();
-                XMLResource xmlResource = (XMLResource) resource;
-                return xmlResource.getContent().toString();
-            } finally {
-                freeXmlResources(resource);
-            }
-        }
-        return null;
-    }
-
-    protected String readXQueryFile(String xQueryPath) throws Exception {
-        String classPath = new ClassPathResource(xQueryPath).getFile().getPath();
-        return loadFileContent(classPath);
-    }
-
     private String loadFileContent(String path) throws IOException {
         byte[] allBytes = Files.readAllBytes(Paths.get(path));
         return new String(allBytes, StandardCharsets.UTF_8);
@@ -105,10 +116,7 @@ public class BaseRepository {
     private ExistAuthUtility.ConnectionProperties establishDbConnection() throws Exception {
         ExistAuthUtility.ConnectionProperties conn = ExistAuthUtility.loadProperties();
 
-        // initialize database driver
-        System.out.println("[INFO] Loading driver class: " + conn.driver);
         Class<?> cl = Class.forName(conn.driver);
-
         Database database = (Database) cl.newInstance();
         database.setProperty("create-database", "true");
 

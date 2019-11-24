@@ -11,11 +11,7 @@ namespace ScientificPublications.Common.Helpers
         {
             using (var client = new HttpClient())
             {
-                if (authorization != null)
-                {
-                    client.DefaultRequestHeaders.TryAddWithoutValidation(Constants.Authorization, authorization);
-                }
-                var content = new StringContent(XmlUtility.Serialize<T>(contentValue), Encoding.UTF8, Constants.XmlContentType);
+                var content = new StringContent(XmlUtility.Serialize(contentValue), Encoding.UTF8, Constants.XmlContentType);
                 var result = await client.PostAsync(url, content);
                 result.EnsureSuccessStatusCode();
             }
@@ -25,7 +21,7 @@ namespace ScientificPublications.Common.Helpers
         {
             using (var client = new HttpClient())
             {
-                var content = new StringContent(XmlUtility.Serialize<T>(stringValue), Encoding.UTF8, Constants.XmlContentType);
+                var content = new StringContent(XmlUtility.Serialize(stringValue), Encoding.UTF8, Constants.XmlContentType);
                 var result = await client.PutAsync(url, content);
                 result.EnsureSuccessStatusCode();
             }

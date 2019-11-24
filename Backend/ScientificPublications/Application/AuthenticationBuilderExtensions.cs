@@ -12,7 +12,7 @@ namespace ScientificPublications.Application
         public static AuthenticationBuilder AddJwtBearerAuth(this AuthenticationBuilder builder, IConfigurationSection appSettingsSection)
         {
             var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.UTF8.GetBytes(appSettings.Secret);
+            var key = Encoding.UTF8.GetBytes(appSettings.Jwt.Secret);
 
             return builder.AddJwtBearer(options =>
             {
@@ -23,8 +23,8 @@ namespace ScientificPublications.Application
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidAudience = appSettings.Audience,
-                    ValidIssuer = appSettings.Issuer,
+                    ValidAudience = appSettings.Jwt.Audience,
+                    ValidIssuer = appSettings.Jwt.Issuer,
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });

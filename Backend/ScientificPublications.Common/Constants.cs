@@ -19,6 +19,8 @@
             public const string InvalidUsernameOrPassword = "Invalid username and/or password";
 
             public const string DatabaseException = "Database exception";
+
+            public const string UsernameAlreadyExists = "Username already exists";
         }
     }
 }

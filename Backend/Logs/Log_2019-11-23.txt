@@ -1,0 +1,235 @@
+
+13:48:32 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 400 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 36
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 40
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 50
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:07:32 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 15
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 36
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 40
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 50
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:07:32 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 15
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 36
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 40
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 50
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:13:05 [Error] 
+	url => /api/Publication/xsd-schema
+System.IO.FileNotFoundException: Could not find file 'C:\Projects\C#\ScientificPublications\resources\publication.xsd'.
+File name: 'C:\Projects\C#\ScientificPublications\resources\publication.xsd'
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at ScientificPublications.Common.Utility.FileUtility.ReadAsStreamAsync(String filePath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\FileUtility.cs:line 12
+   at ScientificPublications.Service.Publication.PublicationService.GetXsdSchemaAsync() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\Publication\PublicationService.cs:line 50
+   at ScientificPublications.Publication.PublicationController.GetXsdSchemaFileAsync() in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\Publication\PublicationController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:16:13 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 35
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:09:09 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The 'RegisterDto' element is not declared.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:11:41 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:11:49 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The 'RegisterDto' element is not declared.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:13:01 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:13:14 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:13:17 [Error] 
+	url => /api/User/register
+System.InvalidOperationException: There is an error in XML document (1, 14). ---> System.InvalidOperationException: <RegisterDto xmlns=''> was not expected.
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderRegisterDto.Read4_user()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader)
+   at Microsoft.AspNetCore.Mvc.Formatters.XmlSerializerInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+15:14:05 [Warning] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ValidationException: The element 'user' has invalid child element 'username'. List of possible elements expected: 'password'.
+
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 69
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Projects\C#\ScientificPublications\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()

@@ -28,14 +28,14 @@ namespace ScientificPublications.Application
                 return null;
 
             var jwt = new JwtSecurityTokenHandler().ReadJwtToken(accessToken);
-            if (!jwt.Issuer.Equals(AppSettings.Issuer))
+            if (!jwt.Issuer.Equals(AppSettings.Jwt.Issuer))
                 return null;
 
             try
             {
                 return XmlUtility.Deserialize<SessionDto>(jwt.Payload[Constants.SessionInfo].ToString());
             }
-            catch(Exception e)
+            catch
             {
                 return null;
             }

@@ -29,12 +29,29 @@ namespace ScientificPublications.User
 
         [HttpPost("login")]
         [AllowAnonymous]
+        [Consumes(Constants.XmlContentType)]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             var user = await _userService.Login(loginDto.Username, loginDto.Password);
             var sessionDto = _mapper.Map<SessionDto>(user);
             var idToken = JwtUtility.CreateJwtToken(AppSettings, sessionDto);
             Request.HttpContext.Response.Headers.Add(Constants.AccessToken, idToken);
+            return Ok(user);
+        }
+
+        [HttpPost("register")]
+        [AllowAnonymous]
+        [Consumes(Constants.XmlContentType)]
+        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+        {
+            _userService.Validate(registerDto);
+            await _userService.Register(registerDto);
+
+            var user = _mapper.Map<UserDto>(registerDto);
+            var sessionDto = _mapper.Map<SessionDto>(user);
+            var idToken = JwtUtility.CreateJwtToken(AppSettings, sessionDto);
+            Request.HttpContext.Response.Headers.Add(Constants.AccessToken, idToken);
+
             return Ok(user);
         }
     }

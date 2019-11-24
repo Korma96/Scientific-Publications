@@ -1,5 +1,8 @@
 package com.xml.JavaProxy.repository;
 
+import com.xml.JavaProxy.helper.XUpdateTemplate;
+import com.xml.JavaProxy.model.User;
+import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,6 +15,15 @@ public class UserRepository extends BaseRepository {
     public String findByUsername(String username) throws Exception {
         String fileContent = readXQueryFile(findUserByUsernameXQuery);
         String xQuery = String.format(fileContent, username);
-        return ExecuteXQuery(collectionId, xQuery);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public void insert(User user) throws Exception {
+        String xPathElement = "/users";
+        String xmlFragment = XmlUtility.jaxbObjectToXML(user);
+        System.out.println(xmlFragment);
+        String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, xmlFragment);
+        System.out.println(xUpdateExpression);
+        executeXUpdate(collectionId, documentId, xPathElement, xUpdateExpression);
     }
 }

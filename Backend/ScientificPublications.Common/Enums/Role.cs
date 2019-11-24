@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ScientificPublications.Common.Enums
+﻿namespace ScientificPublications.Common.Enums
 {
     public enum Role
     {

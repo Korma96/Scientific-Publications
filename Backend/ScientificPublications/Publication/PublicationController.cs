@@ -57,9 +57,9 @@ namespace ScientificPublications.Publication
             return Ok();
         }
 
-        [Consumes(Constants.XmlContentType)]
-        [AuthorizationFilter(Role.JournalEditor)]
         [HttpPost("send-denied-mail")]
+        [AuthorizationFilter(Role.JournalEditor)]
+        [Consumes(Constants.XmlContentType)]
         public async Task<IActionResult> SendDeniedMailAsync([FromBody] DenyPublicationDto denyPublicationDto)
         {
             await _publicationService.DenyPublicationAsync(denyPublicationDto.AuthorEmail, denyPublicationDto.Reason);

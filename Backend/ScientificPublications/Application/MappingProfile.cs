@@ -8,6 +8,7 @@ namespace ScientificPublications.Application
         public MappingProfile()
         {
             CreateMap<UserDto, SessionDto>();
+            CreateMap<RegisterDto, UserDto>();
         }
     }
 }
