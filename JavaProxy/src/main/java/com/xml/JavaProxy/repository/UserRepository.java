@@ -5,6 +5,8 @@ import com.xml.JavaProxy.model.User;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
 
+import java.nio.charset.StandardCharsets;
+
 @Repository
 public class UserRepository extends BaseRepository {
 
@@ -13,6 +15,7 @@ public class UserRepository extends BaseRepository {
     private String findUserByUsernameXQuery = "xqueries/find_user_by_username.xqy";
 
     public String findByUsername(String username) throws Exception {
+
         String fileContent = readXQueryFile(findUserByUsernameXQuery);
         String xQuery = String.format(fileContent, username);
         return executeXQuery(collectionId, xQuery);
