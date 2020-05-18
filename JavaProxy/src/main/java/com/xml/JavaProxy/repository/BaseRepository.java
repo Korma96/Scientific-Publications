@@ -32,20 +32,28 @@ public class BaseRepository {
         Collection collection = getCollection(collectionId);
         XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
         xQueryService.setProperty("indent", "yes");
+        try {
+            CompiledExpression compiledExpression = xQueryService.compile(xQueryStr);
+            ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+            ResourceIterator i = resourceSet.getIterator();
 
-        CompiledExpression compiledExpression = xQueryService.compile(xQueryStr);
-        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
-        ResourceIterator i = resourceSet.getIterator();
+            org.xmldb.api.base.Resource resource = null;
+            //closeCollection(collection);
+            if (i.hasMoreResources()) {
+                try {
+                    resource = i.nextResource();
+                    XMLResource xmlResource = (XMLResource) resource;
+                    return xmlResource.getContent().toString();
+                } finally {
+                    freeXmlResources(resource);
 
-        org.xmldb.api.base.Resource resource = null;
-        if(i.hasMoreResources()) {
-            try {
-                resource = i.nextResource();
-                XMLResource xmlResource = (XMLResource) resource;
-                return xmlResource.getContent().toString();
-            } finally {
-                freeXmlResources(resource);
+                }
             }
+        }
+        catch (Exception e)
+        {
+            System.out.println("cant compile");
+
         }
         return null;
     }
@@ -98,7 +106,7 @@ public class BaseRepository {
             System.out.println("[ERROR] Retrieving the collection: " + collectionId);
             throw e;
         } finally {
-            closeCollection(collection);
+            //closeCollection(collection);
         }
     }
 

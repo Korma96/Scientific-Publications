@@ -1,0 +1,125 @@
+
+20:47:52 [Error] 
+	url => /api/User/register
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Projects\C#\ScientificPublications\Backend\resources\registerDto.xsd'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   at System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:01:53 [Error] 
+	url => /api/User/register
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Projects\C#\ScientificPublications\Backend\resources\registerDto.xsd'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   at System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:02:41 [Error] 
+	url => /api/User/register
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Projects\C#\ScientificPublications\Backend\resources\registerDto.xsd'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   at System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:06:12 [Error] 
+	url => /api/User/register
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Projects\C#\ScientificPublications\Backend\resources\registerDto.xsd'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   at System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:10:00 [Error] 
+	url => /api/User/register
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Projects\C#\ScientificPublications\Backend\resources\registerDto.xsd'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   at System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.Schema.XmlSchemaSet.Add(String targetNamespace, String schemaUri)
+   at ScientificPublications.Common.Utility.XmlUtility.ValidateXmlAgainstXsd(XDocument xDocument, String xsdSchemaPath) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Utility\XmlUtility.cs:line 60
+   at ScientificPublications.Service.User.UserService.Validate(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 59
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1" targetNamespace="http://ftn.uns.ac.rs/xml2019/review"
+    xmlns="http://ftn.uns.ac.rs/xml2019/review">
+    <xs:element name="review">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="comments"/>
+                <xs:element ref="grades"/>
+            </xs:sequence>
+            <xs:attribute name="author" type="xs:string"/>
+            <xs:attribute name="publicationId" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="comments">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="originality" type="xs:string"/>
+                <xs:element name="abstract" type="xs:string"/>
+                <xs:element name="methodology" type="xs:string"/>
+                <xs:element name="results" type="xs:string"/>
+                <xs:element name="bibliography" type="xs:string"/>
+                <xs:element name="generalComment" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="grades">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="originality" type="grade"/>
+                <xs:element name="abstract" type="grade"/>
+                <xs:element name="methodology" type="grade"/>
+                <xs:element name="results" type="grade"/>
+                <xs:element name="bibliography" type="grade"/>
+                <xs:element name="generalComment" type="grade"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="grade">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

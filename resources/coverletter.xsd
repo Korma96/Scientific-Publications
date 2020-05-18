@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1"
+    targetNamespace="http://ftn.uns.ac.rs/xml2019/coverletter"
+    xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+    <xs:element name="coverLetter">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="date" type="xs:date"/>
+                <xs:element name="content" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute ref="publicationId"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="publicationId" type="xs:string"/>
+</xs:schema>
