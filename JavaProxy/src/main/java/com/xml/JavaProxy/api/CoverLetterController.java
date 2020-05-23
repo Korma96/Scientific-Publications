@@ -1,0 +1,27 @@
+package com.xml.JavaProxy.api;
+
+import com.xml.JavaProxy.repository.CoverLetterRepository;
+import com.xml.JavaProxy.repository.PublicationRepository;
+import com.xml.JavaProxy.util.ResponseUtility;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(value = "/coverletter")
+public class CoverLetterController {
+
+    private CoverLetterRepository coverLetterRepository;
+
+    @Autowired
+    public CoverLetterController(CoverLetterRepository coverLetterRepository) {
+        this.coverLetterRepository = coverLetterRepository;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> insert(@RequestBody String coverLetterStr) throws Exception {
+        coverLetterRepository.insert(coverLetterStr);
+        return ResponseUtility.Ok();
+    }
+}
