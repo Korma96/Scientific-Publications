@@ -41,6 +41,17 @@ public class PublicationController {
         return ResponseUtility.Ok();
     }
 
-
+    //find all publications in procedure for author
+    @RequestMapping(value = "/in-procedure/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findAllInProcedure(@PathVariable("author") String author) throws Exception {
+        String publications = publicationRepository.findAllInProcedureByAuthor(author);
+        return ResponseUtility.Ok(publications);
+    }
+    //editor
+    @RequestMapping(value = "/accept/{id}/{accepted}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> acceptPublication(@PathVariable("id") String publicationId, @PathVariable("accepted") boolean accepted) throws Exception{
+        publicationRepository.acceptPublication(publicationId, accepted);
+        return ResponseUtility.Ok();
+    }
 
 }
