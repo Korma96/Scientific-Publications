@@ -13,7 +13,8 @@ public class PublicationRepository extends BaseRepository {
     private String withdrawPublicationXQuery = "xqueries/find_and_withdraw_publication.xqy";
     private String findAllInProcedureByAuthorXQuery = "xqueries/find_all_in_procedure_by_author.xqy";
     private String acceptPublication = "xqueries/accept_publication.xqy";
-
+    private String textSearchPublished = "xqueries/text_search_published.xqy";
+    private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
@@ -55,6 +56,18 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
+
+    public String textSearchPublished(String searchQuery) throws Exception {
+        String fileContent = readXQueryFile(textSearchPublished);
+        String xQuery = String.format(fileContent, searchQuery);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String textSearchMyPublications(String searchQuery, String username) throws Exception {
+        String fileContent = readXQueryFile(textSearchMyPublications);
+        String xQuery = String.format(fileContent, username, searchQuery);
+        return executeXQuery(collectionId, xQuery);
+    }
 
 
 }

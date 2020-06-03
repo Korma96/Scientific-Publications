@@ -18,8 +18,10 @@ public class PublicationController {
     public PublicationController(PublicationRepository publicationRepository) {
         this.publicationRepository = publicationRepository;
     }
+    @Autowired
+    private UserController userController;
 
-    @RequestMapping(value = "/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/my-publications/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findByAuthor(@PathVariable("author") String author) throws Exception{
         String publications = publicationRepository.findByAuthor(author);
         return ResponseUtility.Ok(publications);
@@ -52,6 +54,18 @@ public class PublicationController {
     public ResponseEntity<String> acceptPublication(@PathVariable("id") String publicationId, @PathVariable("accepted") boolean accepted) throws Exception{
         publicationRepository.acceptPublication(publicationId, accepted);
         return ResponseUtility.Ok();
+    }
+
+    @RequestMapping(value = "/text-search/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> textSearchPublished(@PathVariable("searchQuery") String searchQuery) throws Exception{
+        String publications = publicationRepository.textSearchPublished(searchQuery);
+        return ResponseUtility.Ok(publications);
+    }
+    @RequestMapping(value = "/my-publications-text-search/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> textSearchMyPublications(@PathVariable("searchQuery") String searchQuery) throws Exception{
+        String loggedUser = userController.getLoggedUser();
+        String publications = publicationRepository.textSearchMyPublications(searchQuery, loggedUser );
+        return ResponseUtility.Ok(publications);
     }
 
 }

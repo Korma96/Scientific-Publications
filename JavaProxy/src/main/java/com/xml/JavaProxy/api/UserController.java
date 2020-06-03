@@ -9,11 +9,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
 
     private UserRepository userRepository;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @Autowired
     public UserController(UserRepository userRepository) {
@@ -23,6 +28,9 @@ public class UserController {
     @RequestMapping(value = "/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findByUsername(@PathVariable("username") String username) throws Exception{
         String user = userRepository.findByUsername(username);
+        if (user!=null) {
+            httpSession.setAttribute("loggedUser", username);
+        }
         return ResponseUtility.Ok(user);
     }
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
@@ -30,5 +38,10 @@ public class UserController {
         User user = XmlUtility.convertXMLToObject(User.class, userStr);
         userRepository.insert(user);
         return ResponseUtility.Ok();
+    }
+
+    public String getLoggedUser() {
+        String username = (String) httpSession.getAttribute("loggedUser");
+        return username;
     }
 }
