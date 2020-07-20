@@ -25,7 +25,6 @@ public class UserController {
         String user = userRepository.findByUsername(username);
         return ResponseUtility.Ok(user);
     }
-
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception{
         User user = XmlUtility.convertXMLToObject(User.class, userStr);

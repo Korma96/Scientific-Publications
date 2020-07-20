@@ -1,0 +1,982 @@
+
+11:40:19 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:43:33 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:45:57 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:55:15 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:56:28 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:56:55 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+11:57:01 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:11:26 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:11:40 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:12:48 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:12:54 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:14:57 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:17:23 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.OperationCanceledException: The operation was canceled.
+   at System.Net.Http.HttpClient.HandleFinishSendAsyncError(Exception e, CancellationTokenSource cts)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:17:28 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:17:29 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:17:31 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.IO.IOException: The server returned an invalid or unrecognized response.
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:18:14 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:20:10 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:21:21 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:23:34 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+12:24:45 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:10:38 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:18:31 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:20:46 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:24:01 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 41
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:41:14 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 35
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 39
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 51
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:42:28 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 35
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 39
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 51
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:47:44 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:47:56 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:48:02 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:51:37 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+21:55:42 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+13:56:10 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+13:56:38 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+13:57:45 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 35
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 39
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 51
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:05:49 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 35
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 39
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 51
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:08:44 [Error] 
+	url => /api/User/register
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Post[T](String url, T contentValue, String authorization) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 16
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 35
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.Insert(User user) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 39
+   at ScientificPublications.Service.User.UserService.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 51
+   at ScientificPublications.User.UserController.Register(RegisterDto registerDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 48
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+14:10:38 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:10:09 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:11:42 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:18:04 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:26:59 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:30:14 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:32:49 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled. ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request. ---> System.Net.Sockets.SocketException: The I/O operation has been aborted because of either a thread exit or an application request
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 34
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:34:00 [Error] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ProxyException: Database exception ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 ().
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ScientificPublications.Common.Helpers.HttpHelper.Get[T](String url) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Common\Helpers\HttpHelper.cs:line 35
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 23
+   --- End of inner exception stack trace ---
+   at ScientificPublications.DataAccess.User.UserDataAccess.FindByUsername(String username) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.DataAccess\User\UserDataAccess.cs:line 27
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 29
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+
+19:36:37 [Warning] 
+	url => /api/User/login
+ScientificPublications.Common.Exceptions.ValidationException: Invalid username and/or password
+   at ScientificPublications.Service.User.UserService.Login(String username, String password) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications.Service\User\UserService.cs:line 33
+   at ScientificPublications.User.UserController.Login(LoginDto loginDto) in C:\Users\Vuk\Desktop\Faks\7_semestar\Xml i web servisi\Projekat\Backend\ScientificPublications\User\UserController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
