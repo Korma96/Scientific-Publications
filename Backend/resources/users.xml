@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <users>
-  <user>
+  <user id="bedb3862-a6cb-4258-9a39-71f60086e06e">
     <username>j_editor</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
@@ -10,7 +10,7 @@
     <city>Novi Sad</city>
     <country>Serbia</country>
   </user>
-  <user>
+  <user id="a0461101-50c4-4a4e-9645-bede8a1ed972">
     <username>reviewer1</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
@@ -20,7 +20,7 @@
     <city>Belgrade</city>
     <country>Serbia</country>
   </user>
-  <user>
+  <user id="046b49d7-1654-4cce-a3a1-36d5154cd375">
     <username>reviewer2</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
@@ -30,7 +30,7 @@
     <city>Nis</city>
     <country>Serbia</country>
   </user>
-  <user>
+  <user id="9c9fb974-d59b-4378-9d44-998292e29df3">
     <username>auThor</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>

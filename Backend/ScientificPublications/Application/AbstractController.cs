@@ -5,7 +5,6 @@ using ScientificPublications.Common;
 using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace ScientificPublications.Application
