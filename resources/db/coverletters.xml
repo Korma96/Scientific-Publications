@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <coverLetters>
-  <coverLetter p1:publicationId="id1" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+  <p1:coverLetter p1:publicationId="id1" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
     <p1:date>2020-01-02</p1:date>
     <p1:content>content1</p1:content>
-  </coverLetter>
-  <coverLetter p1:publicationId="id2" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+  </p1:coverLetter>
+  <p1:coverLetter p1:publicationId="id2" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
     <p1:date>2020-07-20</p1:date>
     <p1:content>content2</p1:content>
-  </coverLetter>
+  </p1:coverLetter>
 </coverLetters>
