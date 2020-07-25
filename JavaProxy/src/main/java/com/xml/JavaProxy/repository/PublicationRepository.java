@@ -1,6 +1,7 @@
 package com.xml.JavaProxy.repository;
 
 import com.xml.JavaProxy.helper.XUpdateTemplate;
+import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,6 @@ public class PublicationRepository extends BaseRepository {
     private String findPublicationByAuthorXQuery = "xqueries/find_publications_by_author.xqy";
     private String findAllPublicationsXQuery = "xqueries/find_all_publications.xqy";
     private String withdrawPublicationXQuery = "xqueries/find_and_withdraw_publication.xqy";
-
 
     public String findByAuthor(String author) throws Exception {
 
@@ -28,8 +28,9 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
-    public void insert(String publicationStr) throws Exception {
+    public void insert(Publication publication) throws Exception {
         String xPathElement = "/publications";
+        String publicationStr = XmlUtility.jaxbObjectToXML(publication);
         String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, publicationStr);
         executeXUpdate(collectionId, documentId, xPathElement, xUpdateExpression);
     }
@@ -39,7 +40,4 @@ public class PublicationRepository extends BaseRepository {
         String xQuery = String.format(fileContent, publicationId);
         return executeXQuery(collectionId, xQuery);
     }
-
-
-
 }

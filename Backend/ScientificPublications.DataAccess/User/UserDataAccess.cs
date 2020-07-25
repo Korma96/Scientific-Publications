@@ -13,7 +13,7 @@ namespace ScientificPublications.DataAccess.User
     public class UserDataAccess : AbstractDataAccess, IUserDataAccess
     {
         public UserDataAccess(IOptions<AppSettings> appSettings, ILogger<UserDataAccess> logger) 
-            : base(appSettings, logger, "user") { }
+            : base(appSettings, logger, Constants.JavaController.User) { }
 
         public async Task<Model.User> FindByUsername(string username)
         {

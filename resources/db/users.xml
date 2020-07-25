@@ -31,12 +31,23 @@
     <country>Serbia</country>
   </user>
   <user id="9c9fb974-d59b-4378-9d44-998292e29df3">
-    <username>auThor</username>
+    <username>author1</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+	<!--123-->
     <role>Author</role>
     <name>Marko Markovic</name>
 	<email>markoradovic996+4@gmail.com</email>
+    <city>Novi Sad</city>
+    <country>Serbia</country>
+  </user>
+  <user id="9c9fb974-d59b-4378-9d44-998292e29df3">
+    <username>author2</username>
+	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>Author</role>
+    <name>Vuk Vukic</name>
+	<email>setme@gmail.com</email>
     <city>Novi Sad</city>
     <country>Serbia</country>
   </user>

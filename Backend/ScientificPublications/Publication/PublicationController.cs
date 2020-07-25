@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
 using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
-using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Service.Publication;
@@ -31,39 +30,28 @@ namespace ScientificPublications.Publication
 
         [HttpPost("upload")]
         [AuthorizationFilter(Role.Author)]
-        public IActionResult UploadFile(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file)
         {
             if (file.Length == 0)
                 return BadRequest(Constants.ExceptionMessages.EmptyFile);
 
-            try
-            {
-                var fileContent = file.OpenReadStream().StreamToString();
-                _publicationService.ValidatePublicationFile(fileContent);
-            }
-            catch(ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var fileContent = file.OpenReadStream().StreamToString();
+            _publicationService.ValidatePublicationFile(fileContent);
+            await _publicationService.InsertAsync(fileContent);
 
             return Ok();
         }
 
-        [HttpGet("send-accepted-mail/{recipient}")]
-        [AuthorizationFilter(Role.JournalEditor)]
-        public async Task<IActionResult> SendAcceptedMailAsync([FromRoute] string recipient)
+        [HttpGet("{author}")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> FindByAuthor([FromRoute] string author)
         {
-            await _publicationService.AcceptPublicationAsync(recipient);
-            return Ok();
-        }
+            if (string.IsNullOrWhiteSpace(author))
+                return BadRequest(Constants.ExceptionMessages.EmptyValue);
 
-        [HttpPost("send-denied-mail")]
-        [AuthorizationFilter(Role.JournalEditor)]
-        [Consumes(Constants.XmlContentType)]
-        public async Task<IActionResult> SendDeniedMailAsync([FromBody] DenyPublicationDto denyPublicationDto)
-        {
-            await _publicationService.DenyPublicationAsync(denyPublicationDto.AuthorEmail, denyPublicationDto.Reason);
-            return Ok();
+            var publications = await _publicationService.FindByAuthor(author);
+
+            return Ok(ToXml(publications));
         }
     }
 }

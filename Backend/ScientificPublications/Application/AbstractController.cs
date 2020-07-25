@@ -20,6 +20,11 @@ namespace ScientificPublications.Application
             AppSettings = appSettings.Value;
         }
 
+        protected string ToXml<T>(T obj)
+        {
+            return XmlUtility.Serialize(obj);
+        }
+
         internal SessionDto GetSession()
         {
             var accessToken = ReadAccessToken();

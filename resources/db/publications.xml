@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<publications>
+ <p1:publication p1:id="id1" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" xmlns="http://ftn.uns.ac.rs/xml2019/publication">
+  <p1:header>
+    <p1:publicationDate>1900-01-01</p1:publicationDate>
+    <p1:revisionNumber>revisionNumber1</p1:revisionNumber>
+    <p1:status>status1</p1:status>
+  </p1:header>
+  <p1:title>title1</p1:title>
+  <p1:authors>
+    <p1:author username="author1">
+      <p1:name>name1</p1:name>
+      <p1:university>university1</p1:university>
+    </p1:author>
+  </p1:authors>
+  <p1:abstract>
+    <p1:purpose>purpose1</p1:purpose>
+    <p1:problem>problem1</p1:problem>
+    <p1:method>method1</p1:method>
+    <p1:results>results1</p1:results>
+    <p1:conclusions>conclusions1</p1:conclusions>
+  </p1:abstract>
+  <p1:keywords>keywords1</p1:keywords>
+  <p1:section p1:id="id1">
+    <p1:heading>heading1</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image1</p1:image>
+        <p1:about>about1</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment1</p1:comment>
+  </p1:section>
+  <p1:section p1:id="id2">
+    <p1:heading>heading2</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image2</p1:image>
+        <p1:about>about2</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment2</p1:comment>
+  </p1:section>
+  <p1:section p1:id="id3">
+    <p1:heading>heading3</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image3</p1:image>
+        <p1:about>about3</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment3</p1:comment>
+  </p1:section>
+  <p1:bibliography>
+    <p1:reference p1:refId="anySimpleType">reference1</p1:reference>
+    <p1:reference p1:refId="anySimpleType">reference2</p1:reference>
+    <p1:reference p1:refId="anySimpleType">reference3</p1:reference>
+  </p1:bibliography>
+  <p1:comment>comment1</p1:comment>
+</p1:publication>
+ <p1:publication p1:id="id2" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" xmlns="http://ftn.uns.ac.rs/xml2019/publication">
+  <p1:header>
+    <p1:publicationDate>1900-01-01</p1:publicationDate>
+    <p1:revisionNumber>revisionNumber1</p1:revisionNumber>
+    <p1:status>status1</p1:status>
+  </p1:header>
+  <p1:title>title2</p1:title>
+  <p1:authors>
+    <p1:author username="author2">
+      <p1:name>name1</p1:name>
+      <p1:university>university1</p1:university>
+    </p1:author>
+  </p1:authors>
+  <p1:abstract>
+    <p1:purpose>purpose1</p1:purpose>
+    <p1:problem>problem1</p1:problem>
+    <p1:method>method1</p1:method>
+    <p1:results>results1</p1:results>
+    <p1:conclusions>conclusions1</p1:conclusions>
+  </p1:abstract>
+  <p1:keywords>keywords1</p1:keywords>
+  <p1:section p1:id="id1">
+    <p1:heading>heading1</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image1</p1:image>
+        <p1:about>about1</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment1</p1:comment>
+  </p1:section>
+  <p1:section p1:id="id2">
+    <p1:heading>heading2</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image2</p1:image>
+        <p1:about>about2</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment2</p1:comment>
+  </p1:section>
+  <p1:section p1:id="id3">
+    <p1:heading>heading3</p1:heading>
+    <p1:content>
+      <p1:imageContent>
+        <p1:image>image3</p1:image>
+        <p1:about>about3</p1:about>
+      </p1:imageContent>
+    </p1:content>
+    <p1:comment>comment3</p1:comment>
+  </p1:section>
+  <p1:bibliography>
+    <p1:reference p1:refId="anySimpleType">reference1</p1:reference>
+    <p1:reference p1:refId="anySimpleType">reference2</p1:reference>
+    <p1:reference p1:refId="anySimpleType">reference3</p1:reference>
+  </p1:bibliography>
+  <p1:comment>comment1</p1:comment>
+</p1:publication>
+</publications>
