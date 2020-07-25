@@ -24,9 +24,7 @@ public class UserRepository extends BaseRepository {
     public void insert(User user) throws Exception {
         String xPathElement = "/users";
         String xmlFragment = XmlUtility.jaxbObjectToXML(user);
-        System.out.println(xmlFragment);
         String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, xmlFragment);
-        System.out.println(xUpdateExpression);
         executeXUpdate(collectionId, documentId, xPathElement, xUpdateExpression);
     }
 }
