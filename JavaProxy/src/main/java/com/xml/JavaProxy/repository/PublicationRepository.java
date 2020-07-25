@@ -13,6 +13,8 @@ public class PublicationRepository extends BaseRepository {
     private String findPublicationByAuthorXQuery = "xqueries/find_publications_by_author.xqy";
     private String findAllPublicationsXQuery = "xqueries/find_all_publications.xqy";
     private String withdrawPublicationXQuery = "xqueries/find_and_withdraw_publication.xqy";
+    private String findAllInProcedureByAuthorXQuery = "xqueries/find_all_in_procedure_by_author.xqy";
+    private String acceptPublication = "xqueries/accept_publication.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
@@ -29,6 +31,14 @@ public class PublicationRepository extends BaseRepository {
     }
 
     public void insert(Publication publication) throws Exception {
+    public String findAllInProcedureByAuthor(String author) throws Exception {
+
+        String fileContent = readXQueryFile(findAllInProcedureByAuthorXQuery);
+        String xQuery = String.format(fileContent, author);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public void insert(String publicationStr) throws Exception {
         String xPathElement = "/publications";
         String publicationStr = XmlUtility.jaxbObjectToXML(publication);
         String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, publicationStr);
@@ -40,4 +50,14 @@ public class PublicationRepository extends BaseRepository {
         String xQuery = String.format(fileContent, publicationId);
         return executeXQuery(collectionId, xQuery);
     }
+
+
+    //editor
+    public String acceptPublication(String publicationId, boolean accepted) throws Exception {
+        String fileContent = readXQueryFile(acceptPublication);
+        String xQuery = String.format(fileContent, publicationId, accepted);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+
 }
