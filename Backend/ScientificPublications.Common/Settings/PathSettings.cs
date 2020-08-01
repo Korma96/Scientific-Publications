@@ -11,5 +11,7 @@
         public string PublicationXsdSchema { get; set; }
 
         public string UserDtoXsd { get; set; }
+
+        public string CoverLetter { get; set; }
     }
 }

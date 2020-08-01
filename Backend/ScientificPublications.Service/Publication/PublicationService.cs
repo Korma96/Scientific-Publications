@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Options;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
+using ScientificPublications.DataAccess.Model;
+using ScientificPublications.DataAccess.Publication;
 using ScientificPublications.Service.Email;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,28 +14,32 @@ namespace ScientificPublications.Service.Publication
     {
         private readonly IEmailService _emailService;
 
+        private readonly IPublicationDataAccess _publicationDataAccess;
+
         public PublicationService(
             IOptions<AppSettings> appSettings, 
             IMapper mapper,
-            IEmailService emailService) 
+            IEmailService emailService,
+            IPublicationDataAccess publicationDataAccess) 
             : base(appSettings, mapper)
         {
             _emailService = emailService;
+            _publicationDataAccess = publicationDataAccess;
         }
-
-        public async Task AcceptPublicationAsync(string email)
+        
+        public async Task AcceptPublicationAsync(string email, string authorName, string publicationTitle)
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationAcceptedMail);
             var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
-            var body = string.Format(emailData.Body, "Mr. Author", "Applied AI");
+            var body = string.Format(emailData.Body, authorName, publicationTitle);
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
         }
 
-        public async Task DenyPublicationAsync(string email, string text)
+        public async Task DenyPublicationAsync(string email, string authorName, string publicationTitle, string text)
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationDeniedMail);
             var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
-            var body = string.Format(emailData.Body, "Mr. Author", "Applied AI", text);
+            var body = string.Format(emailData.Body, authorName, publicationTitle, text);
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
         }
         
@@ -48,6 +54,17 @@ namespace ScientificPublications.Service.Publication
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationXsdSchema);
             return await FileUtility.ReadAsStreamAsync(path);
+        }
+
+        public Task InsertAsync(string fileContent)
+        {
+            var publication = XmlUtility.Deserialize<DataAccess.Model.publication>(fileContent);
+            return _publicationDataAccess.InsertAsync(publication);
+        }
+        // TO DO: return list of publications 
+        public Task<Publications> FindByAuthor(string author)
+        {
+            return _publicationDataAccess.FindByAuthor(author);
         }
     }
 }
