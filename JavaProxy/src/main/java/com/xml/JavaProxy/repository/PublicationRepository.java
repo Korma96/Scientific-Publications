@@ -30,7 +30,7 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
-    public void insert(Publication publication) throws Exception {
+
     public String findAllInProcedureByAuthor(String author) throws Exception {
 
         String fileContent = readXQueryFile(findAllInProcedureByAuthorXQuery);
@@ -38,7 +38,7 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
-    public void insert(String publicationStr) throws Exception {
+    public void insert(Publication publication) throws Exception {
         String xPathElement = "/publications";
         String publicationStr = XmlUtility.jaxbObjectToXML(publication);
         String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, publicationStr);
