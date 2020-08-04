@@ -10,11 +10,11 @@ public class PublicationRepository extends BaseRepository {
 
     private String collectionId = "/db/test";
     private String documentId = "publications.xml";
-    private String findPublicationByAuthorXQuery = "xqueries/find_publications_by_author.xqy";
-    private String findAllPublicationsXQuery = "xqueries/find_all_publications.xqy";
-    private String withdrawPublicationXQuery = "xqueries/find_and_withdraw_publication.xqy";
-    private String findAllInProcedureByAuthorXQuery = "xqueries/find_all_in_procedure_by_author.xqy";
-    private String acceptPublication = "xqueries/accept_publication.xqy";
+    private String findPublicationByAuthorXQuery = "xqueries/publication/find_publications_by_author.xqy";
+    private String findAllPublicationsXQuery = "xqueries/publication/find_all_publications.xqy";
+    private String withdrawPublicationXQuery = "xqueries/publication/find_and_withdraw_publication.xqy";
+    private String findAllInProcedureByAuthorXQuery = "xqueries/publication/find_all_in_procedure_by_author.xqy";
+    private String acceptPublication = "xqueries/publication/accept_publication.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
@@ -29,7 +29,6 @@ public class PublicationRepository extends BaseRepository {
         String xQuery = String.format(fileContent);
         return executeXQuery(collectionId, xQuery);
     }
-
 
     public String findAllInProcedureByAuthor(String author) throws Exception {
 
@@ -51,13 +50,10 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
-
     //editor
     public String acceptPublication(String publicationId, boolean accepted) throws Exception {
         String fileContent = readXQueryFile(acceptPublication);
         String xQuery = String.format(fileContent, publicationId, accepted);
         return executeXQuery(collectionId, xQuery);
     }
-
-
 }

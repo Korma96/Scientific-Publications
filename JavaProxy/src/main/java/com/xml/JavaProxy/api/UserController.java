@@ -25,10 +25,17 @@ public class UserController {
         String user = userRepository.findByUsername(username);
         return ResponseUtility.Ok(user);
     }
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception{
         User user = XmlUtility.convertXMLToObject(User.class, userStr);
         userRepository.insert(user);
         return ResponseUtility.Ok();
+    }
+
+    @RequestMapping(value = "/reviewers", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findAllReviewers() throws Exception{
+        String reviewers = userRepository.findAllReviewers();
+        return ResponseUtility.Ok(reviewers);
     }
 }

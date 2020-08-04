@@ -5,19 +5,23 @@ import com.xml.JavaProxy.model.User;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
 
-import java.nio.charset.StandardCharsets;
-
 @Repository
 public class UserRepository extends BaseRepository {
 
     private String collectionId = "/db/test";
     private String documentId = "users.xml";
-    private String findUserByUsernameXQuery = "xqueries/find_user_by_username.xqy";
+    private String findUserByUsernameXQuery = "xqueries/user/find_user_by_username.xqy";
+    private String findAllReviewersXQuery = "xqueries/user/find_all_reviewers.xqy";
 
     public String findByUsername(String username) throws Exception {
 
         String fileContent = readXQueryFile(findUserByUsernameXQuery);
         String xQuery = String.format(fileContent, username);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String findAllReviewers() throws Exception {
+        String xQuery = readXQueryFile(findAllReviewersXQuery);
         return executeXQuery(collectionId, xQuery);
     }
 

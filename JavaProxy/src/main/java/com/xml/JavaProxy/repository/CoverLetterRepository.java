@@ -10,7 +10,7 @@ public class CoverLetterRepository extends BaseRepository {
 
     private String collectionId = "/db/test";
     private String documentId = "coverletters.xml";
-    private String findCoverLetterByPublicationIdXQuery = "xqueries/find_coverletter_by_publicationid.xqy";
+    private String findCoverLetterByPublicationIdXQuery = "xqueries/coverletter/find_coverletter_by_publicationid.xqy";
 
     public void insert(CoverLetter coverLetter) throws Exception {
         String xPathElement = "/coverLetters";

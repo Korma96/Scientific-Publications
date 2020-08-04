@@ -1,4 +1,5 @@
 ﻿using ScientificPublications.Common.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.User
@@ -10,5 +11,7 @@ namespace ScientificPublications.Service.User
         Task Register(RegisterDto registerDto);
 
         void Validate(RegisterDto registerDto);
+
+        Task<List<UserDto>> GetReviewersAsync();
     }
 }

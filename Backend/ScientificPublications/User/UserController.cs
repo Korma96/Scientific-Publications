@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
 using ScientificPublications.Common;
+using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
@@ -53,6 +54,14 @@ namespace ScientificPublications.User
             Request.HttpContext.Response.Headers.Add(Constants.AccessToken, idToken);
 
             return Ok(user);
+        }
+
+        [HttpGet("reviewers")]
+        [AuthorizationFilter(Role.JournalEditor)]
+        public async Task<IActionResult> GetReviewers()
+        {
+            var reviewers = await _userService.GetReviewersAsync();
+            return Ok(reviewers);
         }
     }
 }

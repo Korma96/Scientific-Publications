@@ -6,6 +6,7 @@ using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.User;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -22,6 +23,12 @@ namespace ScientificPublications.Service.User
             : base(appSettings, mapper)
         {
             _userDataAccess = userDataAccess;
+        }
+
+        public async Task<List<UserDto>> GetReviewersAsync()
+        {
+            var reviewers = await _userDataAccess.FindAllReviewersAsync();
+            return Mapper.Map<List<UserDto>>(reviewers.UsersList);
         }
 
         public async Task<UserDto> Login(string username, string password)

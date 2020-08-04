@@ -5,9 +5,6 @@ namespace ScientificPublications.DataAccess.Model
     [XmlRoot("user")]
     public class User
     {
-        [XmlAttribute("id")]
-        public string Id { get; set; }
-
         [XmlElement("username")]
         public string Username { get; set; }
 
