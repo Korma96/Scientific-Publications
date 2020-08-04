@@ -8,5 +8,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<Publications> FindByAuthor(string authorUsername);
 
         Task InsertAsync(Model.publication publication);
+
+        Task<Publications> FindByStatusAsync(string status);
     }
 }

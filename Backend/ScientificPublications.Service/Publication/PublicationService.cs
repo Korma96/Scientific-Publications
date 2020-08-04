@@ -1,11 +1,16 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Options;
+using ScientificPublications.Common.Enums;
+using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.Model;
 using ScientificPublications.DataAccess.Publication;
 using ScientificPublications.Service.Email;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.Publication
@@ -62,9 +67,19 @@ namespace ScientificPublications.Service.Publication
             return _publicationDataAccess.InsertAsync(publication);
         }
         // TO DO: return list of publications 
-        public Task<Publications> FindByAuthor(string author)
+        public Task<Publications> FindByAuthorAsync(string author)
         {
             return _publicationDataAccess.FindByAuthor(author);
+        }
+
+        public Task<Publications> FindByStatusAsync(string status)
+        {
+            if (!new List<string>(Enum.GetNames(typeof(PublicationStatus))).Contains(status.ToUpper()))
+            {
+                throw new ValidationException("Status does not exist");
+            }
+
+            return _publicationDataAccess.FindByStatusAsync(status.ToLower());
         }
     }
 }

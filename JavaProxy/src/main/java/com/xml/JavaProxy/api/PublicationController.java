@@ -28,6 +28,12 @@ public class PublicationController {
         return ResponseUtility.Ok(publications);
     }
 
+    @RequestMapping(value = "status/{status}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findByStatus(@PathVariable("status") String status) throws Exception{
+        String publications = publicationRepository.findByStatus(status);
+        return ResponseUtility.Ok(publications);
+    }
+
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findAll() throws Exception{
         String publications = publicationRepository.findAll();
@@ -53,6 +59,7 @@ public class PublicationController {
         String publications = publicationRepository.findAllInProcedureByAuthor(author);
         return ResponseUtility.Ok(publications);
     }
+
     //editor
     @RequestMapping(value = "/accept/{id}/{accepted}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> acceptPublication(@PathVariable("id") String publicationId, @PathVariable("accepted") boolean accepted) throws Exception{

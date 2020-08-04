@@ -7,6 +7,8 @@ using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Service.Publication;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.Publication
@@ -42,16 +44,32 @@ namespace ScientificPublications.Publication
             return Ok();
         }
 
-        [HttpGet("{author}")]
+        [HttpGet("my")]
         [AuthorizationFilter(Role.Author)]
-        public async Task<IActionResult> FindByAuthor([FromRoute] string author)
+        public async Task<IActionResult> FindByAuthor()
         {
-            if (string.IsNullOrWhiteSpace(author))
+            var publications = await _publicationService.FindByAuthorAsync(GetSession().Username);
+            return Ok(ToXml(publications));
+        }
+
+        [HttpGet("status/{status}")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> FindByStatus([FromRoute] string status)
+        {
+            if (string.IsNullOrWhiteSpace(status))
                 return BadRequest(Constants.ExceptionMessages.EmptyValue);
 
-            var publications = await _publicationService.FindByAuthor(author);
-
+            var publications = await _publicationService.FindByStatusAsync(status);
             return Ok(ToXml(publications));
+        }
+
+        [HttpGet("statuses")]
+        [AuthorizationFilter(Role.Author)]
+        public IActionResult GetAllStatuses()
+        {
+            var names = Enum.GetNames(typeof(PublicationStatus));
+            var lowerNames = names.Select(x => x.ToLower()).ToList();
+            return Ok(lowerNames);
         }
     }
 }

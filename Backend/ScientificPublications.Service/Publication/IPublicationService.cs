@@ -16,6 +16,8 @@ namespace ScientificPublications.Service.Publication
 
         Task InsertAsync(string fileContent);
 
-        Task<Publications> FindByAuthor(string author);
+        Task<Publications> FindByAuthorAsync(string author);
+
+        Task<Publications> FindByStatusAsync(string status);
     }
 }

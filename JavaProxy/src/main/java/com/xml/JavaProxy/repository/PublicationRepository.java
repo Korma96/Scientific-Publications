@@ -14,12 +14,20 @@ public class PublicationRepository extends BaseRepository {
     private String findAllPublicationsXQuery = "xqueries/publication/find_all_publications.xqy";
     private String withdrawPublicationXQuery = "xqueries/publication/find_and_withdraw_publication.xqy";
     private String findAllInProcedureByAuthorXQuery = "xqueries/publication/find_all_in_procedure_by_author.xqy";
-    private String acceptPublication = "xqueries/publication/accept_publication.xqy";
+    private String acceptPublicationXQuery = "xqueries/publication/accept_publication.xqy";
+    private String findByStatusXQuery = "xqueries/publication/find_by_status.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
         String fileContent = readXQueryFile(findPublicationByAuthorXQuery);
         String xQuery = String.format(fileContent, author);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String findByStatus(String status) throws Exception {
+
+        String fileContent = readXQueryFile(findByStatusXQuery);
+        String xQuery = String.format(fileContent, status);
         return executeXQuery(collectionId, xQuery);
     }
 
@@ -52,7 +60,7 @@ public class PublicationRepository extends BaseRepository {
 
     //editor
     public String acceptPublication(String publicationId, boolean accepted) throws Exception {
-        String fileContent = readXQueryFile(acceptPublication);
+        String fileContent = readXQueryFile(acceptPublicationXQuery);
         String xQuery = String.format(fileContent, publicationId, accepted);
         return executeXQuery(collectionId, xQuery);
     }
