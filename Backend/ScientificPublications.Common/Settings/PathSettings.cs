@@ -8,10 +8,12 @@
 
         public string PublicationAcceptedMail { get; set; }
 
-        public string PublicationXsdSchema { get; set; }
+        public string PublicationXsd { get; set; }
 
         public string UserDtoXsd { get; set; }
 
-        public string CoverLetter { get; set; }
+        public string CoverLetterXsd { get; set; }
+
+        public string WorkFlowXsd { get; set; }
     }
 }

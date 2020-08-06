@@ -10,7 +10,6 @@ using ScientificPublications.Service.Email;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.Publication
@@ -50,20 +49,20 @@ namespace ScientificPublications.Service.Publication
         
         public void ValidatePublicationFile(string fileContent)
         {
-            var xsdSchemaPath = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationXsdSchema);
+            var xsdSchemaPath = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationXsd);
             var xDocument = XmlUtility.Parse(fileContent);
             XmlUtility.ValidateXmlAgainstXsd(xDocument, xsdSchemaPath);
         }
 
         public async Task<MemoryStream> GetXsdSchemaAsync()
         {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationXsdSchema);
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationXsd);
             return await FileUtility.ReadAsStreamAsync(path);
         }
 
         public Task InsertAsync(string fileContent)
         {
-            var publication = XmlUtility.Deserialize<DataAccess.Model.publication>(fileContent);
+            var publication = XmlUtility.Deserialize<publication>(fileContent);
             return _publicationDataAccess.InsertAsync(publication);
         }
         // TO DO: return list of publications 
@@ -80,6 +79,11 @@ namespace ScientificPublications.Service.Publication
             }
 
             return _publicationDataAccess.FindByStatusAsync(status.ToLower());
+        }
+
+        public Task UpdateStatusAsync(string publicationId, PublicationStatus status)
+        {
+            return _publicationDataAccess.UpdateStatusAsync(publicationId, status);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ScientificPublications.DataAccess.Model;
+﻿using ScientificPublications.Common.Enums;
+using ScientificPublications.DataAccess.Model;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.DataAccess.Publication
@@ -10,5 +11,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task InsertAsync(Model.publication publication);
 
         Task<Publications> FindByStatusAsync(string status);
+
+        Task UpdateStatusAsync(string publicationId, PublicationStatus status);
     }
 }

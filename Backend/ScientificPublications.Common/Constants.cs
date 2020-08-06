@@ -17,6 +17,8 @@
             public const string CoverLetter = "http://ftn.uns.ac.rs/xml2019/coverletter";
 
             public const string Publication = "http://ftn.uns.ac.rs/xml2019/publication";
+
+            public const string WorkFlow = "http://ftn.uns.ac.rs/xml2019/workflow";
         }
 
         public static class ExceptionMessages
@@ -39,6 +41,8 @@
             public const string Publication = "publication";
 
             public const string CoverLetter = "coverletter";
+
+            public const string WorkFlow = "workflow";
         }
     }
 }

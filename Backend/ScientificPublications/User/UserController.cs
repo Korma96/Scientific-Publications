@@ -57,7 +57,7 @@ namespace ScientificPublications.User
         }
 
         [HttpGet("reviewers")]
-        [AuthorizationFilter(Role.JournalEditor)]
+        [AuthorizationFilter(Role.Editor)]
         public async Task<IActionResult> GetReviewers()
         {
             var reviewers = await _userService.GetReviewersAsync();

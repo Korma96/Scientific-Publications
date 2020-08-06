@@ -4,6 +4,6 @@
     {
         Author,
         Reviewer,
-        JournalEditor
+        Editor
     }
 }

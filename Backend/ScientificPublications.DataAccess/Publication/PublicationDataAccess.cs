@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Common;
+using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Helpers;
@@ -50,6 +51,19 @@ namespace ScientificPublications.DataAccess.Publication
             {
                 var path = BaseUrl.UrlCombine("insert");
                 await HttpHelper.Post(path, publication);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task UpdateStatusAsync(string publicationId, PublicationStatus status)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine(publicationId);
+                await HttpHelper.Put(path, new StatusDto { Status = status.ToString().ToLower() });
             }
             catch (Exception e)
             {

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <users>
   <user>
-    <username>j_editor</username>
+    <username>editor</username>
 	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
 	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
-    <role>JournalEditor</role>
+    <role>Editor</role>
 	<name>Petar Petrovic</name>
 	<email>markoradovic996+1@gmail.com</email>
     <city>Novi Sad</city>

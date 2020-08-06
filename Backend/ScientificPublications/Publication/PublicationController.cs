@@ -27,7 +27,7 @@ namespace ScientificPublications.Publication
         public async Task<IActionResult> GetXsdSchemaFileAsync()
         {
             var file = await _publicationService.GetXsdSchemaAsync();
-            return File(file, Constants.XmlContentType, AppSettings.Paths.PublicationXsdSchema);
+            return File(file, Constants.XmlContentType, AppSettings.Paths.PublicationXsd);
         }
 
         [HttpPost("upload")]
@@ -53,7 +53,7 @@ namespace ScientificPublications.Publication
         }
 
         [HttpGet("status/{status}")]
-        [AuthorizationFilter(Role.Author)]
+        [AuthorizationFilter(Role.Editor)]
         public async Task<IActionResult> FindByStatus([FromRoute] string status)
         {
             if (string.IsNullOrWhiteSpace(status))

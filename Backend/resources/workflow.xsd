@@ -10,13 +10,12 @@
 				<xs:element name="reviewers">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="reviewer"/>
+							<xs:element name="reviewer" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="editor" type="xs:string"/>
 			</xs:sequence>
-
 		</xs:complexType>
 	</xs:element>
 </xs:schema>

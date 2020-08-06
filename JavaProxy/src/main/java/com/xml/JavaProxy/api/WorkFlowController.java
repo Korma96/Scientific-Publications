@@ -1,6 +1,7 @@
 package com.xml.JavaProxy.api;
 
-import com.xml.JavaProxy.model.User;
+
+import com.xml.JavaProxy.model.Workflow;
 import com.xml.JavaProxy.repository.WorkFlowRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
@@ -25,7 +26,8 @@ public class WorkFlowController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> insertWorkFlow(@RequestBody String workFlowStr) throws Exception {
-        workFlowRepository.insert(workFlowStr);
+        Workflow workflow = XmlUtility.convertXMLToObject(Workflow.class, workFlowStr);
+        workFlowRepository.insert(workflow);
         return ResponseUtility.Ok();
     }
 

@@ -16,6 +16,7 @@ public class PublicationRepository extends BaseRepository {
     private String findAllInProcedureByAuthorXQuery = "xqueries/publication/find_all_in_procedure_by_author.xqy";
     private String acceptPublicationXQuery = "xqueries/publication/accept_publication.xqy";
     private String findByStatusXQuery = "xqueries/publication/find_by_status.xqy";
+    private String updateStatusXQuery = "xqueries/publication/update_status.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
@@ -50,6 +51,12 @@ public class PublicationRepository extends BaseRepository {
         String publicationStr = XmlUtility.jaxbObjectToXML(publication);
         String xUpdateExpression = String.format(XUpdateTemplate.APPEND, xPathElement, publicationStr);
         executeXUpdate(collectionId, documentId, xPathElement, xUpdateExpression);
+    }
+
+    public String updateStatus(String publicationId, String status) throws Exception  {
+        String fileContent = readXQueryFile(updateStatusXQuery);
+        String xQuery = String.format(fileContent, publicationId, status);
+        return executeXQuery(collectionId, xQuery);
     }
 
     public String withdraw(String publicationId) throws Exception {
