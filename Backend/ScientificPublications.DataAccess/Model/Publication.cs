@@ -4,7 +4,6 @@ using System.Text;
 
 namespace ScientificPublications.DataAccess.Model
 {
-
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
     /// <remarks/>
     [System.SerializableAttribute()]
@@ -18,7 +17,7 @@ namespace ScientificPublications.DataAccess.Model
 
         private string titleField;
 
-        private publicationAuthors authorsField;
+        private publicationAuthor[] authorsField;
 
         private publicationAbstract abstractField;
 
@@ -59,7 +58,8 @@ namespace ScientificPublications.DataAccess.Model
         }
 
         /// <remarks/>
-        public publicationAuthors authors
+        [System.Xml.Serialization.XmlArrayItemAttribute("author", IsNullable = false)]
+        public publicationAuthor[] authors
         {
             get
             {
@@ -211,30 +211,7 @@ namespace ScientificPublications.DataAccess.Model
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
-    public partial class publicationAuthors
-    {
-
-        private publicationAuthorsAuthor authorField;
-
-        /// <remarks/>
-        public publicationAuthorsAuthor author
-        {
-            get
-            {
-                return this.authorField;
-            }
-            set
-            {
-                this.authorField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
-    public partial class publicationAuthorsAuthor
+    public partial class publicationAuthor
     {
 
         private string nameField;

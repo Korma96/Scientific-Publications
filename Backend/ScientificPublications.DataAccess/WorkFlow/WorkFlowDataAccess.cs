@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Options;
 using ScientificPublications.Common;
 using ScientificPublications.Common.Exceptions;
+using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Helpers;
 using ScientificPublications.Common.Settings;
+using ScientificPublications.DataAccess.Model;
 using System;
 using System.Threading.Tasks;
 
@@ -23,6 +25,19 @@ namespace ScientificPublications.DataAccess.WorkFlow
             try
             {
                 await HttpHelper.Post(BaseUrl, workFlow);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<workflow> FindByPublicationIdAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine(publicationId);
+                return await HttpHelper.Get<workflow>(path);
             }
             catch (Exception e)
             {

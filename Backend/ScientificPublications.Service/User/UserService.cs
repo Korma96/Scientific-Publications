@@ -33,14 +33,20 @@ namespace ScientificPublications.Service.User
 
         public async Task<UserDto> Login(string username, string password)
         {
-            var user = await _userDataAccess.FindByUsername(username);
-            if (user == null)
-                throw new ValidationException(Constants.ExceptionMessages.InvalidUsernameOrPassword);
+            var user = await FindByUsernameAsync(username);
 
             if (!HashUtility.HashPassword(user.Salt, password).Equals(user.Password))
-                throw new ValidationException(Constants.ExceptionMessages.InvalidUsernameOrPassword);
+                throw new ValidationException(Constants.ExceptionMessages.UsernameAlreadyExists);
 
             return Mapper.Map<UserDto>(user);
+        }
+
+        public async Task<DataAccess.Model.User> FindByUsernameAsync(string username)
+        {
+            var user = await _userDataAccess.FindByUsername(username);
+            if (user == null)
+                throw new ValidationException(Constants.ExceptionMessages.DoesNotExist);
+            return user;
         }
 
         public async Task Register(RegisterDto registerDto)

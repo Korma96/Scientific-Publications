@@ -8,7 +8,11 @@
   <p1:title>title111</p1:title>
   <p1:authors>
     <p1:author username="author1">
-      <p1:name>name1</p1:name>
+    <p1:name>name1</p1:name>
+    <p1:university>university1</p1:university>
+  </p1:author>
+    <p1:author username="author2">
+      <p1:name>name2</p1:name>
       <p1:university>university1</p1:university>
     </p1:author>
   </p1:authors>

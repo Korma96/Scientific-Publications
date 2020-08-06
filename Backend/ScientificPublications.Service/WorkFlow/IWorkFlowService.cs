@@ -8,5 +8,7 @@ namespace ScientificPublications.Service.WorkFlow
         void Validate(workflow workflow);
 
         Task InsertAsync(workflow workFlow);
+
+        Task<workflow> FindByPublicationIdAsync(string publicationId);
     }
 }

@@ -31,10 +31,16 @@ public class PublicationController {
         return ResponseUtility.Ok(publications);
     }
 
-    @RequestMapping(value = "status/{status}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/status/{status}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findByStatus(@PathVariable("status") String status) throws Exception{
         String publications = publicationRepository.findByStatus(status);
         return ResponseUtility.Ok(publications);
+    }
+
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findById(@PathVariable("id") String id) throws Exception{
+        String publication = publicationRepository.findById(id);
+        return ResponseUtility.Ok(publication);
     }
 
     @RequestMapping(value = "{publicationId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_XML_VALUE)
@@ -43,7 +49,7 @@ public class PublicationController {
         publicationRepository.updateStatus(publicationId, status.getStatus());
         return ResponseUtility.Ok();
     }
-
+    // TODO: do we need this endpoint?
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findAll() throws Exception{
         String publications = publicationRepository.findAll();
