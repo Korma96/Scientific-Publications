@@ -13,5 +13,7 @@ namespace ScientificPublications.Service.User
         void Validate(RegisterDto registerDto);
 
         Task<List<UserDto>> GetReviewersAsync();
+
+        Task<DataAccess.Model.User> FindByUsernameAsync(string username);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Options;
+using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Settings;
@@ -30,7 +31,32 @@ namespace ScientificPublications.Service.Publication
             _emailService = emailService;
             _publicationDataAccess = publicationDataAccess;
         }
-        
+
+        public async Task<PublicationStatus> GetStatusAsync(string id)
+        {
+            var publication = await GetByIdWithValidationAsync(id);
+            if(!Enum.TryParse(publication.header.status.ToUpper(), out PublicationStatus status))
+            {
+                throw new ValidationException(Constants.ExceptionMessages.InvalidValue);
+            }
+            return status;
+        }
+
+        public async Task<publication> GetByIdWithValidationAsync(string id)
+        {
+            var publication = await GetByIdAsync(id);
+            if (publication == null)
+            {
+                throw new ValidationException(Constants.ExceptionMessages.DoesNotExist);
+            }
+            return publication;
+        }
+
+        public Task<publication> GetByIdAsync(string id)
+        {
+            return _publicationDataAccess.FindByIdAsync(id);
+        }
+
         public async Task AcceptPublicationAsync(string email, string authorName, string publicationTitle)
         {
             var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationAcceptedMail);

@@ -16,12 +16,19 @@ public class PublicationRepository extends BaseRepository {
     private String findAllInProcedureByAuthorXQuery = "xqueries/publication/find_all_in_procedure_by_author.xqy";
     private String acceptPublicationXQuery = "xqueries/publication/accept_publication.xqy";
     private String findByStatusXQuery = "xqueries/publication/find_by_status.xqy";
+    private String findByIdXQuery = "xqueries/publication/find_by_id.xqy";
     private String updateStatusXQuery = "xqueries/publication/update_status.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
         String fileContent = readXQueryFile(findPublicationByAuthorXQuery);
         String xQuery = String.format(fileContent, author);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String findById(String id) throws Exception {
+        String fileContent = readXQueryFile(findByIdXQuery);
+        String xQuery = String.format(fileContent, id);
         return executeXQuery(collectionId, xQuery);
     }
 

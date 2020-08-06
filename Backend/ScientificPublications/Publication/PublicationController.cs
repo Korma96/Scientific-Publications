@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
@@ -8,6 +9,7 @@ using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Service.Publication;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,9 +19,15 @@ namespace ScientificPublications.Publication
     {
         private readonly IPublicationService _publicationService;
 
-        public PublicationController(IOptions<AppSettings> appSettings, IPublicationService publicationService) : base(appSettings)
+        private readonly IMapper _mapper;
+
+        public PublicationController(
+            IOptions<AppSettings> appSettings, 
+            IPublicationService publicationService,
+            IMapper mapper) : base(appSettings)
         {
             _publicationService = publicationService;
+            _mapper = mapper;
         }
 
         [HttpGet("xsd-schema")]
@@ -46,20 +54,30 @@ namespace ScientificPublications.Publication
 
         [HttpGet("my")]
         [AuthorizationFilter(Role.Author)]
-        public async Task<IActionResult> FindByAuthor()
+        public async Task<IActionResult> FindByAuthor([FromQuery] bool shortForm)
         {
             var publications = await _publicationService.FindByAuthorAsync(GetSession().Username);
+            if (shortForm)
+            {
+                var publicationDtos = _mapper.Map<List<PublicationDto>>(publications.PublicationList);
+                return Ok(publicationDtos);
+            }
             return Ok(ToXml(publications));
         }
 
         [HttpGet("status/{status}")]
         [AuthorizationFilter(Role.Editor)]
-        public async Task<IActionResult> FindByStatus([FromRoute] string status)
+        public async Task<IActionResult> FindByStatus([FromRoute] string status, [FromQuery] bool shortForm)
         {
             if (string.IsNullOrWhiteSpace(status))
                 return BadRequest(Constants.ExceptionMessages.EmptyValue);
 
             var publications = await _publicationService.FindByStatusAsync(status);
+            if (shortForm)
+            {
+                var publicationDtos = _mapper.Map<List<PublicationDto>>(publications.PublicationList);
+                return Ok(publicationDtos);
+            }
             return Ok(ToXml(publications));
         }
 

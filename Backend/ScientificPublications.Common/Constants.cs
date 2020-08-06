@@ -27,11 +27,15 @@
 
             public const string EmptyFile = "Emtpy file";
 
-            public const string InvalidUsernameOrPassword = "Invalid username and/or password";
-
             public const string DatabaseException = "Database exception";
 
             public const string UsernameAlreadyExists = "Username already exists";
+
+            public const string AlreadyExists = "Already exists";
+
+            public const string DoesNotExist = "Does not exist";
+
+            public const string InvalidValue = "Invalid value";
         }
 
         public static class JavaController

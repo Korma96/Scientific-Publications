@@ -34,5 +34,10 @@ namespace ScientificPublications.Service.WorkFlow
             var xDocument = XmlUtility.Parse(XmlUtility.Serialize(workflow));
             XmlUtility.ValidateXmlAgainstXsd(xDocument, xsdSchemaPath);
         }
+
+        public Task<workflow> FindByPublicationIdAsync(string publicationId)
+        {
+            return _workFlowDataAccess.FindByPublicationIdAsync(publicationId);
+        }
     }
 }

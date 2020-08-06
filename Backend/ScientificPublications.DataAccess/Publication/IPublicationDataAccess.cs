@@ -13,5 +13,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<Publications> FindByStatusAsync(string status);
 
         Task UpdateStatusAsync(string publicationId, PublicationStatus status);
+
+        Task<publication> FindByIdAsync(string id);
     }
 }

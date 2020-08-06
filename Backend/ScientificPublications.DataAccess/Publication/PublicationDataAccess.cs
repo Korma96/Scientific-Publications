@@ -31,6 +31,19 @@ namespace ScientificPublications.DataAccess.Publication
             }
         }
 
+        public async Task<publication> FindByIdAsync(string id)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"/id/{id}");
+                return await HttpHelper.Get<publication>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
         public async Task<Publications> FindByStatusAsync(string status)
         {
             try
