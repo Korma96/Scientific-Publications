@@ -81,6 +81,24 @@ namespace ScientificPublications.Publication
             return Ok(ToXml(publications));
         }
 
+        [HttpPut("{nextStatus}/{publicationId}")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> UpdateStatus([FromRoute] string publicationId, [FromRoute] string nextStatus)
+        {
+            if (string.IsNullOrWhiteSpace(publicationId))
+                return BadRequest(Constants.ExceptionMessages.EmptyValue);
+
+            if (string.IsNullOrWhiteSpace(nextStatus))
+                return BadRequest(Constants.ExceptionMessages.EmptyValue);
+
+            // TODO: 1. reviewer case: verify in workflow if reviewer is assigned for that publication
+            //       2. author case: verify if author owns publication with given id
+            //       3. add mail notifications
+            await _publicationService.UpdateStatusWithValidationAsync(publicationId, nextStatus, GetSession().Role);
+
+            return Ok();
+        }
+
         [HttpGet("statuses")]
         [AuthorizationFilter(Role.Author)]
         public IActionResult GetAllStatuses()

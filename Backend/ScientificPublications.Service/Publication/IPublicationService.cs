@@ -28,5 +28,7 @@ namespace ScientificPublications.Service.Publication
         Task<publication> GetByIdAsync(string id);
 
         Task<PublicationStatus> GetStatusAsync(string id);
+
+        Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole);
     }
 }

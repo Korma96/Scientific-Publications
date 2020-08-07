@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
+using ScientificPublications.Common.Helpers;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.Model;
@@ -35,11 +36,7 @@ namespace ScientificPublications.Service.Publication
         public async Task<PublicationStatus> GetStatusAsync(string id)
         {
             var publication = await GetByIdWithValidationAsync(id);
-            if(!Enum.TryParse(publication.header.status.ToUpper(), out PublicationStatus status))
-            {
-                throw new ValidationException(Constants.ExceptionMessages.InvalidValue);
-            }
-            return status;
+            return HelperMethods.StatusStringToEnum(publication.header.status);
         }
 
         public async Task<publication> GetByIdWithValidationAsync(string id)
@@ -110,6 +107,13 @@ namespace ScientificPublications.Service.Publication
         public Task UpdateStatusAsync(string publicationId, PublicationStatus status)
         {
             return _publicationDataAccess.UpdateStatusAsync(publicationId, status);
+        }
+
+        public async Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole)
+        {
+            var currentStatus = await GetStatusAsync(publicationId);
+            HelperMethods.CheckIsNextStateValid(currentStatus, nextStatus, userRole);
+            await UpdateStatusAsync(publicationId, HelperMethods.StatusStringToEnum(nextStatus));
         }
     }
 }
