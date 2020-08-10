@@ -39,9 +39,4 @@ public class UserController {
         userRepository.insert(user);
         return ResponseUtility.Ok();
     }
-
-    public String getLoggedUser() {
-        String username = (String) httpSession.getAttribute("loggedUser");
-        return username;
-    }
 }
