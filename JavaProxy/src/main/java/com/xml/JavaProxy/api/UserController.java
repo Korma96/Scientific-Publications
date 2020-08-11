@@ -18,30 +18,20 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
-    private HttpSession httpSession;
-
-    @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findByUsername(@PathVariable("username") String username) throws Exception{
+    public ResponseEntity<String> findByUsername(@PathVariable("username") String username) throws Exception {
         String user = userRepository.findByUsername(username);
-        if (user!=null) {
-            httpSession.setAttribute("loggedUser", username);
-        }
         return ResponseUtility.Ok(user);
     }
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception{
+    public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception {
         User user = XmlUtility.convertXMLToObject(User.class, userStr);
         userRepository.insert(user);
         return ResponseUtility.Ok();
-    }
-
-    public String getLoggedUser() {
-        String username = (String) httpSession.getAttribute("loggedUser");
-        return username;
     }
 }

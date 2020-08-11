@@ -1,7 +1,7 @@
 xquery version "3.1";
 
 let $publications := for $publication in fn:doc("/db/test/publications.xml")/publications/publication
-where $publication/header/status = "published" and
+where $publication/header/status = "accepted" and
          (matches($publication/title, "%s","i") or
           matches($publication/authors/author/name, "%<s", "i") or
           matches($publication/authors/author/university, "%<s","i") or

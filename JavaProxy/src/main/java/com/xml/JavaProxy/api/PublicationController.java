@@ -67,10 +67,9 @@ public class PublicationController {
         String publications = publicationRepository.textSearchPublished(searchQuery);
         return ResponseUtility.Ok(publications);
     }
-    @RequestMapping(value = "/my-publications-text-search/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> textSearchMyPublications(@PathVariable("searchQuery") String searchQuery) throws Exception{
-        String loggedUser = userController.getLoggedUser();
-        String publications = publicationRepository.textSearchMyPublications(searchQuery, loggedUser );
+    @RequestMapping(value = "/my-publications-text-search/{username}/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> textSearchMyPublications(@PathVariable("username") String username, @PathVariable("searchQuery") String searchQuery) throws Exception{
+        String publications = publicationRepository.textSearchMyPublications(searchQuery, username);
         return ResponseUtility.Ok(publications);
     }
 
