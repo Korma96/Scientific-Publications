@@ -18,6 +18,8 @@ public class PublicationRepository extends BaseRepository {
     private String findByStatusXQuery = "xqueries/publication/find_by_status.xqy";
     private String findByIdXQuery = "xqueries/publication/find_by_id.xqy";
     private String updateStatusXQuery = "xqueries/publication/update_status.xqy";
+	private String textSearchPublished = "xqueries/text_search_published.xqy";
+    private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
 
     public String findByAuthor(String author) throws Exception {
 
@@ -78,4 +80,18 @@ public class PublicationRepository extends BaseRepository {
         String xQuery = String.format(fileContent, publicationId, accepted);
         return executeXQuery(collectionId, xQuery);
     }
+
+
+    public String textSearchPublished(String searchQuery) throws Exception {
+        String fileContent = readXQueryFile(textSearchPublished);
+        String xQuery = String.format(fileContent, searchQuery);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String textSearchMyPublications(String searchQuery, String username) throws Exception {
+        String fileContent = readXQueryFile(textSearchMyPublications);
+        String xQuery = String.format(fileContent, username, searchQuery);
+        return executeXQuery(collectionId, xQuery);
+    }
+
 }
