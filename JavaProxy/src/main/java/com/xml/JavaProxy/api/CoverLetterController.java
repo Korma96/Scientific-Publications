@@ -1,9 +1,7 @@
 package com.xml.JavaProxy.api;
 
 import com.xml.JavaProxy.model.CoverLetter;
-import com.xml.JavaProxy.model.User;
 import com.xml.JavaProxy.repository.CoverLetterRepository;
-import com.xml.JavaProxy.repository.PublicationRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.beans.factory.annotation.Autowired;

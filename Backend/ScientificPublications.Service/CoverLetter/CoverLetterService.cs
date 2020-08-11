@@ -22,7 +22,7 @@ namespace ScientificPublications.Service.CoverLetter
 
         public async Task<MemoryStream> GetXsdSchemaAsync()
         {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.CoverLetter);
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.CoverLetterXsd);
             return await FileUtility.ReadAsStreamAsync(path);
         }
 
@@ -39,7 +39,7 @@ namespace ScientificPublications.Service.CoverLetter
 
         public void ValidateCoverLetterFile(string fileContent)
         {
-            var xsdSchemaPath = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.CoverLetter);
+            var xsdSchemaPath = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.CoverLetterXsd);
             var xDocument = XmlUtility.Parse(fileContent);
             XmlUtility.ValidateXmlAgainstXsd(xDocument, xsdSchemaPath);
         }

@@ -6,6 +6,7 @@ using ScientificPublications.Common.Models;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.User;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -24,16 +25,28 @@ namespace ScientificPublications.Service.User
             _userDataAccess = userDataAccess;
         }
 
+        public async Task<List<UserDto>> GetReviewersAsync()
+        {
+            var reviewers = await _userDataAccess.FindAllReviewersAsync();
+            return Mapper.Map<List<UserDto>>(reviewers.UsersList);
+        }
+
         public async Task<UserDto> Login(string username, string password)
+        {
+            var user = await FindByUsernameAsync(username);
+
+            if (!HashUtility.HashPassword(user.Salt, password).Equals(user.Password))
+                throw new ValidationException(Constants.ExceptionMessages.UsernameAlreadyExists);
+
+            return Mapper.Map<UserDto>(user);
+        }
+
+        public async Task<DataAccess.Model.User> FindByUsernameAsync(string username)
         {
             var user = await _userDataAccess.FindByUsername(username);
             if (user == null)
-                throw new ValidationException(Constants.ExceptionMessages.InvalidUsernameOrPassword);
-
-            if (!HashUtility.HashPassword(user.Salt, password).Equals(user.Password))
-                throw new ValidationException(Constants.ExceptionMessages.InvalidUsernameOrPassword);
-
-            return Mapper.Map<UserDto>(user);
+                throw new ValidationException(Constants.ExceptionMessages.DoesNotExist);
+            return user;
         }
 
         public async Task Register(RegisterDto registerDto)

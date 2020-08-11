@@ -1,16 +1,14 @@
 package com.xml.JavaProxy.api;
 
-import com.xml.JavaProxy.model.User;
+
+import com.xml.JavaProxy.model.Workflow;
 import com.xml.JavaProxy.repository.WorkFlowRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/workflow")
@@ -25,8 +23,14 @@ public class WorkFlowController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> insertWorkFlow(@RequestBody String workFlowStr) throws Exception {
-        workFlowRepository.insert(workFlowStr);
+        Workflow workflow = XmlUtility.convertXMLToObject(Workflow.class, workFlowStr);
+        workFlowRepository.insert(workflow);
         return ResponseUtility.Ok();
     }
 
+    @RequestMapping(value = "{publicationId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findById(@PathVariable("publicationId") String publicationId) throws Exception{
+        String workflow = workFlowRepository.findByPublicationId(publicationId);
+        return ResponseUtility.Ok(workflow);
+    }
 }

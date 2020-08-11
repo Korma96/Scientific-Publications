@@ -29,7 +29,7 @@ namespace ScientificPublications.CoverLetter
         public async Task<IActionResult> GetXsdSchemaFileAsync()
         {
             var file = await _coverLetterService.GetXsdSchemaAsync();
-            return File(file, Constants.XmlContentType, AppSettings.Paths.CoverLetter);
+            return File(file, Constants.XmlContentType, AppSettings.Paths.CoverLetterXsd);
         }
 
         [HttpPost("upload")]

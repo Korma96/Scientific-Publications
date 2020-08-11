@@ -24,6 +24,11 @@ namespace ScientificPublications.Application
                 Log(context, LogLevel.Warning);
                 CreateHttpResponse(context, (int)HttpStatusCode.BadRequest, context.Exception.Message);
             }
+            else if (context.Exception is UnauthorizedException)
+            {
+                Log(context, LogLevel.Warning);
+                CreateHttpResponse(context, (int)HttpStatusCode.Unauthorized, context.Exception.Message);
+            }
             else if (context.Exception is ProxyException)
             {
                 Log(context, LogLevel.Error);

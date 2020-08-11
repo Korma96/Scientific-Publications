@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -33,5 +32,11 @@ public class UserController {
         User user = XmlUtility.convertXMLToObject(User.class, userStr);
         userRepository.insert(user);
         return ResponseUtility.Ok();
+    }
+
+    @RequestMapping(value = "/reviewers", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findAllReviewers() throws Exception{
+        String reviewers = userRepository.findAllReviewers();
+        return ResponseUtility.Ok(reviewers);
     }
 }

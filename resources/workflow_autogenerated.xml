@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorkFlowDto xmlns="http://ftn.uns.ac.rs/xml2019/workflow">
+<publicationId>id1</publicationId>
+<reviewers>
+  <reviewer>reviewer1</reviewer>
+</reviewers>
+</WorkFlowDto>

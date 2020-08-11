@@ -1,7 +1,7 @@
 package com.xml.JavaProxy.api;
 
 
-import com.xml.JavaProxy.model.CoverLetter;
+import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping(value = "/publication")
@@ -28,6 +29,25 @@ public class PublicationController {
         return ResponseUtility.Ok(publications);
     }
 
+    @RequestMapping(value = "/status/{status}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findByStatus(@PathVariable("status") String status) throws Exception{
+        String publications = publicationRepository.findByStatus(status);
+        return ResponseUtility.Ok(publications);
+    }
+
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findById(@PathVariable("id") String id) throws Exception{
+        String publication = publicationRepository.findById(id);
+        return ResponseUtility.Ok(publication);
+    }
+
+    @RequestMapping(value = "{publicationId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> updateStatus(@PathVariable("publicationId") String publicationId, @RequestBody String statusStr) throws Exception{
+        StatusDto status = XmlUtility.convertXMLToObject(StatusDto.class, statusStr);
+        publicationRepository.updateStatus(publicationId, status.getStatus());
+        return ResponseUtility.Ok();
+    }
+    // TODO: do we need this endpoint?
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findAll() throws Exception{
         String publications = publicationRepository.findAll();
@@ -46,13 +66,14 @@ public class PublicationController {
         publicationRepository.withdraw(publicationId);
         return ResponseUtility.Ok();
     }
-
+    // TODO: "status/{status}" endpoint can be used instead
     //find all publications in procedure for author
     @RequestMapping(value = "/in-procedure/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findAllInProcedure(@PathVariable("author") String author) throws Exception {
         String publications = publicationRepository.findAllInProcedureByAuthor(author);
         return ResponseUtility.Ok(publications);
     }
+    // TODO: "status/{status}/{publicationId}" can be used instead
     //editor
     @RequestMapping(value = "/accept/{id}/{accepted}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> acceptPublication(@PathVariable("id") String publicationId, @PathVariable("accepted") boolean accepted) throws Exception{

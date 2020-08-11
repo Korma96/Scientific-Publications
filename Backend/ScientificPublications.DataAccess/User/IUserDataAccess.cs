@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using ScientificPublications.DataAccess.Model;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.DataAccess.User
 {
@@ -7,5 +9,7 @@ namespace ScientificPublications.DataAccess.User
         Task<Model.User> FindByUsername(string username);
 
         Task Insert(Model.User newUser);
+
+        Task<Users> FindAllReviewersAsync();
     }
 }

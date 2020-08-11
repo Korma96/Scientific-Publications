@@ -17,6 +17,8 @@
             public const string CoverLetter = "http://ftn.uns.ac.rs/xml2019/coverletter";
 
             public const string Publication = "http://ftn.uns.ac.rs/xml2019/publication";
+
+            public const string WorkFlow = "http://ftn.uns.ac.rs/xml2019/workflow";
         }
 
         public static class ExceptionMessages
@@ -25,11 +27,15 @@
 
             public const string EmptyFile = "Emtpy file";
 
-            public const string InvalidUsernameOrPassword = "Invalid username and/or password";
-
             public const string DatabaseException = "Database exception";
 
             public const string UsernameAlreadyExists = "Username already exists";
+
+            public const string AlreadyExists = "Already exists";
+
+            public const string DoesNotExist = "Does not exist";
+
+            public const string InvalidValue = "Invalid value";
         }
 
         public static class JavaController
@@ -39,6 +45,8 @@
             public const string Publication = "publication";
 
             public const string CoverLetter = "coverletter";
+
+            public const string WorkFlow = "workflow";
         }
     }
 }

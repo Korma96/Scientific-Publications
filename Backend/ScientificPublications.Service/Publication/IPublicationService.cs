@@ -1,4 +1,5 @@
-﻿using ScientificPublications.DataAccess.Model;
+﻿using ScientificPublications.Common.Enums;
+using ScientificPublications.DataAccess.Model;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -16,6 +17,18 @@ namespace ScientificPublications.Service.Publication
 
         Task InsertAsync(string fileContent);
 
-        Task<Publications> FindByAuthor(string author);
+        Task<Publications> FindByAuthorAsync(string author);
+
+        Task<Publications> FindByStatusAsync(string status);
+
+        Task UpdateStatusAsync(string publicationId, PublicationStatus status);
+
+        Task<publication> GetByIdWithValidationAsync(string id);
+
+        Task<publication> GetByIdAsync(string id);
+
+        Task<PublicationStatus> GetStatusAsync(string id);
+
+        Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole);
     }
 }
