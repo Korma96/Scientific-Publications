@@ -115,5 +115,15 @@ namespace ScientificPublications.Service.Publication
             HelperMethods.CheckIsNextStateValid(currentStatus, nextStatus, userRole);
             await UpdateStatusAsync(publicationId, HelperMethods.StatusStringToEnum(nextStatus));
         }
+
+        public Task<Publications> FindBySearchQueryAsync(string searchQuery)
+        {
+            return _publicationDataAccess.FindBySearchQueryAsync(searchQuery);
+        }
+
+        public Task<Publications> FindMyBySearchQueryAsync(string username, string searchQuery)
+        {
+            return _publicationDataAccess.FindByUsernameAndSearchQueryAsync(username, searchQuery);
+        }
     }
 }

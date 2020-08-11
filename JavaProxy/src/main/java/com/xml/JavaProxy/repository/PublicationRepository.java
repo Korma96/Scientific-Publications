@@ -81,7 +81,6 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
-
     public String textSearchPublished(String searchQuery) throws Exception {
         String fileContent = readXQueryFile(textSearchPublished);
         String xQuery = String.format(fileContent, searchQuery);
@@ -93,5 +92,4 @@ public class PublicationRepository extends BaseRepository {
         String xQuery = String.format(fileContent, username, searchQuery);
         return executeXQuery(collectionId, xQuery);
     }
-
 }

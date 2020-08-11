@@ -44,6 +44,32 @@ namespace ScientificPublications.DataAccess.Publication
             }
         }
 
+        public async Task<Publications> FindByUsernameAndSearchQueryAsync(string username, string searchQuery)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"my-publications-text-search/{username}/{searchQuery}");
+                return await HttpHelper.Get<Publications>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<Publications> FindBySearchQueryAsync(string searchQuery)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"/text-search/{searchQuery}");
+                return await HttpHelper.Get<Publications>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
         public async Task<Publications> FindByStatusAsync(string status)
         {
             try

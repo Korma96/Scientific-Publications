@@ -81,15 +81,15 @@ public class PublicationController {
         return ResponseUtility.Ok();
     }
 
-    @RequestMapping(value = "/text-search/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/text-search/{searchQuery}", method = RequestMethod.GET)
     public ResponseEntity<String> textSearchPublished(@PathVariable("searchQuery") String searchQuery) throws Exception{
         String publications = publicationRepository.textSearchPublished(searchQuery);
         return ResponseUtility.Ok(publications);
     }
-    @RequestMapping(value = "/my-publications-text-search/{username}/{searchQuery}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+
+    @RequestMapping(value = "/my-publications-text-search/{username}/{searchQuery}", method = RequestMethod.GET)
     public ResponseEntity<String> textSearchMyPublications(@PathVariable("username") String username, @PathVariable("searchQuery") String searchQuery) throws Exception{
         String publications = publicationRepository.textSearchMyPublications(searchQuery, username);
         return ResponseUtility.Ok(publications);
     }
-
 }

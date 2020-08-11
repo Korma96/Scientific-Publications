@@ -30,5 +30,9 @@ namespace ScientificPublications.Service.Publication
         Task<PublicationStatus> GetStatusAsync(string id);
 
         Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole);
+
+        Task<Publications> FindBySearchQueryAsync(string searchQuery);
+
+        Task<Publications> FindMyBySearchQueryAsync(string username, string searchQuery);
     }
 }
