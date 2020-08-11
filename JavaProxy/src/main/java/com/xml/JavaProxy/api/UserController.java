@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -21,12 +23,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findByUsername(@PathVariable("username") String username) throws Exception{
+    public ResponseEntity<String> findByUsername(@PathVariable("username") String username) throws Exception {
         String user = userRepository.findByUsername(username);
         return ResponseUtility.Ok(user);
     }
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception{
+    public ResponseEntity<String> insertUser(@RequestBody String userStr) throws Exception {
         User user = XmlUtility.convertXMLToObject(User.class, userStr);
         userRepository.insert(user);
         return ResponseUtility.Ok();
