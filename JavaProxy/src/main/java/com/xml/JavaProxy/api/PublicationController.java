@@ -21,10 +21,8 @@ public class PublicationController {
     public PublicationController(PublicationRepository publicationRepository) {
         this.publicationRepository = publicationRepository;
     }
-    @Autowired
-    private UserController userController;
 
-    @RequestMapping(value = "/my-publications/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> findByAuthor(@PathVariable("author") String author) throws Exception{
         String publications = publicationRepository.findByAuthor(author);
         return ResponseUtility.Ok(publications);
