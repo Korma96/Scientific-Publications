@@ -6,13 +6,11 @@ import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
-import jdk.net.SocketFlow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping(value = "/publication")
