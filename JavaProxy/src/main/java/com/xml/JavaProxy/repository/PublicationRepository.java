@@ -20,6 +20,8 @@ public class PublicationRepository extends BaseRepository {
     private String updateStatusXQuery = "xqueries/publication/update_status.xqy";
 	private String textSearchPublished = "xqueries/text_search_published.xqy";
     private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
+    private String findPublicationByReviewerXQuery = "xqueries/publication/find_publications_by_reviewer.xqy";
+
 
     public String findByAuthor(String author) throws Exception {
 
@@ -94,4 +96,9 @@ public class PublicationRepository extends BaseRepository {
         return executeXQuery(collectionId, xQuery);
     }
 
+    public String findAllByReviewer(String reviewerUsername) throws Exception {
+        String fileContent = readXQueryFile(findPublicationByReviewerXQuery);
+        String xQuery = String.format(fileContent, reviewerUsername);
+        return executeXQuery(collectionId, xQuery);
+    }
 }
