@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
 using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
+using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.DataAccess.Model;
@@ -114,6 +115,19 @@ namespace ScientificPublications.Publication
             var names = Enum.GetNames(typeof(PublicationStatus));
             var lowerNames = names.Select(x => x.ToLower()).ToList();
             return Ok(lowerNames);
+        }
+
+        [HttpPut("accept/{publicationId}/{accepted}")]
+        [AuthorizationFilter(Role.Reviewer)]
+        public async Task<IActionResult> AcceptPublicationAsync([FromRoute] string publicationId, [FromRoute] bool accepted)
+        {
+            var status = await _publicationService.GetStatusAsync(publicationId);
+            if (status != PublicationStatus.ASSIGNED)
+            {
+                throw new ValidationException("Invalid status");
+            }
+
+            return Ok();
         }
 
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)

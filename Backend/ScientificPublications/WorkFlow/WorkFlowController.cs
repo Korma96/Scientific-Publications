@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
-using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Helpers;
@@ -42,16 +41,15 @@ namespace ScientificPublications.WorkFlow
 
         [HttpPost]
         [AuthorizationFilter(Role.Editor)]
-        [Consumes(Constants.XmlContentType)]
         public async Task<IActionResult> Insert([FromBody] WorkFlowDto workFlowDto)
         {
             var workFlow = _mapper.Map<workflow>(workFlowDto);
             workFlow.editor = GetSession().Username;
             _workFlowService.Validate(workFlow);
             var tasks = new List<Task>();
-            foreach (var reviewerUsername in workFlow.reviewers)
+            foreach (var reviewer in workFlow.reviewers)
             {
-                tasks.Add(_userService.FindByUsernameAsync(reviewerUsername));
+                tasks.Add(_userService.FindByUsernameAsync(reviewer.username));
             }
             tasks.Add(_userService.FindByUsernameAsync(workFlow.editor));
             await Task.WhenAll(tasks.ToArray());
