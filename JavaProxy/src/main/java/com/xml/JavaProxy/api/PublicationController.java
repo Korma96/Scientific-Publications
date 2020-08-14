@@ -4,9 +4,13 @@ package com.xml.JavaProxy.api;
 import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
+import com.xml.JavaProxy.util.PdfUtil;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/publication")
 public class PublicationController {
 
+    @Autowired
     private PublicationRepository publicationRepository;
 
     @Autowired
@@ -91,5 +96,12 @@ public class PublicationController {
     public ResponseEntity<String> textSearchMyPublications(@PathVariable("username") String username, @PathVariable("searchQuery") String searchQuery) throws Exception{
         String publications = publicationRepository.textSearchMyPublications(searchQuery, username);
         return ResponseUtility.Ok(publications);
+    }
+
+    @RequestMapping(value = "/reviewer-assigned-publications/{reviewer}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findAllByReviewer(@PathVariable("reviewer") String reviewerUsername) throws Exception{
+        String publications = publicationRepository.findAllByReviewer(reviewerUsername);
+        return ResponseUtility.Ok(publications);
+
     }
 }
