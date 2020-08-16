@@ -8,10 +8,14 @@ using ScientificPublications.Common.Settings;
 using ScientificPublications.Common.Utility;
 using ScientificPublications.DataAccess.Model;
 using ScientificPublications.DataAccess.Publication;
+using ScientificPublications.DataAccess.WorkFlow;
 using ScientificPublications.Service.Email;
+using ScientificPublications.Service.User;
+using ScientificPublications.Service.WorkFlow;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.Service.Publication
@@ -19,18 +23,23 @@ namespace ScientificPublications.Service.Publication
     public class PublicationService : AbstractService, IPublicationService
     {
         private readonly IEmailService _emailService;
-
+        private readonly IUserService _userService;
         private readonly IPublicationDataAccess _publicationDataAccess;
+        private readonly IWorkFlowService _workFlowService;
 
         public PublicationService(
             IOptions<AppSettings> appSettings, 
             IMapper mapper,
             IEmailService emailService,
-            IPublicationDataAccess publicationDataAccess) 
+            IPublicationDataAccess publicationDataAccess,
+            IUserService userService,
+            IWorkFlowService workFlowService) 
             : base(appSettings, mapper)
         {
             _emailService = emailService;
             _publicationDataAccess = publicationDataAccess;
+            _userService = userService;
+            _workFlowService = workFlowService;
         }
 
         public async Task<PublicationStatus> GetStatusAsync(string id)
@@ -54,17 +63,17 @@ namespace ScientificPublications.Service.Publication
             return _publicationDataAccess.FindByIdAsync(id);
         }
 
-        public async Task AcceptPublicationAsync(string email, string authorName, string publicationTitle)
+        public async Task SendAcceptPublicationEmailAsync(string email, string authorName, string publicationTitle)
         {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationAcceptedMail);
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.EditorAcceptedMail);
             var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
             var body = string.Format(emailData.Body, authorName, publicationTitle);
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
         }
 
-        public async Task DenyPublicationAsync(string email, string authorName, string publicationTitle, string text)
+        public async Task SendDenyPublicationEmailAsync(string email, string authorName, string publicationTitle, string text)
         {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.PublicationDeniedMail);
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.EditorDeniedMail);
             var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
             var body = string.Format(emailData.Body, authorName, publicationTitle, text);
             await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
@@ -86,6 +95,8 @@ namespace ScientificPublications.Service.Publication
         public Task InsertAsync(string fileContent)
         {
             var publication = XmlUtility.Deserialize<publication>(fileContent);
+            publication.id = Guid.NewGuid().ToString();
+            publication.header.status = PublicationStatus.SUBMITED.ToString().ToLower();
             return _publicationDataAccess.InsertAsync(publication);
         }
         // TO DO: return list of publications 
@@ -109,10 +120,11 @@ namespace ScientificPublications.Service.Publication
             return _publicationDataAccess.UpdateStatusAsync(publicationId, status);
         }
 
-        public async Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole)
+        public async Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole)
         {
             var currentStatus = await GetStatusAsync(publicationId);
             HelperMethods.CheckIsNextStateValid(currentStatus, nextStatus, userRole);
+            await SendStateChangedEmailAsync(publicationId, nextStatus, userRole);
             await UpdateStatusAsync(publicationId, HelperMethods.StatusStringToEnum(nextStatus));
         }
 
@@ -124,6 +136,106 @@ namespace ScientificPublications.Service.Publication
         public Task<Publications> FindMyBySearchQueryAsync(string username, string searchQuery)
         {
             return _publicationDataAccess.FindByUsernameAndSearchQueryAsync(username, searchQuery);
+        }
+
+        public Task<Publications> FindByReviewerAsync(string reviewerUsername)
+        {
+            return _publicationDataAccess.FindByReviewerAsync(reviewerUsername);
+        }
+
+        public async Task SendAuthorUploadPublicationMail(string authorUsername, string publicationContent)
+        {
+            var editor = await _userService.FindByUsernameAsync(AppSettings.EditorUsername);
+            var author = await _userService.FindByUsernameAsync(authorUsername);
+            var publication = XmlUtility.Deserialize<publication>(publicationContent);
+
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.ReviewerAccepted);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
+            emailData.To = editor.Email;
+            emailData.Body = string.Format(emailData.Body, editor.Name, publication.title, author.Name);
+            await _emailService.SendEmailAsync(emailData);
+        }
+
+        private async Task SendStateChangedEmailAsync(string publicationId, string nextStatus, string userRole)
+        {
+            var statusEnum = HelperMethods.StatusStringToEnum(nextStatus);
+            var roleEnum = HelperMethods.RoleStringToEnum(userRole);
+            
+            var workflow = await _workFlowService.FindByPublicationIdAsync(publicationId);
+            var publication = await _publicationDataAccess.FindByIdAsync(publicationId);
+            var authors = new List<DataAccess.Model.User>();
+            foreach (var author in publication.authors)
+            {
+                authors.Add(await _userService.FindByUsernameAsync(author.username));
+            }
+            var editor = await _userService.FindByUsernameAsync(workflow.editor);
+            var reviewers = new List<DataAccess.Model.User>();
+            foreach (var reviewer in workflow.reviewers)
+            {
+                if (reviewer.status == ReviewerStatus.ACCEPTED.ToString().ToLower())
+                    reviewers.Add(await _userService.FindByUsernameAsync(reviewer.username));
+            }
+
+            string xmlFilePath = string.Empty;
+            string[] to = null;
+            string[] args = null;
+
+            switch (roleEnum)
+            {
+                case Role.Editor:
+                    switch (statusEnum)
+                    {
+                        case PublicationStatus.ACCEPTED:
+                            xmlFilePath = AppSettings.Paths.EditorAcceptedMail;
+                            to = authors.Select(a => a.Email).ToArray();
+                            args = new string[] { string.Join(",", authors.Select(a => a.Name).ToArray()), publication.title };
+                            break;
+                        case PublicationStatus.DENIED:
+                            xmlFilePath = AppSettings.Paths.EditorDeniedMail;
+                            to = authors.Select(a => a.Email).ToArray();
+                            args = new string[] { string.Join(",", authors.Select(a => a.Name).ToArray()), publication.title };
+                            break;
+                        case PublicationStatus.SHOULD_REVISE:
+                            xmlFilePath = AppSettings.Paths.EditorShouldReviseMail;
+                            to = authors.Select(a => a.Email).ToArray();
+                            args = new string[] { string.Join(",", authors.Select(a => a.Name).ToArray()), publication.title };
+                            break;
+                        case PublicationStatus.IN_REVIEW:
+                            xmlFilePath = AppSettings.Paths.EditorInReviewMail;
+                            to = reviewers.Select(r => r.Email).ToArray();
+                            args = new string[] { string.Join(",", reviewers.Select(r => r.Name).ToArray()), publication.title };
+                            break;
+                    }
+                    break;
+                case Role.Reviewer:
+                    break;
+                case Role.Author:
+                    switch (statusEnum)
+                    {
+                        case PublicationStatus.WITHDRAWN:
+                            xmlFilePath = AppSettings.Paths.AuthorWithdrawnMail;
+                            var toList = new List<string>();
+                            toList.AddRange(reviewers.Select(r => r.Email).ToArray());
+                            toList.Add(editor.Email);
+                            to = toList.ToArray();
+                            args = new string[] { editor.Name, publication.title };
+                            break;
+                        case PublicationStatus.REVISED:
+                            xmlFilePath = AppSettings.Paths.AuthorRevisedMail;
+                            var toList2 = new List<string>();
+                            toList2.AddRange(reviewers.Select(r => r.Email).ToArray());
+                            toList2.Add(editor.Email);
+                            to = toList2.ToArray();
+                            args = new string[] { editor.Name, publication.title };
+                            break;
+                    }
+                    break;
+            }
+
+            var path = Path.Combine(AppSettings.Paths.BasePath, xmlFilePath);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
+            var body = string.Format(emailData.Body, args);
+            await _emailService.SendEmailAsync(emailData.Subject, body, to);
         }
     }
 }

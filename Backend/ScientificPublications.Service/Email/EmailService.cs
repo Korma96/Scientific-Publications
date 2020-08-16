@@ -15,6 +15,11 @@ namespace ScientificPublications.Service.Email
             _appSettings = appSettings.Value;
         }
 
+        public async Task SendEmailAsync(EmailEntity emailEntity)
+        {
+            await SendEmailAsync(emailEntity.Subject, emailEntity.Body, new string[] { emailEntity.To });
+        }
+
         public async Task SendEmailAsync(string subject, string body, string[] to)
         {
             var message = new MailMessage

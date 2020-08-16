@@ -11,6 +11,7 @@ using ScientificPublications.Service.Publication;
 using ScientificPublications.Service.User;
 using ScientificPublications.Service.WorkFlow;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.WorkFlow
@@ -30,7 +31,7 @@ namespace ScientificPublications.WorkFlow
             IWorkFlowService workFlowService,
             IPublicationService publicationService,
             IUserService userService,
-            IMapper mapper) 
+            IMapper mapper)
             : base(appSettings)
         {
             _workFlowService = workFlowService;
@@ -64,6 +65,22 @@ namespace ScientificPublications.WorkFlow
 
             await _publicationService.UpdateStatusAsync(workFlow.publicationId, PublicationStatus.ASSIGNED);
             await _workFlowService.InsertAsync(workFlow);
+            return Ok();
+        }
+
+        [HttpGet("reviewer")]
+        [AuthorizationFilter(Role.Reviewer)]
+        public async Task<IActionResult> FindByReviewerAsync()
+        {
+            var workflows = await _workFlowService.GetByReviewerAsync(GetSession().Username);
+            return Ok(workflows);
+        }
+
+        [HttpPut("{publicationId}/{accepted}")]
+        [AuthorizationFilter(Role.Reviewer)]
+        public async Task<IActionResult> AcceptPublicationAsync([FromRoute] string publicationId, [FromRoute] bool accepted)
+        {
+            await _workFlowService.AcceptPublicationAsync(publicationId, accepted, GetSession().Username);
             return Ok();
         }
     }

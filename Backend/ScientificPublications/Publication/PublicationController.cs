@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
 using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
-using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.DataAccess.Model;
@@ -21,7 +20,6 @@ namespace ScientificPublications.Publication
     public class PublicationController : AbstractController
     {
         private readonly IPublicationService _publicationService;
-
         private readonly IMapper _mapper;
 
         public PublicationController(
@@ -50,7 +48,9 @@ namespace ScientificPublications.Publication
 
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
+
             await _publicationService.InsertAsync(fileContent);
+            await _publicationService.SendAuthorUploadPublicationMail(GetSession().Username, fileContent);
 
             return Ok();
         }
@@ -103,7 +103,7 @@ namespace ScientificPublications.Publication
             // TODO: 1. reviewer case: verify in workflow if reviewer is assigned for that publication
             //       2. author case: verify if author owns publication with given id
             //       3. add mail notifications
-            await _publicationService.UpdateStatusWithValidationAsync(publicationId, nextStatus, GetSession().Role);
+            await _publicationService.UpdateStatusWithValidationAndEmailNotificationAsync(publicationId, nextStatus, GetSession().Role);
 
             return Ok();
         }
@@ -117,17 +117,12 @@ namespace ScientificPublications.Publication
             return Ok(lowerNames);
         }
 
-        [HttpPut("accept/{publicationId}/{accepted}")]
-        [AuthorizationFilter(Role.Reviewer)]
-        public async Task<IActionResult> AcceptPublicationAsync([FromRoute] string publicationId, [FromRoute] bool accepted)
+        [HttpGet("reviewer")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> GetReviewerPublications([FromQuery] bool shortForm)
         {
-            var status = await _publicationService.GetStatusAsync(publicationId);
-            if (status != PublicationStatus.ASSIGNED)
-            {
-                throw new ValidationException("Invalid status");
-            }
-
-            return Ok();
+            var publications = await _publicationService.FindByReviewerAsync(GetSession().Username);
+            return PublicationsResponse(publications, shortForm);
         }
 
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)

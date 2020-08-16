@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+    <to></to>
+    <subject>Your publication is denied</subject>
+    <body isHtml="false">
+        Hello {0},
+        
+        Bad news, your publication '{1}' is denied.
+        It does not meet our publication criteria.
+        
+        Best regards,
+        Tech Giant
+    </body>
+</mail>

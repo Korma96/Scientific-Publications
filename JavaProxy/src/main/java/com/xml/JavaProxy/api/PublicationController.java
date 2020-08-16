@@ -97,7 +97,7 @@ public class PublicationController {
         return ResponseUtility.Ok(publications);
     }
 
-    @RequestMapping(value = "/reviewer-assigned-publications/{reviewer}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/reviewer-assigned-publications/{reviewer}", method = RequestMethod.GET)
     public ResponseEntity<String> findAllByReviewer(@PathVariable("reviewer") String reviewerUsername) throws Exception{
         String publications = publicationRepository.findAllByReviewer(reviewerUsername);
         return ResponseUtility.Ok(publications);

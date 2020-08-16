@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+    <to></to>
+    <subject>Should revise publication</subject>
+    <body isHtml="false">
+        Hello {0},
+        
+        Your publication '{1}' should be revised.
+		Login to your account to see details.
+        
+        Best regards,
+        Tech Giant
+    </body>
+</mail>

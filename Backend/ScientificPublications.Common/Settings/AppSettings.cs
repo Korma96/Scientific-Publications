@@ -9,5 +9,7 @@
         public JwtSettings Jwt { get; set; }
 
         public string DbProxyUrl { get; set; }
+
+        public string EditorUsername { get; set; }
     }
 }

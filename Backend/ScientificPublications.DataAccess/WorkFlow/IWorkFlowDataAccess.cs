@@ -8,5 +8,9 @@ namespace ScientificPublications.DataAccess.WorkFlow
         Task InsertAsync(workflow workFlow);
 
         Task<workflow> FindByPublicationIdAsync(string publicationId);
+
+        Task<WorkFlows> FindByReviewerAsync(string username);
+
+        Task DeleteAsync(string publicationId);
     }
 }

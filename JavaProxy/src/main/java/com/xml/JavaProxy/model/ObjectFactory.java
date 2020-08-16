@@ -45,4 +45,12 @@ public class ObjectFactory {
         return new Workflow.Reviewers();
     }
 
+    /**
+     * Create an instance of {@link Workflow.Reviewers.Reviewer }
+     * 
+     */
+    public Workflow.Reviewers.Reviewer createWorkflowReviewersReviewer() {
+        return new Workflow.Reviewers.Reviewer();
+    }
+
 }
