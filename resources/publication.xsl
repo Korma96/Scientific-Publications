@@ -36,10 +36,10 @@
                         <i>
                             <xsl:value-of select="p1:university" />
                         </i>
-                        <br /><br />
+                        <br/><br/>
                     </xsl:for-each>
                 </p>
-                <br /> <br /><br/>
+                <br/><br/><br/>
                 
                 <p  style="text-align: center; font-size: 20px;"><b>Abstract</b></p>
                 <p>
@@ -63,7 +63,7 @@
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:conclusions" />
                 </p>
-                <br /> <br /><br/>
+                <br/> <br/><br/>
                 
                 <b style="font-size: 20px;"> Keywords</b>
                 <p style="font-weight:bold; font-style:italic;">
@@ -71,7 +71,6 @@
                         select="p1:publication/p1:keywords" />
                     <br /><br/><br/>
                 </p>
-                
                 <p style="text-align: center; font-weight: normal;">
                     <xsl:for-each select="p1:publication/p1:section">
                         <i>
@@ -82,7 +81,6 @@
                             <xsl:value-of select="p1:content/p1:imageContent/about" />
                             <br /> <br />
                             <xsl:for-each select="p1:subsection">
-                                
                                 <p>
                                     <p  style="text-align: center; font-size: 14px;"><b><xsl:value-of select="p1:heading" /></b></p>
                                     <br /><br />
@@ -97,11 +95,8 @@
                             </xsl:for-each>
                         </i>
                         <br /><br /><br />
-                        
                     </xsl:for-each>
                 </p>
-                
-                
                 <p style="text-align: center; font-size: 20px;"> <b>Bibliography</b></p>
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <xsl:for-each select="p1:publication/p1:bibliography/p1:reference">
@@ -112,7 +107,6 @@
                         </li>
                     </xsl:for-each>
                 </ul>
-                
             </body>
         </html>
     </xsl:template>
