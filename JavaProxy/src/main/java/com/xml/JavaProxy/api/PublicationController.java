@@ -23,7 +23,6 @@ public class PublicationController {
     @Autowired
     private PublicationRepository publicationRepository;
 
-    @Autowired
     PdfUtil pdfUtil;
 
     private final String publicationXsdPath = "C:\\Users\\Vuk\\Desktop\\Faks\\7_semestar\\Xml i web servisi\\Projekat\\resources\\publication.xsd";
@@ -107,6 +106,14 @@ public class PublicationController {
     public ResponseEntity<String> findAllByReviewer(@PathVariable("reviewer") String reviewerUsername) throws Exception{
         String publications = publicationRepository.findAllByReviewer(reviewerUsername);
         return ResponseUtility.Ok(publications);
+    }
 
+    @GetMapping(value = "/getByIdPDF/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<ByteArrayResource> getPDF(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<>(
+                new ByteArrayResource(IOUtils.toByteArray(PdfUtil
+                        .toPdf(publication, publicationXslPath, publicationXsdPath).getInputStream())),
+                HttpStatus.OK);
     }
 }
