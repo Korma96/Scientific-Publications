@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -7,6 +8,7 @@ using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
+using ScientificPublications.DataAccess.Model;
 using ScientificPublications.Service.Publication;
 using System;
 using System.Collections.Generic;
@@ -57,12 +59,23 @@ namespace ScientificPublications.Publication
         public async Task<IActionResult> FindByAuthor([FromQuery] bool shortForm)
         {
             var publications = await _publicationService.FindByAuthorAsync(GetSession().Username);
-            if (shortForm)
-            {
-                var publicationDtos = _mapper.Map<List<PublicationDto>>(publications.PublicationList);
-                return Ok(publicationDtos);
-            }
-            return Ok(ToXml(publications));
+            return PublicationsResponse(publications, shortForm);
+        }
+
+        [HttpGet("search/published/{searchQuery}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> FindBySearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.FindBySearchQueryAsync(searchQuery);
+            return PublicationsResponse(publications, shortForm);
+        }
+
+        [HttpGet("search/my/{searchQuery}")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> FindMyBySearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.FindMyBySearchQueryAsync(GetSession().Username, searchQuery);
+            return PublicationsResponse(publications, shortForm);
         }
 
         [HttpGet("status/{status}")]
@@ -73,12 +86,7 @@ namespace ScientificPublications.Publication
                 return BadRequest(Constants.ExceptionMessages.EmptyValue);
 
             var publications = await _publicationService.FindByStatusAsync(status);
-            if (shortForm)
-            {
-                var publicationDtos = _mapper.Map<List<PublicationDto>>(publications.PublicationList);
-                return Ok(publicationDtos);
-            }
-            return Ok(ToXml(publications));
+            return PublicationsResponse(publications, shortForm);
         }
 
         [HttpPut("{nextStatus}/{publicationId}")]
@@ -106,6 +114,16 @@ namespace ScientificPublications.Publication
             var names = Enum.GetNames(typeof(PublicationStatus));
             var lowerNames = names.Select(x => x.ToLower()).ToList();
             return Ok(lowerNames);
+        }
+
+        private IActionResult PublicationsResponse(Publications publications, bool shortForm)
+        {
+            if (shortForm)
+            {
+                var publicationDtos = _mapper.Map<List<PublicationDto>>(publications.PublicationList);
+                return Ok(publicationDtos);
+            }
+            return Ok(ToXml(publications));
         }
     }
 }
