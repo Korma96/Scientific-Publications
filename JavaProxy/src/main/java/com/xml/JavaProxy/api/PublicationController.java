@@ -15,6 +15,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 @RestController
 @RequestMapping(value = "/publication")
@@ -25,8 +28,8 @@ public class PublicationController {
 
     PdfUtil pdfUtil;
 
-    private final String publicationXsdPath = "C:\\Users\\Vuk\\Desktop\\Faks\\7_semestar\\Xml i web servisi\\Projekat\\resources\\publication.xsd";
-    private final String publicationXslPath = "C:\\Users\\Vuk\\Desktop\\Faks\\7_semestar\\Xml i web servisi\\Projekat\\resources\\publication.xsl";
+    private final String publicationXsdPath = "src\\main\\resources\\xsd\\publication.xsd";
+    private final String publicationXslPath = "src\\main\\resources\\xsl\\publication.xsl";
 
     @Autowired
     public PublicationController(PublicationRepository publicationRepository) {
