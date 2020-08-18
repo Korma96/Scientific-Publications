@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mail xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
     <to></to>
     <subject>Publication revised</subject>
     <body isHtml="false">

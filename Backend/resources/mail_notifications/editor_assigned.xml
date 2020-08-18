@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
     <to></to>
-    <subject>Reviewer denied publication</subject>
+    <subject>Editor assigned publication</subject>
     <body isHtml="false">
-        Hello {0},
+        Hello,
         
-        Publication {1} is denied by reviewer {2}.
+        Editor assigned publication to you.
         
         Best regards,
         Tech Giant

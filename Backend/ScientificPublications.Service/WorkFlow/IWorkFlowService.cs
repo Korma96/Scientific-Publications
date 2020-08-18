@@ -16,5 +16,7 @@ namespace ScientificPublications.Service.WorkFlow
         Task AcceptPublicationAsync(string publicationId, bool accepted, string reviewerUsername);
 
         Task<List<ReviewerPublicationDto>> GetByReviewerAsync(string username);
+
+        Task SendEmailToReviewersAsync(workflow workflow);
     }
 }

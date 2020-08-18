@@ -147,5 +147,18 @@ namespace ScientificPublications.Service.WorkFlow
             emailData.Body = string.Format(emailData.Body, editorName, publicationTitle, reviewerName);
             await _emailService.SendEmailAsync(emailData);
         }
+
+        public async Task SendEmailToReviewersAsync(workflow workflow)
+        {
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.EditorAssigned);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
+            var reviewers = new List<DataAccess.Model.User>();
+            foreach (var reviewer in workflow.reviewers)
+            {
+                reviewers.Add(await _userService.FindByUsernameAsync(reviewer.username));
+            }
+            var to = reviewers.Select(r => r.Email).ToArray();
+            await _emailService.SendEmailAsync(emailData.Subject, emailData.Body, to);
+        }
     }
 }

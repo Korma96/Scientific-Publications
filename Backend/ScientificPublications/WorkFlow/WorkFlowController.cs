@@ -65,6 +65,7 @@ namespace ScientificPublications.WorkFlow
 
             await _publicationService.UpdateStatusAsync(workFlow.publicationId, PublicationStatus.ASSIGNED);
             await _workFlowService.InsertAsync(workFlow);
+            await _workFlowService.SendEmailToReviewersAsync(workFlow);
             return Ok();
         }
 

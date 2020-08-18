@@ -22,6 +22,8 @@
 
         public string ReviewerAccepted { get; set; }
 
+        public string EditorAssigned { get; set; }
+
         public string ReviewersDenied { get; set; }
 
         public string PublicationXsd { get; set; }

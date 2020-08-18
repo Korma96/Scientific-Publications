@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://ftn.uns.ac.rs/xml2019/coverletter"
-           xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
+           targetNamespace="http://ftn.uns.ac.rs/xml2019/notification"
+           xmlns="http://ftn.uns.ac.rs/xml2019/notification">
     <xs:element name="mail">
         <xs:complexType>
             <xs:sequence>

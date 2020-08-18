@@ -149,7 +149,7 @@ namespace ScientificPublications.Service.Publication
             var author = await _userService.FindByUsernameAsync(authorUsername);
             var publication = XmlUtility.Deserialize<publication>(publicationContent);
 
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.ReviewerAccepted);
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.AuthorUploadedMail);
             var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
             emailData.To = editor.Email;
             emailData.Body = string.Format(emailData.Body, editor.Name, publication.title, author.Name);

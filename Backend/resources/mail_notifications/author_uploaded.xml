@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mail xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
-    <to>{0}</to>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
+    <to></to>
     <subject>Author submited publication</subject>
     <body isHtml="false">
-        Hello {1},
+        Hello {0},
         
-        Publication {2} is submited by author {3}.
+        Publication {1} is submited by author {2}.
         
         Best regards,
         Tech Giant
