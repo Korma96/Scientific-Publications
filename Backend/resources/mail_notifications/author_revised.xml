@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mail>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
+    <to></to>
     <subject>Your publication is accepted</subject>
     <body isHtml="false">
         Hello {0},
         
-        Good news, your publication '{1}' is accepted.
-        It will be sent to the press and will be published in the new issue of the journal.
+        Publication '{1}' is revised and is ready for review.
         
         Best regards,
         Tech Giant

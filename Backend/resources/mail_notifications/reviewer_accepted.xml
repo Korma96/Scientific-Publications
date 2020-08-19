@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
+    <to></to>
+    <subject>Reviewer accepted publication</subject>
+    <body isHtml="false">
+        Hello {0},
+        
+        Publication {1} is accepted by reviewer {2}.
+        
+        Best regards,
+        Tech Giant
+    </body>
+</mail>

@@ -1,14 +1,18 @@
-﻿using System.Xml.Serialization;
+﻿using ScientificPublications.Common;
+using System.Xml.Serialization;
 
 namespace ScientificPublications.Service.Email
 {
-    [XmlRoot("mail")]
+    [XmlRoot("mail", Namespace = Constants.Namespaces.Notification)]
     public class EmailEntity
     {
-        [XmlElement("subject")]
+        [XmlElement("to", Namespace = Constants.Namespaces.Notification)]
+        public string To { get; set; }
+
+        [XmlElement("subject", Namespace = Constants.Namespaces.Notification)]
         public string Subject { get; set; }
 
-        [XmlElement("body")]
+        [XmlElement("body", Namespace = Constants.Namespaces.Notification)]
         public string Body { get; set; }
     }
 }

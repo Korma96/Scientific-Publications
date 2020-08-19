@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Models;
 using ScientificPublications.DataAccess.Model;
 using ScientificPublications.Publication;
@@ -18,7 +19,13 @@ namespace ScientificPublications.Application
                 .ForMember(dst => dst.Status, opt => opt.MapFrom(src => src.header.status))
                 .ForMember(dst => dst.Title, opt => opt.MapFrom(src => src.title))
                 .ForMember(dst => dst.Authors, opt => opt.MapFrom(src => src.authors.Select(a => a.username).ToList()));
-            CreateMap<WorkFlowDto, workflow>();
+            CreateMap<WorkFlowDto, workflow>()
+                .ForMember(dst => dst.reviewers, opt => opt.MapFrom(src => src.reviewers.Select(r =>
+                    new workflowReviewer
+                    {
+                        username = r,
+                        status = ReviewerStatus.PENDING.ToString().ToLower()
+                    }).ToArray()));
         }
     }
 }

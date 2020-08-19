@@ -20,7 +20,6 @@ namespace ScientificPublications.Publication
     public class PublicationController : AbstractController
     {
         private readonly IPublicationService _publicationService;
-
         private readonly IMapper _mapper;
 
         public PublicationController(
@@ -49,7 +48,9 @@ namespace ScientificPublications.Publication
 
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
+
             await _publicationService.InsertAsync(fileContent);
+            await _publicationService.SendAuthorUploadPublicationMail(GetSession().Username, fileContent);
 
             return Ok();
         }
@@ -102,7 +103,7 @@ namespace ScientificPublications.Publication
             // TODO: 1. reviewer case: verify in workflow if reviewer is assigned for that publication
             //       2. author case: verify if author owns publication with given id
             //       3. add mail notifications
-            await _publicationService.UpdateStatusWithValidationAsync(publicationId, nextStatus, GetSession().Role);
+            await _publicationService.UpdateStatusWithValidationAndEmailNotificationAsync(publicationId, nextStatus, GetSession().Role);
 
             return Ok();
         }
@@ -114,6 +115,14 @@ namespace ScientificPublications.Publication
             var names = Enum.GetNames(typeof(PublicationStatus));
             var lowerNames = names.Select(x => x.ToLower()).ToList();
             return Ok(lowerNames);
+        }
+
+        [HttpGet("reviewer")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> GetReviewerPublications([FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.FindByReviewerAsync(GetSession().Username);
+            return PublicationsResponse(publications, shortForm);
         }
 
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)

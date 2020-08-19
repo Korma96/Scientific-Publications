@@ -21,6 +21,8 @@ public class PublicationRepository extends BaseRepository {
 	private String textSearchPublished = "xqueries/text_search_published.xqy";
     private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
     private String findPublicationByReviewerXQuery = "xqueries/publication/find_publications_by_reviewer.xqy";
+    //private String findPublicationIdsByReviewerXQuery = "xqueries/publication/find_publication_ids_by_reviewer.xqy";
+
 
 
     public String findByAuthor(String author) throws Exception {
