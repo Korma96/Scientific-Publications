@@ -14,6 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 @RestController
 @RequestMapping(value = "/publication")
@@ -21,6 +24,11 @@ public class PublicationController {
 
     @Autowired
     private PublicationRepository publicationRepository;
+
+    PdfUtil pdfUtil;
+    
+    private final String publicationXsdPath = "src\\main\\resources\\xsd\\publication.xsd";
+    private final String publicationXslPath = "src\\main\\resources\\xsl\\publication.xsl";
 
     @Autowired
     public PublicationController(PublicationRepository publicationRepository) {
@@ -101,6 +109,14 @@ public class PublicationController {
     public ResponseEntity<String> findAllByReviewer(@PathVariable("reviewer") String reviewerUsername) throws Exception{
         String publications = publicationRepository.findAllByReviewer(reviewerUsername);
         return ResponseUtility.Ok(publications);
+    }
 
+    @GetMapping(value = "/getByIdPDF/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<ByteArrayResource> getPDF(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<>(
+                new ByteArrayResource(IOUtils.toByteArray(PdfUtil
+                        .toPdf(publication, publicationXslPath, publicationXsdPath).getInputStream())),
+                HttpStatus.OK);
     }
 }
