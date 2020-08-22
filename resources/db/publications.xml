@@ -1,119 +1,283 @@
-<?xml version="1.0" encoding="utf-8"?>
-<publications>
- <p1:publication p1:id="id1" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" xmlns="http://ftn.uns.ac.rs/xml2019/publication">
+<p1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" p1:id="123">
   <p1:header>
-    <p1:publicationDate>1900-01-01</p1:publicationDate>
-    <p1:revisionNumber>revisionNumber1</p1:revisionNumber>
+    <p1:publicationDate>2020-10-08</p1:publicationDate>
+    <p1:revisionNumber>1/1</p1:revisionNumber>
     <p1:status>status1</p1:status>
   </p1:header>
-  <p1:title>title1</p1:title>
+  <p1:title>XML And MicroServices</p1:title>
   <p1:authors>
-    <p1:author username="author1">
-      <p1:name>name1</p1:name>
-      <p1:university>university1</p1:university>
+    <p1:author username="vukbarisic">
+      <p1:name>Vuk Barisic</p1:name>
+      <p1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</p1:university>
+    </p1:author>
+    <p1:author username="markoradovic">
+      <p1:name>Marko Radovic</p1:name>
+      <p1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</p1:university>
     </p1:author>
   </p1:authors>
   <p1:abstract>
-    <p1:purpose>purpose1</p1:purpose>
-    <p1:problem>problem1</p1:problem>
-    <p1:method>method1</p1:method>
-    <p1:results>results1</p1:results>
-    <p1:conclusions>conclusions1</p1:conclusions>
+    <p1:purpose>Understanding problematics of current subject,Understanding problematics of current subject, Understanding problematics of current subject,Understanding problematics of current subject,</p1:purpose>
+    <p1:problem>How to create dependable and secure xml publications system</p1:problem>
+    <p1:method>Java and C# with possible angular on backend and exist database</p1:method>
+    <p1:results>Results will be available at the end, we're in the middle of this paper</p1:results>
+    <p1:conclusions>Conclusions will also be available later</p1:conclusions>
   </p1:abstract>
-  <p1:keywords>keywords1</p1:keywords>
-  <p1:section p1:id="id1">
-    <p1:heading>heading1</p1:heading>
+  <p1:keywords>XML, Web, Publication, Reviewer, Editor</p1:keywords>
+  <p1:section p1:id="section1">
+    <p1:heading>Introduction</p1:heading>
     <p1:content>
       <p1:imageContent>
         <p1:image>image1</p1:image>
         <p1:about>about1</p1:about>
       </p1:imageContent>
     </p1:content>
-    <p1:comment>comment1</p1:comment>
-  </p1:section>
-  <p1:section p1:id="id2">
-    <p1:heading>heading2</p1:heading>
     <p1:content>
-      <p1:imageContent>
-        <p1:image>image2</p1:image>
-        <p1:about>about2</p1:about>
-      </p1:imageContent>
+      <p1:text>
+        Velikim razvitkom kompjutera i softvera u poslednjih
+        nekoliko decenija stvoreno je sasvim novo tržište i prostor za
+        inovativne i mlade ljude. Nastao je prostor da svoje ideje
+        pretvore u nešto konkretno, i da iskoriste svoja znanja i viziju u
+        oblikovanju informacione revolucuje posredstvom startapa.
+        Neke od tih mladih ljudi sada znamo kao osnivače jednih od
+        najvećih svetskih kompanija kao što su “Google”, “Microsoft”
+        i mnogi drugi. Međutim u današnje vreme kada su temelji
+        postavljeni i gde je revolucija izvršena, startapi sve manje
+        imaju prostora da budu revolucionog karaktera. To ne menja
+        činjenicu da su izuzetno značajni za razvitak uspostavljenog,
+        kako ekonomskog tako i inforamacionog sveta.
+        U surovom kapitalističkom svetu u kojem danas
+        živimo, ljudi traže načine da se oslobode rada za druge i
+        ostvarivanja tuđih snova. Isto tako svesni novca koji je u
+        opticaju, ne žele da rade za platu koja je nije srazmerna poslu
+        koji odrade, tj. vrednosti njihovog rada. To su neki od razloga
+        zbog kojih ljudi žele da pokrenu sopstvene kompanije, ali naravno postoje određeni problemi i prepreke koje nije lako
+        prevazići i nije dovoljna samo želja.
+        Startapi su male kompanije kojima je cilj brz rast, ali koga
+        prati i velika neizvesnost. Startap istražuje nove poslovne
+        mogućnosti, radi na rešavanju problema gde rešenje nije dobro
+        poznato ili ga nema i gde je tržište vrlo nestabilno. Oni se
+        smatraju jednim od ključnih pokretača ekonomskog rasta [1]
+        [2]. Ono što je veoma zabrinjavajući faktor je izuzetno visoka
+        stopa neuspelih pokušaja. Ovo pokazuje da su startapi veoma
+        izazovna avantura u koju treba ulaziti pripremljen i svestan svih
+        rizika, mana, ali i prednosti. To je naročito tačno za softverske
+        startape, koji su jedni od najpopularnijih vrsta startapa i koji če
+        rad analizirati.
+        Kada se pomene startap, prva pomisao je uglavnom na
+        softverske startape, iako oni naravno nisu jedina oblast
+        delovanja startapa. Međutim, zbog velikog uspeha startapa koji
+        su se bavili upravo softverom, među kojima su i gore pomenute
+        kompanije, ova oblast je postala sinonim za startap. Od garaže i
+        kompjutera do multimilionerske kompanije je naizgled kratak
+        put. Zato će rad nastojati na tome da prikaže realnu sliku, u
+        kojoj nije sve “med i mleko”, ali koja svakako ima potencijal da
+        to postane.
+        U poglavlju II ćemo se fokusirati na početnu ideju. Kako
+        na njen značaj, tako i na značaj njene potvrde, odnosno
+        dobijanja kritika na ideju. U poglavlju III će biti reči o načinima
+        finansiranja startapa, kako o samofinansiranju, tako i o
+        različitim fondovima i investitorima. U IV poglavlju pažnju
+        posvećujemo samoj izradi softvera, odnosno svim fazama
+        izrade. V poglavlje je rezervisano za statistiku startapa, procente
+        uspešnosti, zastupljenosti po industrijama… VI poglavlje
+        predstavlja diskusiju o važnosti biznis plana i kada ga treba
+        napraviti. VII poglavlje se sastoji od opštih saveta za pokretanje
+        uspešnog startapa.
+      </p1:text>
     </p1:content>
-    <p1:comment>comment2</p1:comment>
+  </p1:section>
+  <p1:section p1:id="section2">
+    <p1:heading>POČETNA IDEJA I NJENA POTVRDA</p1:heading>
+    <p1:content>
+      <p1:text>
+        Dobra ideja je osnova uspešnog startapa, nije dovoljna
+        za uspeh, ali je neophodna. Međutim, na prvu loptu mnoge ideje
+        se učine mnogo boljim nego što zaista jesu, jer nismo u stanju
+        sagledati sve faktore koji utiču na njenu ostvarivost. To je
+        upravo česta zamka u koju upadaju osnivači – imaju dovoljno
+        samopouzdanja da pokrenu kompaniju i dovoljno sujete da ne
+        mogu kritički da sagledaju svoje zamisli [3].
+        Na početku je najvažnije identifikovti problem za koji se
+        isplati smišljati rešenje (ideju). Taj problem može biti neki za 
+        koji već postoje različita rešenja, ali mi vidimo način na koji
+        možemo ponuditi neko novo, kvalitetnije rešenje ili problem
+        koji još nije dobio svoje rešenje. Ali pre nego što pretvorite
+        svoje rešenje u posao želite da na raspolaganju imate dovoljno
+        dokaza koji ukazuju na to da li će ljudi kupiti vaš koncept i
+        biće spremni da potrošite novac na vaše rešenje. Da li je vaša
+        ideja realna? Da li će uspeti na postojećem tržištu? Iako ne
+        postoji način da se garantuje uspeh novog biznisa, postoje
+        stvari koje možete učiniti, koe ukazuju na komercijalnu snagu
+        vaše ideje. Bitno je zapamititi, da je lakše izgraditi posao oko
+        tražnje, nego tražiti
+        posao. Bez potencijalnih kupaca, vaša vizija neće značiti
+        puno. Zato je veoma bitno validiranje tj. potvrđivanje vaše
+        ideje.
+        Potvrđivanje vaše ideje trebalo bi da vam omogući
+        relaativnu sigurnost (nikad nećete imati potpunu sigurnost) da
+        će vaše potencijalno poslovanje privući kupce koji su spremni
+        da potroše novac na vašu ideju i osigurati da ne investirate u
+        nešto što niko neće kupiti. Postoji mnogo načina da potvrdite
+        svoju ideju. Često će preduzetnici dobiti povratne informacije
+        od porodice i prijatelja, kojima se iskreno može svideti ideja i
+        veruju u njenu isplativost, ali su suviše bliski da bi vam pružili
+        racionalna mišljenja koja su vam preko potrebna. Poželjno je
+        ispitivati ljude sa kojima niste povezani ni na koji način, jer
+        njima neće predstavljati problem da iskreno komentarišu vašu
+        ideju. Na kraju krajeva, ono što tražite, je ono što će vam
+        najviše koristiti - brutalno iskrene odgovore, samim tim stvaran
+        uvid u situaciju.
+        Postavlja se pitanje šta vam je sve potrebno za
+        potvrđivanje ideje. Prvo, trebalo bi da identifikujete ciljnog
+        kupca. Razmislite koja vrsta osobe će biti zainteresovana za
+        kupovinu vaših proizvoda ili usluga? Koji su njihovi ciljevi,
+        potrebe i želje? Ne samo da treba stvoriti profil potencijalnih kupaca, već bi trebalo da razgovarate sa stvarnim ljudima koji
+        odgovaraju profilu vaše osobe i proverite svoj koncept. Pitajte
+        se, da li vaša ideja rešava njihove probleme? Da li se bavi
+        njihovim željama i težnjama? Zatim ubacite novac u razgovor,
+        tako što će te pitati svog ciljnog kupca, koliko bi bili voljni da
+        plate.
+        Ljudi se svakodnevno suočavaju sa raznim
+        problemima, ali vaša ideja treba da bue rešenje na neki od njima
+        najbitnijih problema. Trebali biste takođe temeljno istražiti svoj
+        koncept, da li je to učinjeno ranije? Ako ne, zašto ne? Da li je
+        pokušano ranije i neuspešno? Ako nije zašto nije? Dobro
+        iskoristite privilegiju učenja na greškama svojih prethodnika, jer
+        bolje od učenja na svojim, je jedino učenje na tuđim greškama.
+        Iako ćete se najverovatnije fokusirate na druge,
+        uzbudljivije aspekte pokretanja vašeg startapa, potvrđivanje
+        vaše poslovne ideje je neophodno za uspeh. Ono će vama
+        pružiti neohodnu sigurnost, kako vama tako i potencijalnim
+        investitorima, da je vaša ideja vredna uloženog vremena, napora
+        i novca [4].
+      </p1:text>
+    </p1:content>
   </p1:section>
   <p1:section p1:id="id3">
-    <p1:heading>heading3</p1:heading>
+    <p1:heading>POČETNA FINANSIJSKA PODRŠKA </p1:heading>
     <p1:content>
-      <p1:imageContent>
-        <p1:image>image3</p1:image>
-        <p1:about>about3</p1:about>
-      </p1:imageContent>
+      <p1:text>
+        Ako mi sami ili tim ljudi koji smo okupili nema
+        dovoljno novca za pokretanje startapa, jedino što vam preostaje
+        je da zatražite finansijsku pomoć (podršku) od nekog ko ima i
+        ko je voljan da vas podrži. Osim članova vaše porodice,
+        naravno ukoliko su u mogućnosti, teško da bi neko drugi tek
+        tako odlučio da nas finansijski podrži. Kakva je raspodela
+        samofinansiranja, možemo videti na slici1. Terminologija sa
+        slike: Borrowed from family and friends – pozajmica od strane
+        porodice i prijatelja Family business – porodićni biznis, Own
+        savings – ušteđevina
+      </p1:text>
     </p1:content>
+    <p1:subsection>
+      <p1:heading>Anđeli investitori </p1:heading>
+      <p1:content>
+        <p1:text>
+          Reč je o uspešnim ljudima koji žele da investiraju u
+          perspektivne projekte u zamenu za udeo u vlasništvu
+          kompanije. Anđeli investitori često vole da se angažuju na
+          projektima u koje ulažu.
+          Vaš anđeo investitor može da traži desetak posto udela u
+          kompaniji, ali se može desiti da postane i ravnopravni
+          koosnivač. U svakom slučaju, svako ko vam daje novac za
+          kompaniju postaje i neko kome morate odgovarati. Uostalom,
+          od zadovoljstva vašeg investitora zavisi hoćete li dobiti još
+          novca i dodatnu podršku ako zatreba. Još bitnije, anđeli
+          investitori nude i svoje iskustvo, znanje, kontakte, te mentore
+          koji će vam pomoći kada je reč o pravnim pitanjima, prodaji
+          vašeg proizvoda, birokratiji i svim drugim glavnim i pratećim
+          neophodnim elementima koje se tičun na razvoj uspešnog
+          startapa. Na kraju, bitno je reći i da se anđeli investitori često
+          udružuju u grupe kako bi sredstva stavili u isti fond, jer je to
+          najbolji način da podele rizike.
+        </p1:text>
+      </p1:content>
+    </p1:subsection>
+    <p1:subsection>
+      <p1:heading>Seed fondovi i akceleratori </p1:heading>
+      <p1:content>
+        <p1:text>
+          Seed (engl. seed) akceleratori su vrsta poslovnih
+          inkubatora. Program nekog seed akceleratora obično
+          podrazumeva trajanje od 3 meseca, investicija dovoljna za
+          pokretanje biznisa. Nakon 3 meseca, inkubatori prave
+          kontrolnu tačku u kojoj hoće da provere napredovanje startapa,
+          i da vide vredi li jos ulagati u njih. Pored finansijske pomoći,
+          inkubatori obicno dozvoljavaju startapima da koriste njihove
+          kancelarije, nude i znanje i povezivanje sa ljudima iz industrije
+          te ujedno predstavljaju najbolji način da naučite kako se stvara
+          i vodi startap, dok upravo to i radite. Kad razviju biznis, za
+          uzvrat startapi daju inkubatorima udeo od najčešće 6-12
+          procenata.
+          Najpoznatiji i najuspešniji takav akcelerator je “Y
+          Combinator”. Prema podacima njegovog koosnivača Džejmsa
+          Grahama prosečna procenjena vrednost startapa iz Y
+          Combinatora je 22.4 miliona dolara. Najuspešniji startap ovog
+          inkubatora je “Dropbox”, čija se vrednost danas procenjuje da
+          iznosi negde između pet i deset milijardi dolara.
+        </p1:text>
+      </p1:content>
+    </p1:subsection>
+    <p1:subsection>
+      <p1:heading> Venture kapital fondovi</p1:heading>
+      <p1:content>
+        <p1:text>
+          Venture kapital je finansiranje koje investitori pružaju
+          startap preduzećima za koja veruju da imaju dugoročni
+          potencijal rasta tj. velike nagrade za početno ulaganje. Ono
+          obično dolazi od uspešnih investitora, investicionih banaka i
+          drugih finansijskih institucija. Međutim, nije da samo pružaju
+          podršku u vidu novčanog ulaganja, već se mogu ponuditi u vidu
+          tehničke ili menadžerske ekspertize.
+          Fondovi za ulaganje venture kapitala su pogodniji za već
+          koliko-toliko izgrađene startape. Venture kapital fondovi ulažu
+          mnogo više novca u odnosu na anđele investitore i startap
+          inkubatore, ali zato znaju da zauzvrat traže srazmerno veći
+          procenat vlasništva, a shodno tome se i više mešaju u pravljenje
+          biznis plana startapa. Oni raspolažu velikim novcem i neće
+          žaliti da ulože u vaš startap ako procene da biste u budućnosti
+          mogli izrasti u veliku kompaniju koja će im mnogostruko vratiti
+          uložena sredstva.
+          Prvi korak za bilo koji startap koji želi venture kapital je
+          podnošenje poslovnog plana, bilo da podršku traži od ovakve
+          vrste fonda ili od anđela investitora. Ukoliko su zainteresovani,
+          fond postupa izuzetno ozbiljno i podrobno će istražiti vaše
+          poslovanje, upravljanje i istoriju startapa u koji su se odlučili
+          uložiti novac.
+          S obzirom da venture kapital teži da investira veće iznose
+          u manje kompanija, ovo istraživanje je za njih veoma važno.
+          Mnogi venture kapital investitori su imali prethodno iskustvo
+          ulaganja. Investitori venture kapitala takođe se često
+          specijalizuju za posebnu industriju. Investitor koji se
+          specijalizovao za zdravstvenu zaštitu, na primer, možda je imao
+          ranije iskustvo kao analitičar zdravstvene industrije. Kada
+          završe sve faze provera i potvrda, ponudiće ulaganje kapitala u
+          zamenu za udeo u preduzeću. Ova sredstva mogu se obezbediti
+          odjednom, ali tipičnije je da je priliv kapitala raspoređen u
+          rundama. Fond zatim preuzima aktivnu ulogu u finansiranoj
+          kompaniji, savetuje i nadgleda njen napredak pređe u narednu
+          rundu finansiranja. Fond izlazi iz kompanije nakon određenog
+          vremenskog perioda, obično četiri do šest godina nakon početne
+          investicije [6].
+        </p1:text>
+      </p1:content>
+      <p1:content>
+        <p1:imageContent>
+          <p1:image>image2</p1:image>
+          <p1:about>about2</p1:about>
+        </p1:imageContent>
+      </p1:content>
+    </p1:subsection>
     <p1:comment>comment3</p1:comment>
   </p1:section>
   <p1:bibliography>
-    <p1:reference p1:refId="anySimpleType">reference1</p1:reference>
-    <p1:reference p1:refId="anySimpleType">reference2</p1:reference>
-    <p1:reference p1:refId="anySimpleType">reference3</p1:reference>
+    <p1:reference p1:refId="section2">http://startit.rs/media/prirucnik_startap_akademija1.pdf startit kompanija, 2017.</p1:reference>
+    <p1:reference p1:refId="section1"> Dishman, L.: The state of the american entrepreneur in
+      2015. http://www.fastcompany.com/3046773/hit-the-groundrunning/the-state-of-the-american-entrepreneur-in-2015.
+      Accessed 15 Oct 2015</p1:reference>
+    <p1:reference p1:refId="id3">Salamzadeh, A. and Kawamorita Kesim, H., 2015.
+      Startup Companies: Life Cycle and Challenges.
+    </p1:reference>
   </p1:bibliography>
   <p1:comment>comment1</p1:comment>
 </p1:publication>
- <p1:publication p1:id="id2" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" xmlns="http://ftn.uns.ac.rs/xml2019/publication">
-  <p1:header>
-    <p1:publicationDate>1900-01-01</p1:publicationDate>
-    <p1:revisionNumber>revisionNumber1</p1:revisionNumber>
-    <p1:status>status1</p1:status>
-  </p1:header>
-  <p1:title>title2</p1:title>
-  <p1:authors>
-    <p1:author username="author2">
-      <p1:name>name1</p1:name>
-      <p1:university>university1</p1:university>
-    </p1:author>
-  </p1:authors>
-  <p1:abstract>
-    <p1:purpose>purpose1</p1:purpose>
-    <p1:problem>problem1</p1:problem>
-    <p1:method>method1</p1:method>
-    <p1:results>results1</p1:results>
-    <p1:conclusions>conclusions1</p1:conclusions>
-  </p1:abstract>
-  <p1:keywords>keywords1</p1:keywords>
-  <p1:section p1:id="id1">
-    <p1:heading>heading1</p1:heading>
-    <p1:content>
-      <p1:imageContent>
-        <p1:image>image1</p1:image>
-        <p1:about>about1</p1:about>
-      </p1:imageContent>
-    </p1:content>
-    <p1:comment>comment1</p1:comment>
-  </p1:section>
-  <p1:section p1:id="id2">
-    <p1:heading>heading2</p1:heading>
-    <p1:content>
-      <p1:imageContent>
-        <p1:image>image2</p1:image>
-        <p1:about>about2</p1:about>
-      </p1:imageContent>
-    </p1:content>
-    <p1:comment>comment2</p1:comment>
-  </p1:section>
-  <p1:section p1:id="id3">
-    <p1:heading>heading3</p1:heading>
-    <p1:content>
-      <p1:imageContent>
-        <p1:image>image3</p1:image>
-        <p1:about>about3</p1:about>
-      </p1:imageContent>
-    </p1:content>
-    <p1:comment>comment3</p1:comment>
-  </p1:section>
-  <p1:bibliography>
-    <p1:reference p1:refId="anySimpleType">reference1</p1:reference>
-    <p1:reference p1:refId="anySimpleType">reference2</p1:reference>
-    <p1:reference p1:refId="anySimpleType">reference3</p1:reference>
-  </p1:bibliography>
-  <p1:comment>comment1</p1:comment>
-</p1:publication>
-</publications>
