@@ -56,6 +56,9 @@ namespace ScientificPublications.User
             return Ok(user);
         }
 
+        /// <summary>
+        /// Editor: Get available reviewers
+        /// </summary>
         [HttpGet("reviewers")]
         [AuthorizationFilter(Role.Editor)]
         public async Task<IActionResult> GetReviewers()

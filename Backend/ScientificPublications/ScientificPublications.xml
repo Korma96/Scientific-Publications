@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ScientificPublications</name>
+    </assembly>
+    <members>
+        <member name="T:ScientificPublications.Publication.PublicationController">
+            <summary>
+            test
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.#ctor(Microsoft.Extensions.Options.IOptions{ScientificPublications.Common.Settings.AppSettings},ScientificPublications.Service.Publication.IPublicationService,AutoMapper.IMapper)">
+            <summary>
+            test 2
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetXsdSchemaFileAsync">
+            <summary>
+            Get xsd schema for publications
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Author: upload new publication
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.UploadRevisionFile(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            Author: upload revision and specify previousPublicationId
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.FindByAuthor(System.Boolean)">
+            <summary>
+            Author: get all my publications
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.FindBySearchQuery(System.String,System.Boolean)">
+            <summary>
+            Search published publications by text
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.FindMyBySearchQuery(System.String,System.Boolean)">
+            <summary>
+            Author: search my publications by text
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.FindByStatus(System.String,System.Boolean)">
+            <summary>
+            Editor: find publications with specified status
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.UpdateStatus(System.String,System.String)">
+            <summary>
+            Update publication status, see all available statuses on /api/Publication/statuses endpoint
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetAllStatuses">
+            <summary>
+            Get all available publication statuses
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetReviewerPublications(System.Boolean)">
+            <summary>
+            Get assigned publications for currently logged reviewer
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.User.UserController.GetReviewers">
+            <summary>
+            Editor: Get available reviewers
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.WorkFlow.WorkFlowController.Insert(ScientificPublications.WorkFlow.WorkFlowDto)">
+            <summary>
+            Editor: Assign reviewer(s) to publication
+            </summary>
+            <param name="workFlowDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ScientificPublications.WorkFlow.WorkFlowController.FindByReviewerAsync">
+            <summary>
+            Reviewer: Get my workflows
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.WorkFlow.WorkFlowController.AcceptPublicationAsync(System.String,System.Boolean)">
+            <summary>
+            Reviewer: Accept/decline assigned publication
+            </summary>
+        </member>
+    </members>
+</doc>

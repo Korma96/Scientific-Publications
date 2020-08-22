@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
     <to></to>
-    <subject>Publication revised</subject>
+    <subject>Reviewer reviewed publication</subject>
     <body isHtml="false">
         Hello {0},
         
-        Publication '{1}' is revised and is ready for review.
+        Publication {1} is reviewed by reviewer {2}.
         
         Best regards,
         Tech Giant

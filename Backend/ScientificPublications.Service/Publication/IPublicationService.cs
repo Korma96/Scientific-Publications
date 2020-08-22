@@ -29,7 +29,7 @@ namespace ScientificPublications.Service.Publication
 
         Task<PublicationStatus> GetStatusAsync(string id);
 
-        Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole);
+        Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole, string username);
 
         Task<Publications> FindBySearchQueryAsync(string searchQuery);
 
@@ -38,5 +38,9 @@ namespace ScientificPublications.Service.Publication
         Task<Publications> FindByReviewerAsync(string reviewerUsername);
 
         Task SendAuthorUploadPublicationMail(string authorUsername, string fileContent);
+
+        Task SendAuthorRevisedPublicationMail(string publicationContent);
+
+        Task InsertRevisionAsync(string fileContent, string previousPublicationId);
     }
 }

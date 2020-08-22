@@ -17,11 +17,17 @@ using System.Threading.Tasks;
 
 namespace ScientificPublications.Publication
 {
+    /// <summary>
+    /// test
+    /// </summary>
     public class PublicationController : AbstractController
     {
         private readonly IPublicationService _publicationService;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// test 2
+        /// </summary>
         public PublicationController(
             IOptions<AppSettings> appSettings, 
             IPublicationService publicationService,
@@ -31,6 +37,9 @@ namespace ScientificPublications.Publication
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Get xsd schema for publications
+        /// </summary>
         [HttpGet("xsd-schema")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> GetXsdSchemaFileAsync()
@@ -39,6 +48,9 @@ namespace ScientificPublications.Publication
             return File(file, Constants.XmlContentType, AppSettings.Paths.PublicationXsd);
         }
 
+        /// <summary>
+        /// Author: upload new publication
+        /// </summary>
         [HttpPost("upload")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> UploadFile(IFormFile file)
@@ -55,6 +67,27 @@ namespace ScientificPublications.Publication
             return Ok();
         }
 
+        /// <summary>
+        /// Author: upload revision and specify previousPublicationId
+        /// </summary>
+        [HttpPost("revision/{previousPublicationId}")]
+        [AuthorizationFilter(Role.Author)]
+        public async Task<IActionResult> UploadRevisionFile(IFormFile file, [FromRoute] string previousPublicationId)
+        {
+            if (file.Length == 0)
+                return BadRequest(Constants.ExceptionMessages.EmptyFile);
+
+            var fileContent = file.OpenReadStream().StreamToString();
+            _publicationService.ValidatePublicationFile(fileContent);
+
+            await _publicationService.InsertRevisionAsync(fileContent, previousPublicationId);
+            await _publicationService.SendAuthorRevisedPublicationMail(fileContent);
+            return Ok();
+        }
+
+        /// <summary>
+        /// Author: get all my publications
+        /// </summary>
         [HttpGet("my")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> FindByAuthor([FromQuery] bool shortForm)
@@ -63,6 +96,9 @@ namespace ScientificPublications.Publication
             return PublicationsResponse(publications, shortForm);
         }
 
+        /// <summary>
+        /// Search published publications by text
+        /// </summary>
         [HttpGet("search/published/{searchQuery}")]
         [AllowAnonymous]
         public async Task<IActionResult> FindBySearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
@@ -71,6 +107,9 @@ namespace ScientificPublications.Publication
             return PublicationsResponse(publications, shortForm);
         }
 
+        /// <summary>
+        /// Author: search my publications by text
+        /// </summary>
         [HttpGet("search/my/{searchQuery}")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> FindMyBySearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
@@ -79,6 +118,9 @@ namespace ScientificPublications.Publication
             return PublicationsResponse(publications, shortForm);
         }
 
+        /// <summary>
+        /// Editor: find publications with specified status
+        /// </summary>
         [HttpGet("status/{status}")]
         [AuthorizationFilter(Role.Editor)]
         public async Task<IActionResult> FindByStatus([FromRoute] string status, [FromQuery] bool shortForm)
@@ -90,6 +132,9 @@ namespace ScientificPublications.Publication
             return PublicationsResponse(publications, shortForm);
         }
 
+        /// <summary>
+        /// Update publication status, see all available statuses on /api/Publication/statuses endpoint
+        /// </summary>
         [HttpPut("{nextStatus}/{publicationId}")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> UpdateStatus([FromRoute] string publicationId, [FromRoute] string nextStatus)
@@ -103,11 +148,14 @@ namespace ScientificPublications.Publication
             // TODO: 1. reviewer case: verify in workflow if reviewer is assigned for that publication
             //       2. author case: verify if author owns publication with given id
             //       3. add mail notifications
-            await _publicationService.UpdateStatusWithValidationAndEmailNotificationAsync(publicationId, nextStatus, GetSession().Role);
+            await _publicationService.UpdateStatusWithValidationAndEmailNotificationAsync(publicationId, nextStatus, GetSession().Role, GetSession().Username);
 
             return Ok();
         }
 
+        /// <summary>
+        /// Get all available publication statuses
+        /// </summary>
         [HttpGet("statuses")]
         [AuthorizationFilter(Role.Author)]
         public IActionResult GetAllStatuses()
@@ -117,6 +165,9 @@ namespace ScientificPublications.Publication
             return Ok(lowerNames);
         }
 
+        /// <summary>
+        /// Get assigned publications for currently logged reviewer
+        /// </summary>
         [HttpGet("reviewer")]
         [AuthorizationFilter(Role.Author)]
         public async Task<IActionResult> GetReviewerPublications([FromQuery] bool shortForm)

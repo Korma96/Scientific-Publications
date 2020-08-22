@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace ScientificPublications
 {
@@ -56,6 +57,8 @@ namespace ScientificPublications
                                 Type = "apiKey"
                             });
                 c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> { { "Bearer", Enumerable.Empty<string>() } });
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "ScientificPublications.xml");
+                c.IncludeXmlComments(filePath);
             });
 
             services.AddAuthentication(options =>
