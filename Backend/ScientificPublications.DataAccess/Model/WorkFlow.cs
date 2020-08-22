@@ -12,8 +12,20 @@ namespace ScientificPublications.DataAccess.Model
         public string publicationId { get; set; }
 
         [XmlArrayItem("reviewer", IsNullable = false)]
-        public string[] reviewers { get; set; }
+        public workflowReviewer[] reviewers { get; set; }
 
         public string editor { get; set; }
+    }
+
+    [System.Serializable()]
+    [System.ComponentModel.DesignerCategory("code")]
+    [XmlType(AnonymousType = true, Namespace = Constants.Namespaces.WorkFlow)]
+    public partial class workflowReviewer
+    {
+        [XmlAttribute()]
+        public string status { get; set; }
+
+        [XmlText()]
+        public string username { get; set; }
     }
 }

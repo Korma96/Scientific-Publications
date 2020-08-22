@@ -70,6 +70,19 @@ namespace ScientificPublications.DataAccess.Publication
             }
         }
 
+        public async Task<Publications> FindByReviewerAsync(string reviewerUsername)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"/reviewer-assigned-publications/{reviewerUsername}");
+                return await HttpHelper.Get<Publications>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
         public async Task<Publications> FindByStatusAsync(string status)
         {
             try

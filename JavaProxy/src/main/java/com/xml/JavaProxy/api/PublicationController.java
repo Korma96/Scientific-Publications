@@ -22,6 +22,9 @@ public class PublicationController {
 
     @Autowired
     private PublicationRepository publicationRepository;
+    
+    private final String publicationXsdPath = "src\\main\\resources\\xsd\\publication.xsd";
+    private final String publicationXslPath = "src\\main\\resources\\xsl\\publication.xsl";
 
     @Autowired
     public PublicationController(PublicationRepository publicationRepository) {
@@ -98,11 +101,19 @@ public class PublicationController {
         return ResponseUtility.Ok(publications);
     }
 
-    @RequestMapping(value = "/reviewer-assigned-publications/{reviewer}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/reviewer-assigned-publications/{reviewer}", method = RequestMethod.GET)
     public ResponseEntity<String> findAllByReviewer(@PathVariable("reviewer") String reviewerUsername) throws Exception{
         String publications = publicationRepository.findAllByReviewer(reviewerUsername);
         return ResponseUtility.Ok(publications);
+    }
 
+    @GetMapping(value = "/getByIdPDF/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<ByteArrayResource> getPDF(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<>(
+                new ByteArrayResource(IOUtils.toByteArray(PdfUtil
+                        .toPdf(publication, publicationXslPath, publicationXsdPath).getInputStream())),
+                HttpStatus.OK);
     }
 
     @RequestMapping(value = "add-comment/{publicationId}/{commentedSegmentId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE )
