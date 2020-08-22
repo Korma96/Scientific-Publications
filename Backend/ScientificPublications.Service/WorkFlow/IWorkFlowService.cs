@@ -18,5 +18,7 @@ namespace ScientificPublications.Service.WorkFlow
         Task<List<ReviewerPublicationDto>> GetByReviewerAsync(string username);
 
         Task SendEmailToReviewersAsync(workflow workflow);
+
+        Task DeleteByPublicationIdAsync(string publicationId);
     }
 }

@@ -18,6 +18,8 @@
 
         public string AuthorRevisedMail { get; set; }
 
+        public string ReviewerReviewed { get; set; }
+
         public string ReviewerDenied { get; set; }
 
         public string ReviewerAccepted { get; set; }

@@ -111,6 +111,11 @@ namespace ScientificPublications.Service.WorkFlow
             }
         }
 
+        public Task DeleteByPublicationIdAsync(string publicationId)
+        {
+            return _workFlowDataAccess.DeleteAsync(publicationId);
+        }
+
         public async Task<List<ReviewerPublicationDto>> GetByReviewerAsync(string username)
         {
             var workflows = await _workFlowDataAccess.FindByReviewerAsync(username);

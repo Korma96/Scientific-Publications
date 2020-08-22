@@ -40,6 +40,11 @@ namespace ScientificPublications.WorkFlow
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Editor: Assign reviewer(s) to publication
+        /// </summary>
+        /// <param name="workFlowDto"></param>
+        /// <returns></returns>
         [HttpPost]
         [AuthorizationFilter(Role.Editor)]
         public async Task<IActionResult> Insert([FromBody] WorkFlowDto workFlowDto)
@@ -69,6 +74,9 @@ namespace ScientificPublications.WorkFlow
             return Ok();
         }
 
+        /// <summary>
+        /// Reviewer: Get my workflows
+        /// </summary>
         [HttpGet("reviewer")]
         [AuthorizationFilter(Role.Reviewer)]
         public async Task<IActionResult> FindByReviewerAsync()
@@ -77,6 +85,9 @@ namespace ScientificPublications.WorkFlow
             return Ok(workflows);
         }
 
+        /// <summary>
+        /// Reviewer: Accept/decline assigned publication
+        /// </summary>
         [HttpPut("{publicationId}/{accepted}")]
         [AuthorizationFilter(Role.Reviewer)]
         public async Task<IActionResult> AcceptPublicationAsync([FromRoute] string publicationId, [FromRoute] bool accepted)

@@ -99,6 +99,7 @@ namespace ScientificPublications.Service.Publication
             publication.header.status = PublicationStatus.SUBMITED.ToString().ToLower();
             return _publicationDataAccess.InsertAsync(publication);
         }
+
         // TO DO: return list of publications 
         public Task<Publications> FindByAuthorAsync(string author)
         {
@@ -120,11 +121,11 @@ namespace ScientificPublications.Service.Publication
             return _publicationDataAccess.UpdateStatusAsync(publicationId, status);
         }
 
-        public async Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole)
+        public async Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole, string username)
         {
             var currentStatus = await GetStatusAsync(publicationId);
             HelperMethods.CheckIsNextStateValid(currentStatus, nextStatus, userRole);
-            await SendStateChangedEmailAsync(publicationId, nextStatus, userRole);
+            await SendStateChangedEmailAsync(publicationId, nextStatus, userRole, username);
             await UpdateStatusAsync(publicationId, HelperMethods.StatusStringToEnum(nextStatus));
         }
 
@@ -156,7 +157,19 @@ namespace ScientificPublications.Service.Publication
             await _emailService.SendEmailAsync(emailData);
         }
 
-        private async Task SendStateChangedEmailAsync(string publicationId, string nextStatus, string userRole)
+        public async Task SendAuthorRevisedPublicationMail(string publicationContent)
+        {
+            var editor = await _userService.FindByUsernameAsync(AppSettings.EditorUsername);
+            var publication = XmlUtility.Deserialize<publication>(publicationContent);
+
+            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.AuthorRevisedMail);
+            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
+            emailData.To = editor.Email;
+            emailData.Body = string.Format(emailData.Body, editor.Name, publication.title);
+            await _emailService.SendEmailAsync(emailData);
+        }
+
+        private async Task SendStateChangedEmailAsync(string publicationId, string nextStatus, string userRole, string username)
         {
             var statusEnum = HelperMethods.StatusStringToEnum(nextStatus);
             var roleEnum = HelperMethods.RoleStringToEnum(userRole);
@@ -208,6 +221,15 @@ namespace ScientificPublications.Service.Publication
                     }
                     break;
                 case Role.Reviewer:
+                    switch (statusEnum)
+                    {
+                        case PublicationStatus.REVIEWED:
+                            xmlFilePath = AppSettings.Paths.ReviewerReviewed;
+                            to = new string[] { editor.Email };
+                            var currentReviewer = reviewers.FirstOrDefault(r => r.Username == username);
+                            args = new string[] { editor.Name, publication.title,  currentReviewer.Name };
+                            break;
+                    }
                     break;
                 case Role.Author:
                     switch (statusEnum)
@@ -232,10 +254,38 @@ namespace ScientificPublications.Service.Publication
                     break;
             }
 
-            var path = Path.Combine(AppSettings.Paths.BasePath, xmlFilePath);
-            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
-            var body = string.Format(emailData.Body, args);
-            await _emailService.SendEmailAsync(emailData.Subject, body, to);
+            if (!string.IsNullOrEmpty(xmlFilePath))
+            {
+                var path = Path.Combine(AppSettings.Paths.BasePath, xmlFilePath);
+                var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
+                var body = string.Format(emailData.Body, args);
+                await _emailService.SendEmailAsync(emailData.Subject, body, to);
+            }
+        }
+
+        public async Task InsertRevisionAsync(string fileContent, string previousPublicationId)
+        {
+            // TODO: add relationship between publication versions
+            var currentStatus = await GetStatusAsync(previousPublicationId);
+            if (currentStatus != PublicationStatus.SHOULD_REVISE)
+                throw new ValidationException("Invalid current publication status");
+
+            var workflow = HelperMethods.ThrowIfNullOtherwiseReturn(
+                await _workFlowService.FindByPublicationIdAsync(previousPublicationId)) as workflow;
+            var revisionId = await InsertRevisionAsync(fileContent);
+
+            await _workFlowService.DeleteByPublicationIdAsync(previousPublicationId);
+            workflow.publicationId = revisionId;
+            await _workFlowService.InsertAsync(workflow);
+        }
+
+        private async Task<string> InsertRevisionAsync(string fileContent)
+        {
+            var publication = XmlUtility.Deserialize<publication>(fileContent);
+            publication.id = Guid.NewGuid().ToString();
+            publication.header.status = PublicationStatus.REVISED.ToString().ToLower();
+            await _publicationDataAccess.InsertAsync(publication);
+            return publication.id;
         }
     }
 }
