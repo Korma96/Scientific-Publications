@@ -37,5 +37,11 @@ public class EvaluationController {
         return ResponseUtility.Ok(evaluations);
     }
 
+    @RequestMapping(value = "by-publicationId-reviewer/{publicationId}/{reviewer}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findByPublicationId(@PathVariable("publicationId") String publicationId, @PathVariable("reviewer") String reviewer) throws Exception{
+        String evaluation = evaluationRepository.findByPublicationIdAndReviewer(publicationId, reviewer);
+        return ResponseUtility.Ok(evaluation);
+    }
+
 
 }

@@ -11,6 +11,8 @@ public class EvaluationRepository extends BaseRepository {
     private String collectionId = "/db/test";
     private String documentId = "evaluations.xml";
     private String findByPublicationId = "xqueries/evaluation/find_by_publicationId.xqy";
+    private String findByPublicationIdAndReviewer = "xqueries/evaluation/find_by_publicationId_and_reviewer.xqy";
+
 
 
     public void insert(Evaluation evaluation) throws Exception {
@@ -23,6 +25,12 @@ public class EvaluationRepository extends BaseRepository {
     public String findByPublicationId(String publicationId) throws Exception {
         String fileContent = readXQueryFile(findByPublicationId);
         String xQuery = String.format(fileContent, publicationId);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+    public String findByPublicationIdAndReviewer(String publicationId, String reviewerUsername) throws Exception {
+        String fileContent = readXQueryFile(findByPublicationIdAndReviewer);
+        String xQuery = String.format(fileContent, publicationId, reviewerUsername);
         return executeXQuery(collectionId, xQuery);
     }
 
