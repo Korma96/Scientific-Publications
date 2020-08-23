@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
@@ -10,8 +6,8 @@ using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Extensions;
 using ScientificPublications.Common.Settings;
-using ScientificPublications.Common.Utility;
 using ScientificPublications.Service.CoverLetter;
+using System.Threading.Tasks;
 
 namespace ScientificPublications.CoverLetter
 {
@@ -48,13 +44,12 @@ namespace ScientificPublications.CoverLetter
 
         [HttpGet("{publicationId}")]
         [AuthorizationFilter(Role.Author)]
-        public async Task<IActionResult> FindByAuthor([FromRoute] string publicationId)
+        public async Task<IActionResult> FindByPublication([FromRoute] string publicationId)
         {
             if (string.IsNullOrWhiteSpace(publicationId))
                 return BadRequest(Constants.ExceptionMessages.EmptyValue);
 
             var coverLetter = await _coverLetterService.FindByPublicationIdAsync(publicationId);
-
             return Ok(ToXml(coverLetter));
         }
     }

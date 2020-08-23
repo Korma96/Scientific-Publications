@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mail>
+<mail xmlns="http://ftn.uns.ac.rs/xml2019/notification">
+    <to></to>
     <subject>Your publication is denied</subject>
     <body isHtml="false">
         Hello {0},
         
         Bad news, your publication '{1}' is denied.
-        It does not meet our publication criteria, below is detailed description.
-        
-        {2}
+        It does not meet our publication criteria.
         
         Best regards,
         Tech Giant

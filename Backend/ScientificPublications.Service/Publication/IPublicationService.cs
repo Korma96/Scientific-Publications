@@ -7,9 +7,9 @@ namespace ScientificPublications.Service.Publication
 {
     public interface IPublicationService : ISingletonService
     {
-        Task AcceptPublicationAsync(string email, string authorName, string publicationTitle);
+        Task SendAcceptPublicationEmailAsync(string email, string authorName, string publicationTitle);
 
-        Task DenyPublicationAsync(string email, string authorName, string publicationTitle, string text);
+        Task SendDenyPublicationEmailAsync(string email, string authorName, string publicationTitle, string text);
 
         void ValidatePublicationFile(string fileContent);
 
@@ -29,10 +29,18 @@ namespace ScientificPublications.Service.Publication
 
         Task<PublicationStatus> GetStatusAsync(string id);
 
-        Task UpdateStatusWithValidationAsync(string publicationId, string nextStatus, string userRole);
+        Task UpdateStatusWithValidationAndEmailNotificationAsync(string publicationId, string nextStatus, string userRole, string username);
 
         Task<Publications> FindBySearchQueryAsync(string searchQuery);
 
         Task<Publications> FindMyBySearchQueryAsync(string username, string searchQuery);
+
+        Task<Publications> FindByReviewerAsync(string reviewerUsername);
+
+        Task SendAuthorUploadPublicationMail(string authorUsername, string fileContent);
+
+        Task SendAuthorRevisedPublicationMail(string publicationContent);
+
+        Task InsertRevisionAsync(string fileContent, string previousPublicationId);
     }
 }

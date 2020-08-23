@@ -77,6 +77,15 @@ namespace ScientificPublications.Common.Helpers
             }
         }
 
+        public static dynamic ThrowIfNullOtherwiseReturn(dynamic obj)
+        {
+            if (obj == null)
+            {
+                throw new ValidationException(Constants.ExceptionMessages.DoesNotExist);
+            }
+            return obj;
+        }
+
         public static void ThrowIfNotNull(dynamic obj)
         {
             if (obj != null)
