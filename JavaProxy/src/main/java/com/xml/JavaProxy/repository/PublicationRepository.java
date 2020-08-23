@@ -2,8 +2,21 @@ package com.xml.JavaProxy.repository;
 
 import com.xml.JavaProxy.helper.XUpdateTemplate;
 import com.xml.JavaProxy.model.Publication;
+import com.xml.JavaProxy.model.Section;
+import com.xml.JavaProxy.util.MyNamespaceMapper;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
+
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import java.io.File;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 @Repository
 public class PublicationRepository extends BaseRepository {
@@ -21,8 +34,8 @@ public class PublicationRepository extends BaseRepository {
 	private String textSearchPublished = "xqueries/text_search_published.xqy";
     private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
     private String findPublicationByReviewerXQuery = "xqueries/publication/find_publications_by_reviewer.xqy";
+    private String deleteByIdXQuery = "xqueries/publication/delete_by_id.xqy";
     //private String findPublicationIdsByReviewerXQuery = "xqueries/publication/find_publication_ids_by_reviewer.xqy";
-
 
 
     public String findByAuthor(String author) throws Exception {
@@ -101,5 +114,39 @@ public class PublicationRepository extends BaseRepository {
         String fileContent = readXQueryFile(findPublicationByReviewerXQuery);
         String xQuery = String.format(fileContent, reviewerUsername);
         return executeXQuery(collectionId, xQuery);
+    }
+
+    public String delete(String publicationId) throws Exception {
+        String fileContent = readXQueryFile(deleteByIdXQuery);
+        String xQuery = String.format(fileContent, publicationId);
+        return executeXQuery(collectionId, xQuery);
+    }
+
+
+    public String addComment(String publicationId, String commentedSegmentId, String comment) throws Exception {
+        String publicationStr =  findById(publicationId);
+        /*
+        String publicationXsdPath = "C:\\Users\\Vuk\\Desktop\\Faks\\7_semestar\\Xml i web servisi\\Projekat\\resources\\publication.xsd";
+        File file = new File(publicationXsdPath);
+        String constant = XMLConstants.W3C_XML_SCHEMA_NS_URI;
+        SchemaFactory xsdFactory = SchemaFactory.newInstance(constant);
+        Schema schema = xsdFactory.newSchema(file);
+        */
+        Publication publication =  (Publication) XmlUtility.convertXMLToObject(Publication.class, publicationStr);
+        if (publicationId.equals(commentedSegmentId)) {
+            publication.setComment(comment);
+        }
+        else {
+            for (Section section: publication.getSection()) {
+                if (section.getId().equals(commentedSegmentId)) {
+                    section.setComment(comment);
+                    break;
+                }
+            }
+        }
+        delete(publicationId);
+        insert(publication);
+        return XmlUtility.jaxbObjectToXML(publication);
+
     }
 }

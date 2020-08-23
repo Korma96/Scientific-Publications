@@ -115,7 +115,6 @@
             <xs:sequence>
                 <xs:element name="heading" type="xs:string"/>
                 <xs:element ref="content" maxOccurs="unbounded" minOccurs="1"/>
-                <xs:element ref="comment" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

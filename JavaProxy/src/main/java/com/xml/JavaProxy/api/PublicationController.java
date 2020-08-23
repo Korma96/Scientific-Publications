@@ -4,7 +4,6 @@ package com.xml.JavaProxy.api;
 import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
-import com.xml.JavaProxy.util.PdfUtil;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.apache.commons.io.IOUtils;
@@ -14,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -114,5 +114,11 @@ public class PublicationController {
                 new ByteArrayResource(IOUtils.toByteArray(PdfUtil
                         .toPdf(publication, publicationXslPath, publicationXsdPath).getInputStream())),
                 HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "add-comment/{publicationId}/{commentedSegmentId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE )
+    public ResponseEntity<String> addComment(@PathVariable("publicationId") String publicationId, @PathVariable("commentedSegmentId") String commentedSegmentId, @RequestBody String comment) throws Exception{
+        String publication = publicationRepository.addComment(publicationId, commentedSegmentId, comment);
+        return ResponseUtility.Ok(publication);
     }
 }
