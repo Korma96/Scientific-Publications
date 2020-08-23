@@ -20,7 +20,7 @@ namespace ScientificPublications.DataAccess.WorkFlow
         {
         }
 
-        public async Task InsertAsync(Model.workflow workFlow)
+        public async Task InsertAsync(workflow workFlow)
         {
             try
             {
@@ -38,6 +38,32 @@ namespace ScientificPublications.DataAccess.WorkFlow
             {
                 var path = BaseUrl.UrlCombine(publicationId);
                 return await HttpHelper.Get<workflow>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<WorkFlows> FindByReviewerAsync(string username)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"reviewer/{username}");
+                return await HttpHelper.Get<WorkFlows>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task DeleteAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine(publicationId);
+                await HttpHelper.Delete(path);
             }
             catch (Exception e)
             {

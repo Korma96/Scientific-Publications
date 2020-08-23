@@ -33,4 +33,16 @@ public class WorkFlowController {
         String workflow = workFlowRepository.findByPublicationId(publicationId);
         return ResponseUtility.Ok(workflow);
     }
+
+    @RequestMapping(value = "{publicationId}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteById(@PathVariable("publicationId") String publicationId) throws Exception{
+        workFlowRepository.deleteByPublicationId(publicationId);
+        return ResponseUtility.Ok();
+    }
+
+    @RequestMapping(value = "reviewer/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findByReviewer(@PathVariable("username") String username) throws Exception {
+        String workflows = workFlowRepository.findByReviewer(username);
+        return ResponseUtility.Ok(workflows);
+    }
 }

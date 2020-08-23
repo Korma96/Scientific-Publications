@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
-using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Exceptions;
 using ScientificPublications.Common.Helpers;
@@ -12,6 +11,7 @@ using ScientificPublications.Service.Publication;
 using ScientificPublications.Service.User;
 using ScientificPublications.Service.WorkFlow;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.WorkFlow
@@ -31,7 +31,7 @@ namespace ScientificPublications.WorkFlow
             IWorkFlowService workFlowService,
             IPublicationService publicationService,
             IUserService userService,
-            IMapper mapper) 
+            IMapper mapper)
             : base(appSettings)
         {
             _workFlowService = workFlowService;
@@ -40,18 +40,22 @@ namespace ScientificPublications.WorkFlow
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Editor: Assign reviewer(s) to publication
+        /// </summary>
+        /// <param name="workFlowDto"></param>
+        /// <returns></returns>
         [HttpPost]
         [AuthorizationFilter(Role.Editor)]
-        [Consumes(Constants.XmlContentType)]
         public async Task<IActionResult> Insert([FromBody] WorkFlowDto workFlowDto)
         {
             var workFlow = _mapper.Map<workflow>(workFlowDto);
             workFlow.editor = GetSession().Username;
             _workFlowService.Validate(workFlow);
             var tasks = new List<Task>();
-            foreach (var reviewerUsername in workFlow.reviewers)
+            foreach (var reviewer in workFlow.reviewers)
             {
-                tasks.Add(_userService.FindByUsernameAsync(reviewerUsername));
+                tasks.Add(_userService.FindByUsernameAsync(reviewer.username));
             }
             tasks.Add(_userService.FindByUsernameAsync(workFlow.editor));
             await Task.WhenAll(tasks.ToArray());
@@ -66,6 +70,29 @@ namespace ScientificPublications.WorkFlow
 
             await _publicationService.UpdateStatusAsync(workFlow.publicationId, PublicationStatus.ASSIGNED);
             await _workFlowService.InsertAsync(workFlow);
+            await _workFlowService.SendEmailToReviewersAsync(workFlow);
+            return Ok();
+        }
+
+        /// <summary>
+        /// Reviewer: Get my workflows
+        /// </summary>
+        [HttpGet("reviewer")]
+        [AuthorizationFilter(Role.Reviewer)]
+        public async Task<IActionResult> FindByReviewerAsync()
+        {
+            var workflows = await _workFlowService.GetByReviewerAsync(GetSession().Username);
+            return Ok(workflows);
+        }
+
+        /// <summary>
+        /// Reviewer: Accept/decline assigned publication
+        /// </summary>
+        [HttpPut("{publicationId}/{accepted}")]
+        [AuthorizationFilter(Role.Reviewer)]
+        public async Task<IActionResult> AcceptPublicationAsync([FromRoute] string publicationId, [FromRoute] bool accepted)
+        {
+            await _workFlowService.AcceptPublicationAsync(publicationId, accepted, GetSession().Username);
             return Ok();
         }
     }

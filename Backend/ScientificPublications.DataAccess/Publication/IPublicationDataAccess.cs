@@ -19,5 +19,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<Publications> FindBySearchQueryAsync(string searchQuery);
 
         Task<Publications> FindByUsernameAndSearchQueryAsync(string username, string searchQuery);
+
+        Task<Publications> FindByReviewerAsync(string reviewerUsername);
     }
 }
