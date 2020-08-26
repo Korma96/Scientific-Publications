@@ -119,6 +119,15 @@ public class PublicationController {
                 HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getByIdHtml/{id}", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> getHtml(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<String>(PdfUtil
+                        .transform(publication, publicationXslPath, publicationXsdPath),
+                HttpStatus.OK);
+    }
+
+
     @RequestMapping(value = "add-comment/{publicationId}/{commentedSegmentId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE )
     public ResponseEntity<String> addComment(@PathVariable("publicationId") String publicationId, @PathVariable("commentedSegmentId") String commentedSegmentId, @RequestBody String comment) throws Exception {
         String publication = publicationRepository.addComment(publicationId, commentedSegmentId, comment);
