@@ -24,7 +24,7 @@ public class PublicationController {
     @Autowired
     private PublicationRepository publicationRepository;
 
-    PdfUtil pdfUtil;
+    private PdfUtil pdfUtil;
     
     private final String publicationXsdPath = "src\\main\\resources\\xsd\\publication.xsd";
     private final String publicationXslPath = "src\\main\\resources\\xsl\\publication.xsl";
@@ -134,5 +134,12 @@ public class PublicationController {
         return ResponseUtility.Ok(publication);
     }
 
+    @GetMapping(value = "/getByIdHtml/{id}", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> getHtml(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<String>(
+               PdfUtil.transform(publication, publicationXslPath, publicationXsdPath),
+                HttpStatus.OK);
+    }
 
 }

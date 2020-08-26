@@ -82,6 +82,7 @@
             <xs:choice>
                 <xs:element ref="imageContent" maxOccurs="1" minOccurs="1"/>
                 <xs:element name="text" type="xs:string"/>
+                <xs:element ref="link"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -106,6 +107,7 @@
             <xs:simpleContent>
                 <xs:extension base="xs:string">
                     <xs:attribute ref="refId"/>
+                    <xs:attribute ref="samepage"/>
                 </xs:extension>
             </xs:simpleContent>
         </xs:complexType>
@@ -119,4 +121,15 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="link">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="refId"/>
+                    <xs:attribute ref="samepage"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="samepage" type="xs:boolean"/>
 </xs:schema>
