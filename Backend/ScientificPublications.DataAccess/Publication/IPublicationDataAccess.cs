@@ -1,5 +1,6 @@
 ﻿using ScientificPublications.Common.Enums;
 using ScientificPublications.DataAccess.Model;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.DataAccess.Publication
@@ -21,5 +22,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<Publications> FindByUsernameAndSearchQueryAsync(string username, string searchQuery);
 
         Task<Publications> FindByReviewerAsync(string reviewerUsername);
+
+        Task<MemoryStream> GetPublicationAsPdfAsync(string publicationId);
     }
 }

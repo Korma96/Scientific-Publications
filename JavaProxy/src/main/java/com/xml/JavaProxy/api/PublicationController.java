@@ -4,6 +4,7 @@ package com.xml.JavaProxy.api;
 import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
+import com.xml.JavaProxy.util.PdfUtil;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.apache.commons.io.IOUtils;

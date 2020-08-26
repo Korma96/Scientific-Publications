@@ -98,7 +98,7 @@ namespace ScientificPublications.Common.Helpers
         {
             if (!Enum.TryParse(statusStr.ToUpper(), out PublicationStatus status))
             {
-                throw new ValidationException(Constants.ExceptionMessages.InvalidValue);
+                throw new ValidationException(Constants.ExceptionMessages.InvalidValue + " for status");
             }
             return status;
         }

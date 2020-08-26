@@ -17,17 +17,11 @@ using System.Threading.Tasks;
 
 namespace ScientificPublications.Publication
 {
-    /// <summary>
-    /// test
-    /// </summary>
     public class PublicationController : AbstractController
     {
         private readonly IPublicationService _publicationService;
         private readonly IMapper _mapper;
 
-        /// <summary>
-        /// test 2
-        /// </summary>
         public PublicationController(
             IOptions<AppSettings> appSettings, 
             IPublicationService publicationService,
@@ -174,6 +168,18 @@ namespace ScientificPublications.Publication
         {
             var publications = await _publicationService.FindByReviewerAsync(GetSession().Username);
             return PublicationsResponse(publications, shortForm);
+        }
+
+        /// <summary>
+        /// Download publication in pdf format
+        /// </summary>
+        [HttpGet("download/pdf/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetReviewerPublications([FromRoute] string publicationId)
+        {
+            var publication = await _publicationService.GetByIdWithValidationAsync(publicationId);
+            var publicationPDF = await _publicationService.DownloadPublicationAsPdfAsync(publicationId);
+            return File(publicationPDF, Constants.PdfContentType, publication.title);
         }
 
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)

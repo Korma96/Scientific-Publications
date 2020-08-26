@@ -4,6 +4,8 @@
     {
         public const string XmlContentType = "application/xml";
 
+        public const string PdfContentType = "application/pdf";
+
         public const string AccessToken = "access-token";
 
         public const string SessionInfo = "session-info";
@@ -49,6 +51,8 @@
             public const string CoverLetter = "coverletter";
 
             public const string WorkFlow = "workflow";
+
+            public const string Evaluation = "evaluation";
         }
     }
 }

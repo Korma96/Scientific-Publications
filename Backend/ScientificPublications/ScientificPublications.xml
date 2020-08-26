@@ -4,16 +4,6 @@
         <name>ScientificPublications</name>
     </assembly>
     <members>
-        <member name="T:ScientificPublications.Publication.PublicationController">
-            <summary>
-            test
-            </summary>
-        </member>
-        <member name="M:ScientificPublications.Publication.PublicationController.#ctor(Microsoft.Extensions.Options.IOptions{ScientificPublications.Common.Settings.AppSettings},ScientificPublications.Service.Publication.IPublicationService,AutoMapper.IMapper)">
-            <summary>
-            test 2
-            </summary>
-        </member>
         <member name="M:ScientificPublications.Publication.PublicationController.GetXsdSchemaFileAsync">
             <summary>
             Get xsd schema for publications
@@ -62,6 +52,16 @@
         <member name="M:ScientificPublications.Publication.PublicationController.GetReviewerPublications(System.Boolean)">
             <summary>
             Get assigned publications for currently logged reviewer
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetReviewerPublications(System.String)">
+            <summary>
+            Download publication in pdf format
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Reviewer.ReviewController.AddCommentAsync(System.String,System.String,System.String)">
+            <summary>
+            Reviewer: add comment to publication (section)
             </summary>
         </member>
         <member name="M:ScientificPublications.User.UserController.GetReviewers">

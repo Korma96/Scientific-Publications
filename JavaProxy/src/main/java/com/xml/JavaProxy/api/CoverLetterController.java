@@ -28,7 +28,7 @@ public class CoverLetterController {
     }
 
     @RequestMapping(value = "/{publicationId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findByAuthor(@PathVariable("publicationId") String publicationId) throws Exception{
+    public ResponseEntity<String> findByPublicationId(@PathVariable("publicationId") String publicationId) throws Exception{
         String coverLetterStr = coverLetterRepository.findByPublicationId(publicationId);
         return ResponseUtility.Ok(coverLetterStr);
     }

@@ -1,8 +1,6 @@
 package com.xml.JavaProxy.api;
 
-import com.xml.JavaProxy.model.CoverLetter;
 import com.xml.JavaProxy.model.Evaluation;
-import com.xml.JavaProxy.repository.CoverLetterRepository;
 import com.xml.JavaProxy.repository.EvaluationRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
@@ -11,11 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/evaluation")
 public class EvaluationController {
+
     @Autowired
     private EvaluationRepository evaluationRepository;
 
@@ -38,10 +36,8 @@ public class EvaluationController {
     }
 
     @RequestMapping(value = "by-publicationId-reviewer/{publicationId}/{reviewer}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findByPublicationId(@PathVariable("publicationId") String publicationId, @PathVariable("reviewer") String reviewer) throws Exception{
+    public ResponseEntity<String> findByPublicationIdAndReviewer(@PathVariable("publicationId") String publicationId, @PathVariable("reviewer") String reviewer) throws Exception{
         String evaluation = evaluationRepository.findByPublicationIdAndReviewer(publicationId, reviewer);
         return ResponseUtility.Ok(evaluation);
     }
-
-
 }
