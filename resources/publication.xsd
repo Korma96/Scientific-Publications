@@ -3,7 +3,7 @@
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
     vc:minVersion="1.0" vc:maxVersion="1.1"
     targetNamespace="http://ftn.uns.ac.rs/xml2019/publication"
-    xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication">
+    xmlns="http://ftn.uns.ac.rs/xml2019/publication">
 
     <xs:element name="publication">
         <xs:complexType>
@@ -17,11 +17,11 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element ref="p1:title"/>
+                <xs:element ref="title"/>
                 <xs:element name="authors">
                     <xs:complexType>
                         <xs:sequence maxOccurs="unbounded">
-                            <xs:element name="author" type="p1:author"/>
+                            <xs:element name="author" type="author"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -37,17 +37,17 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="keywords" type="xs:string"/>
-                <xs:element maxOccurs="unbounded" ref="p1:section"/>
+                <xs:element maxOccurs="unbounded" ref="section"/>
                 <xs:element name="bibliography">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element maxOccurs="unbounded" ref="p1:reference"/>
+                            <xs:element maxOccurs="unbounded" ref="reference"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" ref="p1:comment"/>
+                <xs:element minOccurs="0" ref="comment"/>
             </xs:sequence>
-            <xs:attribute ref="p1:id"/>
+            <xs:attribute ref="id"/>
         </xs:complexType>
     </xs:element>
     <xs:attribute name="id" type="xs:string"/>
@@ -70,18 +70,19 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="heading" type="xs:string"/>
-                <xs:element ref="p1:content" maxOccurs="unbounded"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="p1:subsection"/>
-                <xs:element ref="p1:comment" minOccurs="0"/>
+                <xs:element ref="content" maxOccurs="unbounded"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="subsection"/>
+                <xs:element ref="comment" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute ref="p1:id"/>
+            <xs:attribute ref="id"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="content">
         <xs:complexType>
             <xs:choice>
-                <xs:element ref="p1:imageContent" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="imageContent" maxOccurs="1" minOccurs="1"/>
                 <xs:element name="text" type="xs:string"/>
+                <xs:element ref="link"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -95,7 +96,7 @@
     <xs:element name="imageContent">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="p1:image"/>
+                <xs:element ref="image"/>
                 <xs:element name="about" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
@@ -105,7 +106,8 @@
         <xs:complexType>
             <xs:simpleContent>
                 <xs:extension base="xs:string">
-                    <xs:attribute ref="p1:refId"/>
+                    <xs:attribute ref="refId"/>
+                    <xs:attribute ref="samepage"/>
                 </xs:extension>
             </xs:simpleContent>
         </xs:complexType>
@@ -114,8 +116,20 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="heading" type="xs:string"/>
-                <xs:element ref="p1:content" maxOccurs="unbounded" minOccurs="1"/>
+                <xs:element ref="content" maxOccurs="unbounded" minOccurs="1"/>
+                <xs:element ref="comment" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="link">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="refId"/>
+                    <xs:attribute ref="samepage"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="samepage" type="xs:boolean"/>
 </xs:schema>

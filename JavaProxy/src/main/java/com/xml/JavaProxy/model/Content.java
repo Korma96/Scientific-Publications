@@ -31,7 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "imageContent",
-    "text"
+    "text",
+    "link"
 })
 @XmlRootElement(name = "content", namespace = "http://ftn.uns.ac.rs/xml2019/publication")
 public class Content {
@@ -40,6 +41,8 @@ public class Content {
     protected ImageContent imageContent;
     @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/publication")
     protected String text;
+    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/publication")
+    protected Link link;
 
     /**
      * Gets the value of the imageContent property.
@@ -89,4 +92,11 @@ public class Content {
         this.text = value;
     }
 
+    public Link getLink() {
+        return link;
+    }
+
+    public void setLink(Link link) {
+        this.link = link;
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication"
-    version="2.0">
+    version="3.0">
     
     <xsl:template match="/">
         <html>
@@ -39,74 +39,145 @@
                         <br/><br/>
                     </xsl:for-each>
                 </p>
-                <br/><br/><br/>
+                <br/>
                 
                 <p  style="text-align: center; font-size: 20px;"><b>Abstract</b></p>
                 <p>
+                    <br/><br />
                     <b>Purpose&#xA0;&#xA0;</b>
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:purpose" />
-                    <br />
+                    <br/><br />
                     <b>Problem&#xA0;&#xA0;</b>
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:problem" />
-                    <br />
-                    <b>method&#xA0;&#xA0;</b>
+                    <br /><br />
+                    <b>Method&#xA0;&#xA0;</b>
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:method" />
-                    <br />
-                    <b>results&#xA0;&#xA0;</b>
+                    <br /><br />
+                    <b>Results&#xA0;&#xA0;</b>
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:results" />
-                    <br />
-                    <b>conclusions&#xA0;&#xA0;</b>
+                    <br /><br />
+                    <b>Conclusions&#xA0;&#xA0;</b>
                     <xsl:value-of
                         select="p1:publication/p1:abstract/p1:conclusions" />
                 </p>
-                <br/> <br/><br/>
-                
+                <br/><br/><br/>
                 <b style="font-size: 20px;"> Keywords</b>
                 <p style="font-weight:bold; font-style:italic;">
                     <xsl:value-of
                         select="p1:publication/p1:keywords" />
-                    <br /><br/><br/>
                 </p>
                 <p style="text-align: center; font-weight: normal;">
                     <xsl:for-each select="p1:publication/p1:section">
                         <i>
+                                <a><xsl:attribute name="id">
+                                    <xsl:value-of select="@p1:id"/>
+                                </xsl:attribute>
+                                </a>
+                            <br/><br/>
                             <p  style="text-align: center; font-size: 20px;"><b><xsl:value-of select="p1:heading" /></b></p>
-                            <br /><br />
-                            <xsl:value-of select="p1:content/p1:text" />
-                            <xsl:value-of select="p1:content/p1:imageContent/image" />
-                            <xsl:value-of select="p1:content/p1:imageContent/about" />
-                            <br /> <br />
-                            <xsl:for-each select="p1:subsection">
-                                <p>
-                                    <p  style="text-align: center; font-size: 14px;"><b><xsl:value-of select="p1:heading" /></b></p>
-                                    <br /><br />
-                                    <xsl:value-of select="p1:content/p1:text" />
-                                    <xsl:if test="p1:content/p1:imageContent/p1:image">
+                            <br/><br/>
+                            <xsl:for-each select="p1:content">
+                                <xsl:if test="p1:text">
+                                    <xsl:value-of select="p1:text" />
+                                </xsl:if>
+                                
+                                <xsl:if test="p1:link">
+                                    <xsl:variable name="ref"> <xsl:value-of select="p1:link/@p1:refId"/></xsl:variable>
+                                    <xsl:variable name="samepage"> <xsl:value-of select="p1:link/@p1:samepage" /></xsl:variable>
+                                    <a><xsl:attribute name="href">
+                                        <xsl:if test = "$samepage = 'true'">
+                                            <xsl:value-of select="concat('#', $ref)"/>
+                                        </xsl:if>
+                                        <xsl:if test = "$samepage = 'false'">
+                                            <xsl:value-of select="concat('http://localhost:8081/api/publication/getByIdHtml/', $ref)"/>
+                                        </xsl:if>
+                                    </xsl:attribute>
+                                        <xsl:value-of select="p1:link"/>
+                                    </a>
+                                </xsl:if>
+                                <xsl:if test="p1:imageContent/p1:image">
+                                    <br/>
+                                    <p style="text-align: center; font-weight: normal;">
+                                        <xsl:value-of select="p1:imageContent/p1:image" />
                                         <br/>
-                                        <xsl:value-of select="p1:content/p1:imageContent/p1:image" /><br/>
-                                        <xsl:value-of select="p1:content/p1:imageContent/p1:about" />
-                                    </xsl:if>
-                                </p>
-                                <br /><br />
+                                        <xsl:value-of select="p1:imageContent/p1:about" />
+                                    </p>
+                                    <br/>
+                                </xsl:if>
+                            </xsl:for-each>
+                            <xsl:for-each select="p1:subsection">
+                                <i>
+                                    <br/><br/>
+                                    <p  style="text-align: center; font-size: 14px;">
+                                        <xsl:value-of select = "position()" />
+                                        <xsl:text >. </xsl:text>
+                                        <b><xsl:value-of select="p1:heading" /></b>
+                                    </p>
+                                    <br />
+                                    <xsl:for-each select="p1:content"> 
+                                        <xsl:if test="p1:text">
+                                            <xsl:value-of select="p1:text" />
+                                        </xsl:if>
+                                        
+                                        <xsl:if test="p1:link">
+                                            <br/>
+                                            <xsl:variable name="ref"> <xsl:value-of select="p1:link/@p1:refId"/></xsl:variable>
+                                            <xsl:variable name="samepage"> <xsl:value-of select="p1:link/@p1:samepage" /></xsl:variable>
+                                            <a><xsl:attribute name="href">
+                                                <xsl:if test = "$samepage = 'true'">
+                                                    <xsl:value-of select="concat('#', $ref)"/>
+                                                </xsl:if>
+                                                <xsl:if test = "$samepage = 'false'">
+                                                    <xsl:value-of select="concat('http://localhost:8081/api/publication/getByIdHtml/', $ref)"/>
+                                                </xsl:if>
+                                            </xsl:attribute>
+                                                <xsl:value-of select="p1:link"/>
+                                            </a>
+                                        </xsl:if>
+                                        <xsl:if test="p1:imageContent/p1:image">
+                                            <br/>
+                                            <p style="text-align: center; font-weight: normal;">
+                                                <xsl:value-of select="p1:imageContent/p1:image" />
+                                                <br/>
+                                                <xsl:value-of select="p1:imageContent/p1:about" />
+                                            </p>
+                                            <br/>
+                                        </xsl:if>
+                                    </xsl:for-each>
+                                </i>
                             </xsl:for-each>
                         </i>
-                        <br /><br /><br />
                     </xsl:for-each>
                 </p>
-                <p style="text-align: center; font-size: 20px;"> <b>Bibliography</b></p>
+                <p style="text-align: center; font-size: 20px;"> <b>Bibliography</b></p> 
+                <br/>
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <xsl:for-each select="p1:publication/p1:bibliography/p1:reference">
                         <li>
                             <xsl:value-of select = "position()" />
                             <xsl:text >)  </xsl:text>
-                            <xsl:value-of select="." />
+                               <xsl:if test = "@p1:refId">
+                                   <xsl:variable name="refId"> <xsl:value-of select="@p1:refId" /></xsl:variable>
+                                   <xsl:variable name="samepage"> <xsl:value-of select="@p1:samepage" /></xsl:variable>
+                                   <a><xsl:attribute name="href">
+                                        <xsl:if test = "$samepage = 'true'">
+                                            <xsl:value-of select="concat('#', $refId)"/>
+                                        </xsl:if>
+                                        <xsl:if test = "$samepage = 'false'">
+                                            <xsl:value-of select="concat('http://localhost:8081/api/publication/getByIdHtml/', $refId)"/>
+                                        </xsl:if>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="."/>
+                                   </a>
+                                </xsl:if>
                         </li>
                     </xsl:for-each>
                 </ul>
+                <br /><br />
             </body>
         </html>
     </xsl:template>
