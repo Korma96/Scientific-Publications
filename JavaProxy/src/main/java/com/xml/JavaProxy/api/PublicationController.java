@@ -4,6 +4,7 @@ package com.xml.JavaProxy.api;
 import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
+import com.xml.JavaProxy.util.PdfUtil;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.apache.commons.io.IOUtils;
@@ -22,6 +23,8 @@ public class PublicationController {
 
     @Autowired
     private PublicationRepository publicationRepository;
+
+    PdfUtil pdfUtil;
     
     private final String publicationXsdPath = "src\\main\\resources\\xsd\\publication.xsd";
     private final String publicationXslPath = "src\\main\\resources\\xsl\\publication.xsl";
@@ -115,6 +118,15 @@ public class PublicationController {
                         .toPdf(publication, publicationXslPath, publicationXsdPath).getInputStream())),
                 HttpStatus.OK);
     }
+
+    @GetMapping(value = "/getByIdHtml/{id}", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> getHtml(@PathVariable String id) throws Exception {
+        String publication = publicationRepository.findById(id);
+        return new ResponseEntity<String>(PdfUtil
+                        .transform(publication, publicationXslPath, publicationXsdPath),
+                HttpStatus.OK);
+    }
+
 
     @RequestMapping(value = "add-comment/{publicationId}/{commentedSegmentId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE )
     public ResponseEntity<String> addComment(@PathVariable("publicationId") String publicationId, @PathVariable("commentedSegmentId") String commentedSegmentId, @RequestBody String comment) throws Exception {
