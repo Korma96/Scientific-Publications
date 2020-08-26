@@ -3,20 +3,9 @@ package com.xml.JavaProxy.repository;
 import com.xml.JavaProxy.helper.XUpdateTemplate;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.model.Section;
-import com.xml.JavaProxy.util.MyNamespaceMapper;
 import com.xml.JavaProxy.util.XmlUtility;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.PropertyException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import java.io.File;
-import java.io.StringReader;
-import java.io.StringWriter;
 
 @Repository
 public class PublicationRepository extends BaseRepository {
