@@ -24,6 +24,7 @@ public class PublicationRepository extends BaseRepository {
     private String textSearchMyPublications = "xqueries/text_search_my_publications.xqy";
     private String findPublicationByReviewerXQuery = "xqueries/publication/find_publications_by_reviewer.xqy";
     private String deleteByIdXQuery = "xqueries/publication/delete_by_id.xqy";
+    private String findReferencingPublicationsXQuery = "xqueries/publication/find_referencing_publications.xqy";
     //private String findPublicationIdsByReviewerXQuery = "xqueries/publication/find_publication_ids_by_reviewer.xqy";
 
 
@@ -137,5 +138,11 @@ public class PublicationRepository extends BaseRepository {
         insert(publication);
         return XmlUtility.jaxbObjectToXML(publication);
 
+    }
+
+    public String findReferencingPublications(String publicationId) throws Exception {
+        String fileContent = readXQueryFile(findReferencingPublicationsXQuery);
+        String xQuery = String.format(fileContent, publicationId);
+        return executeXQuery(collectionId, xQuery);
     }
 }
