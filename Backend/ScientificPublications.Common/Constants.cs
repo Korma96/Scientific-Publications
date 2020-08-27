@@ -6,6 +6,8 @@
 
         public const string PdfContentType = "application/pdf";
 
+        public const string HtmlContentType = "application/html";
+
         public const string AccessToken = "access-token";
 
         public const string SessionInfo = "session-info";

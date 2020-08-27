@@ -284,6 +284,11 @@ namespace ScientificPublications.Service.Publication
             return await _publicationDataAccess.GetPublicationAsPdfAsync(publicationId);
         }
 
+        public async Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId)
+        {
+            return await _publicationDataAccess.GetPublicationAsHtmlAsync(publicationId);
+        }
+
         private async Task<string> InsertRevisionAsync(string fileContent)
         {
             var publication = XmlUtility.Deserialize<publication>(fileContent);

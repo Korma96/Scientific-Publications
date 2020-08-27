@@ -146,5 +146,27 @@ namespace ScientificPublications.DataAccess.Publication
                 throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
             }
         }
+
+        public async Task<MemoryStream> GetPublicationAsHtmlAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"getByIdHtml/{publicationId}");
+                using (var client = new HttpClient())
+                {
+                    var result = await client.GetAsync(path);
+                    result.EnsureSuccessStatusCode();
+                    var memory = new MemoryStream();
+                    var stream = await result.Content.ReadAsStreamAsync();
+                    await stream.CopyToAsync(memory);
+                    memory.Position = 0;
+                    return memory;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
     }
 }

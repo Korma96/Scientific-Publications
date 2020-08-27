@@ -175,11 +175,23 @@ namespace ScientificPublications.Publication
         /// </summary>
         [HttpGet("download/pdf/{publicationId}")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetReviewerPublications([FromRoute] string publicationId)
+        public async Task<IActionResult> GetPublicationAsPDF([FromRoute] string publicationId)
         {
             var publication = await _publicationService.GetByIdWithValidationAsync(publicationId);
             var publicationPDF = await _publicationService.DownloadPublicationAsPdfAsync(publicationId);
             return File(publicationPDF, Constants.PdfContentType, publication.title);
+        }
+
+        /// <summary>
+        /// Download publication in html format
+        /// </summary>
+        [HttpGet("download/html/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPublicationAsHTML([FromRoute] string publicationId)
+        {
+            var publication = await _publicationService.GetByIdWithValidationAsync(publicationId);
+            var publicationHtml = await _publicationService.DownloadPublicationAsHtmlAsync(publicationId);
+            return File(publicationHtml, Constants.HtmlContentType, publication.title + ".html");
         }
 
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)

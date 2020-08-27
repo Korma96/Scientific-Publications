@@ -54,9 +54,14 @@
             Get assigned publications for currently logged reviewer
             </summary>
         </member>
-        <member name="M:ScientificPublications.Publication.PublicationController.GetReviewerPublications(System.String)">
+        <member name="M:ScientificPublications.Publication.PublicationController.GetPublicationAsPDF(System.String)">
             <summary>
             Download publication in pdf format
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetPublicationAsHTML(System.String)">
+            <summary>
+            Download publication in html format
             </summary>
         </member>
         <member name="M:ScientificPublications.Reviewer.ReviewController.AddCommentAsync(System.String,System.String,System.String)">

@@ -44,5 +44,7 @@ namespace ScientificPublications.Service.Publication
         Task InsertRevisionAsync(string fileContent, string previousPublicationId);
 
         Task<MemoryStream> DownloadPublicationAsPdfAsync(string publicationId);
+
+        Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId);
     }
 }

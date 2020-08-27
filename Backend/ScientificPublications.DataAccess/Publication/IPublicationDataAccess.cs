@@ -24,5 +24,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<Publications> FindByReviewerAsync(string reviewerUsername);
 
         Task<MemoryStream> GetPublicationAsPdfAsync(string publicationId);
+
+        Task<MemoryStream> GetPublicationAsHtmlAsync(string publicationId);
     }
 }
