@@ -134,5 +134,10 @@ public class PublicationController {
         return ResponseUtility.Ok(publication);
     }
 
+    @RequestMapping(value = "/referencing/{publicationId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findReferencingPublications(@PathVariable("publicationId") String publicationId) throws Exception {
+        String publications = publicationRepository.findReferencingPublications(publicationId);
+        return ResponseUtility.Ok(publications);
+    }
 
 }
