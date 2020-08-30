@@ -7,10 +7,6 @@ namespace ScientificPublications.Service.Publication
 {
     public interface IPublicationService : ISingletonService
     {
-        Task SendAcceptPublicationEmailAsync(string email, string authorName, string publicationTitle);
-
-        Task SendDenyPublicationEmailAsync(string email, string authorName, string publicationTitle, string text);
-
         void ValidatePublicationFile(string fileContent);
 
         Task<MemoryStream> GetXsdSchemaAsync();

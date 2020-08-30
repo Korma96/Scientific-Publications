@@ -25,6 +25,8 @@
             public const string WorkFlow = "http://ftn.uns.ac.rs/xml2019/workflow";
 
             public const string Notification = "http://ftn.uns.ac.rs/xml2019/notification";
+
+            public const string Evaluation = "http://ftn.uns.ac.rs/xml2019/evaluation";
         }
 
         public static class ExceptionMessages

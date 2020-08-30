@@ -35,5 +35,7 @@
         public string CoverLetterXsd { get; set; }
 
         public string WorkFlowXsd { get; set; }
+
+        public string EvaluationXsd { get; set; }
     }
 }

@@ -22,9 +22,11 @@ public class EvaluationController {
         this.evaluationRepository = evaluationRepository;
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> insert(@RequestBody String evaluationStr) throws Exception {
+    @RequestMapping(value = "/insert/{reviewer}/{publicationId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> insert(@RequestBody String evaluationStr, @PathVariable("reviewer") String reviewer, @PathVariable("publicationId") String publicationId) throws Exception {
         Evaluation evaluation = XmlUtility.convertXMLToObject(Evaluation.class, evaluationStr);
+        evaluation.setAuthor(reviewer);
+        evaluation.setPublicationId(publicationId);
         evaluationRepository.insert(evaluation);
         return ResponseUtility.Ok("success");
     }

@@ -64,9 +64,27 @@
             Download publication in html format
             </summary>
         </member>
+        <member name="P:ScientificPublications.Review.EvaluationDto.grades">
+            <remarks/>
+        </member>
         <member name="M:ScientificPublications.Reviewer.ReviewController.AddCommentAsync(System.String,System.String,System.String)">
             <summary>
             Reviewer: add comment to publication (section)
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Reviewer.ReviewController.AddEvaluationAsync(System.String,ScientificPublications.Review.EvaluationDto)">
+            <summary>
+            Reviewer: add evaluation form for publication
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Reviewer.ReviewController.GetEvaluationAsync(System.String,System.String)">
+            <summary>
+            Editor: Get evaluation by publication and reviewer
+            </summary>
+        </member>
+        <member name="M:ScientificPublications.Reviewer.ReviewController.GetEvaluationsAsync(System.String)">
+            <summary>
+            Author: get evaluations for publication
             </summary>
         </member>
         <member name="M:ScientificPublications.User.UserController.GetReviewers">
