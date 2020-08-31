@@ -42,5 +42,7 @@ namespace ScientificPublications.Service.Publication
         Task<MemoryStream> DownloadPublicationAsPdfAsync(string publicationId);
 
         Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId);
+
+        Task<Publications> GetReferencingPublications(string publicationId);
     }
 }

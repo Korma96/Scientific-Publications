@@ -26,5 +26,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<MemoryStream> GetPublicationAsPdfAsync(string publicationId);
 
         Task<MemoryStream> GetPublicationAsHtmlAsync(string publicationId);
+
+        Task<Publications> GetReferencingPublicationsAsync(string publicationId);
     }
 }

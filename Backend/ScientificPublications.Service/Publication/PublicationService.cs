@@ -281,5 +281,10 @@ namespace ScientificPublications.Service.Publication
             await _publicationDataAccess.InsertAsync(publication);
             return publication.id;
         }
+
+        public Task<Publications> GetReferencingPublications(string publicationId)
+        {
+            return _publicationDataAccess.GetReferencingPublicationsAsync(publicationId);
+        }
     }
 }

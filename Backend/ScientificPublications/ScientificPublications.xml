@@ -64,6 +64,11 @@
             Download publication in html format
             </summary>
         </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.GetReferencingPublications(System.String,System.Boolean)">
+            <summary>
+            Get publications which are referencing given publication
+            </summary>
+        </member>
         <member name="P:ScientificPublications.Review.EvaluationDto.grades">
             <remarks/>
         </member>

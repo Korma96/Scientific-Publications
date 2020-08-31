@@ -194,6 +194,17 @@ namespace ScientificPublications.Publication
             return File(publicationHtml, Constants.HtmlContentType, publication.title + ".html");
         }
 
+        /// <summary>
+        /// Get publications which are referencing given publication
+        /// </summary>
+        [HttpGet("referencing/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetReferencingPublications([FromRoute] string publicationId, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.GetReferencingPublications(publicationId);
+            return PublicationsResponse(publications, shortForm);
+        }
+
         private IActionResult PublicationsResponse(Publications publications, bool shortForm)
         {
             if (shortForm)

@@ -168,5 +168,18 @@ namespace ScientificPublications.DataAccess.Publication
                 throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
             }
         }
+
+        public async Task<Publications> GetReferencingPublicationsAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"/referencing/{publicationId}");
+                return await HttpHelper.Get<Publications>(path);
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
     }
 }
