@@ -1,7 +1,9 @@
 xquery version "3.1";
 
-let $publications := for $publication in fn:doc("/db/test/publications.xml")/publications/publication
-where $publication/header/status != "deleted"
+declare namespace p1 = "http://ftn.uns.ac.rs/xml2019/publication";
+
+let $publications := for $publication in fn:doc("/db/test/publications.xml")/publications/p1:publication
+where $publication/p1:header/p1:status != "WITHDRAWN"
 return $publication
 
 return <publications> {$publications} </publications>

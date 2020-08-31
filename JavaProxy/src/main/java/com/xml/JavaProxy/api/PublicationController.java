@@ -77,16 +77,15 @@ public class PublicationController {
         publicationRepository.withdraw(publicationId);
         return ResponseUtility.Ok();
     }
-    // TODO: "status/{status}" endpoint can be used instead
-    //find all publications in procedure for author
-    @RequestMapping(value = "/in-procedure/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findAllInProcedure(@PathVariable("author") String author) throws Exception {
-        String publications = publicationRepository.findAllInProcedureByAuthor(author);
+    //find all publications by status for author
+    @RequestMapping(value = "/status/{status}/{author}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> findAllInProcedure(@PathVariable("status") String status, @PathVariable("author") String author) throws Exception {
+        String publications = publicationRepository.findByStatusAndAuthor(status, author);
         return ResponseUtility.Ok(publications);
     }
     // TODO: "status/{status}/{publicationId}" can be used instead
     //editor
-    @RequestMapping(value = "/accept/{id}/{accepted}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/accept/{id}/{accepted}", method = RequestMethod.PUT)
     public ResponseEntity<String> acceptPublication(@PathVariable("id") String publicationId, @PathVariable("accepted") boolean accepted) throws Exception{
         publicationRepository.acceptPublication(publicationId, accepted);
         return ResponseUtility.Ok();

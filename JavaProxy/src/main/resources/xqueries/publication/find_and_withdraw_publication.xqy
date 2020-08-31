@@ -1,5 +1,8 @@
 xquery version "3.1";
 
-for $publication in fn:doc("/db/test/publications.xml")/publications/publication
-where $publication/@id = "%s" and $publication/header/status != "published"
-return update value $publication/header/status with "deleted"
+declare namespace p1 = "http://ftn.uns.ac.rs/xml2019/publication";
+
+
+for $publication in fn:doc("/db/test/publications.xml")/publications/p1:publication
+where $publication/@id = "%s" and $publication/header/status != "ACCEPTED"
+return update value $publication/header/status with "WITHDRAWN"

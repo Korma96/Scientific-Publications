@@ -8,7 +8,7 @@ where $workflow/w1:reviewers/w1:reviewer = "%s"
 return $workflow/w1:publicationId
 
 let $publications := for $publication in fn:doc("/db/test/publications.xml")/publications/p1:publication
-where $publication/@p1:id = $publicationIds and $publication/p1:header/p1:status != "deleted"
+where $publication/@p1:id = $publicationIds and $publication/p1:header/p1:status != "WITHDRAWN"
 return $publication
 
 return <publications> {$publications} </publications>

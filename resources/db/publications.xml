@@ -1,39 +1,109 @@
-<p1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:p1="http://ftn.uns.ac.rs/xml2019/publication" p1:id="123">
-  <p1:header>
-    <p1:publicationDate>2020-10-08</p1:publicationDate>
-    <p1:revisionNumber>1/1</p1:revisionNumber>
-    <p1:status>status1</p1:status>
-  </p1:header>
-  <p1:title>XML And MicroServices</p1:title>
-  <p1:authors>
-    <p1:author username="vukbarisic">
-      <p1:name>Vuk Barisic</p1:name>
-      <p1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</p1:university>
-    </p1:author>
-    <p1:author username="markoradovic">
-      <p1:name>Marko Radovic</p1:name>
-      <p1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</p1:university>
-    </p1:author>
-  </p1:authors>
-  <p1:abstract>
-    <p1:purpose>Understanding problematics of current subject,Understanding problematics of current subject, Understanding problematics of current subject,Understanding problematics of current subject,</p1:purpose>
-    <p1:problem>How to create dependable and secure xml publications system</p1:problem>
-    <p1:method>Java and C# with possible angular on backend and exist database</p1:method>
-    <p1:results>Results will be available at the end, we're in the middle of this paper</p1:results>
-    <p1:conclusions>Conclusions will also be available later</p1:conclusions>
-  </p1:abstract>
-  <p1:keywords>XML, Web, Publication, Reviewer, Editor</p1:keywords>
-  <p1:section p1:id="section1">
-    <p1:heading>Introduction</p1:heading>
-    <p1:content>
-      <p1:imageContent>
-        <p1:image>image1</p1:image>
-        <p1:about>about1</p1:about>
-      </p1:imageContent>
-    </p1:content>
-    <p1:content>
-      <p1:text>
-        Velikim razvitkom kompjutera i softvera u poslednjih
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<publications>
+
+<ns1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="1">
+  <ns1:header>
+    <ns1:publicationDate>2020-08-08</ns1:publicationDate>
+    <ns1:revisionNumber>1/1</ns1:revisionNumber>
+    <ns1:status>ACCEPTED</ns1:status>
+  </ns1:header>
+  <ns1:title>History of data</ns1:title>
+  <ns1:authors>
+    <ns1:author username="vuk19">
+    <ns1:name>Vuk Barisic</ns1:name>
+    <ns1:university>Faculty of Technical Sciences</ns1:university>
+  </ns1:author>
+    <ns1:author username="markoradovic">
+      <ns1:name>Marko Radovic</ns1:name>
+      <ns1:university>Faculty of Technical Sciences</ns1:university>
+    </ns1:author>
+  </ns1:authors>
+  <ns1:abstract>
+    <ns1:purpose>Understanding problematics of current subject,Understanding problematics of current subject, Understanding problematics of current subject,Understanding problematics of current subject,</ns1:purpose>
+    <ns1:problem>How to create dependable and secure xml publications system</ns1:problem>
+    <ns1:method>Java and C# with possible angular on backend and exist database</ns1:method>
+    <ns1:results>Results will be available at the end, we're in the middle of this paper</ns1:results>
+    <ns1:conclusions>Conclusions will also be available later</ns1:conclusions>
+  </ns1:abstract>
+  <ns1:keywords>Data, History, Storing</ns1:keywords>
+  <ns1:section ns1:id="section1">
+    <ns1:heading>Introduction</ns1:heading>
+    <ns1:content>
+        <ns1:text>
+        It’s often said that we are in the age of data. We create, curate, collect, compute and cleanse more of it every day. It feeds the growth  of exciting technology like artificial intelligence (AI). It helps personalise our online experiences, and it helps us move forward in the quest for more knowledge. But how long has it taken to get here? The concept of data is not new — far from it. In fact, its story dates much further back than you might think. Here, we dive into the long, rich history of data.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section2">
+    <ns1:heading>The ancient world</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        It’s (perhaps) possible to trace the history of data back to the ancient world — as early as 19,000BC. The Ishango bone was a notched baboon bone tool dating from around 19,000 BC. It’s thought to have acted as a tally stick. So, it could be speculated that the Ishango bone represents an incredibly early instance of data collection and storage. That is, those methodical bone scratches could be the first documented record of humans logging numerical information for later use. Around the third millennia BC, writing started to evolve, and with it, libraries. This collection and curation of written work, arguably, represents an early form of mass data storage.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section3">
+    <ns1:heading>1600s: Early interpretations</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        It’s (perhaps) possible to trace the history of data back to the ancient world — as early as 19,000BC. The Ishango bone was a notched baboon bone tool dating from around 19,000 BC. It’s thought to have acted as a tally stick. So, it could be speculated that the Ishango bone represents an incredibly early instance of data collection and storage. That is, those methodical bone scratches could be the first documented record of humans logging numerical information for later use. Around the third millennia BC, writing started to evolve, and with it, libraries. This collection and curation of written work, arguably, represents an early form of mass data storage.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section4">
+    <ns1:heading>The late 1800s: data processing problems</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        The next big event in the history of data occurred following the 1880 US census. Over the decades, the census had grown, asking more and more questions about the populace. The issue was that there was now more data than collectors could analyse. Herman Hollerith was the man to solve the problem, with his brainchild: the Hollerith desk. This machine harnessed the power of punch cards — an invention from Joseph Jacquard in 1801. With the collected data represented as holes in cards, the machine could find the holes, which would complete a circuit. A completed circuit would move a dial up by one. This reduced the time taken to complete the 1890 census. Hollerith’s machine made it possible to process and analyse large amounts of data. And, sure enough, punch card automation became a widespread way to collect and analyse data.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section5">
+    <ns1:heading>1900s: A question of storage</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+       So, the challenge of processing data had been answered (in some part) by this early automation. The history of data then saw a shifted emphasis onto its storage and collection. In 1928, Fritz Pfleumer invented magnetic tape for recording purposes. (Or, in other words, a way to collect and store data magnetically.) This is an idea that lasted. The hard disc drives, floppy discs and tapes that would follow toward the end of the century were all enabled by magnetic data storage.
+The 1960s saw the conception (but not the creation) of cloud data storage by Dr Joseph Carl Robnett Licklider. He envisioned an “Intergalactic Computer Network” where data and programs could be accessed by anyone, anywhere, at any time. This idea forms the basis of cloud computing as we now know it. Then, in the 1970s, Edgar F. Codd presented a framework for a relational model of database management.  This proved an influential theory in the history of data — it’s a framework for data management that’s still used today.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:bibliography>
+    <ns1:reference ns1:refId="1" ns1:samepage="false">reference1</ns1:reference>
+    <ns1:reference ns1:refId="2" ns1:samepage="false">reference3</ns1:reference>
+  </ns1:bibliography>
+  <ns1:comment>comment1</ns1:comment>
+</ns1:publication>
+
+<ns1:publication xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="2">
+        <ns1:header>
+            <ns1:publicationDate>2020-10-08</ns1:publicationDate>
+            <ns1:revisionNumber>1/1</ns1:revisionNumber>
+            <ns1:status>ACCEPTED</ns1:status>
+        </ns1:header>
+        <ns1:title>XML i mikroservisi</ns1:title>
+        <ns1:authors>
+            <ns1:author username="vuk19">
+                <ns1:name>Vuk Barisic</ns1:name>
+                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</ns1:university>
+            </ns1:author>
+            <ns1:author username="markoradovic">
+                <ns1:name>Marko Radovic</ns1:name>
+                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</ns1:university>
+            </ns1:author>
+        </ns1:authors>
+        <ns1:abstract>
+            <ns1:purpose>Razumevanje problema i otklanjanje putem mikroservisa, deljenje procesne arhitekture na manje celine</ns1:purpose>
+            <ns1:problem>Kako podeliti proces na manje celine, a da to ne ometa rad programa</ns1:problem>
+            <ns1:method>Koriscenje Java i nekih drugih tehnologija</ns1:method>
+            <ns1:results>Rezultati ce biti vidljivi nakon izvedbe</ns1:results>
+            <ns1:conclusions>Kao i rezultati...</ns1:conclusions>
+        </ns1:abstract>
+        <ns1:keywords>XML, Web, Publikacija</ns1:keywords>
+        <ns1:section ns1:id="section1">
+            <ns1:heading>Introduction</ns1:heading>
+            <ns1:content>
+                <ns1:text>
+                Velikim razvitkom kompjutera i softvera u poslednjih
         nekoliko decenija stvoreno je sasvim novo tržište i prostor za
         inovativne i mlade ljude. Nastao je prostor da svoje ideje
         pretvore u nešto konkretno, i da iskoriste svoja znanja i viziju u
@@ -45,7 +115,7 @@
         imaju prostora da budu revolucionog karaktera. To ne menja
         činjenicu da su izuzetno značajni za razvitak uspostavljenog,
         kako ekonomskog tako i inforamacionog sveta.
-        U surovom kapitalističkom svetu u kojem danas
+         U surovom kapitalističkom svetu u kojem danas
         živimo, ljudi traže načine da se oslobode rada za druge i
         ostvarivanja tuđih snova. Isto tako svesni novca koji je u
         opticaju, ne žele da rade za platu koja je nije srazmerna poslu
@@ -63,7 +133,7 @@
         rizika, mana, ali i prednosti. To je naročito tačno za softverske
         startape, koji su jedni od najpopularnijih vrsta startapa i koji če
         rad analizirati.
-        Kada se pomene startap, prva pomisao je uglavnom na
+         Kada se pomene startap, prva pomisao je uglavnom na
         softverske startape, iako oni naravno nisu jedina oblast
         delovanja startapa. Međutim, zbog velikog uspeha startapa koji
         su se bavili upravo softverom, među kojima su i gore pomenute
@@ -72,7 +142,7 @@
         put. Zato će rad nastojati na tome da prikaže realnu sliku, u
         kojoj nije sve “med i mleko”, ali koja svakako ima potencijal da
         to postane.
-        U poglavlju II ćemo se fokusirati na početnu ideju. Kako
+         U poglavlju II ćemo se fokusirati na početnu ideju. Kako
         na njen značaj, tako i na značaj njene potvrde, odnosno
         dobijanja kritika na ideju. U poglavlju III će biti reči o načinima
         finansiranja startapa, kako o samofinansiranju, tako i o
@@ -83,14 +153,17 @@
         predstavlja diskusiju o važnosti biznis plana i kada ga treba
         napraviti. VII poglavlje se sastoji od opštih saveta za pokretanje
         uspešnog startapa.
-      </p1:text>
-    </p1:content>
-  </p1:section>
-  <p1:section p1:id="section2">
-    <p1:heading>POČETNA IDEJA I NJENA POTVRDA</p1:heading>
-    <p1:content>
-      <p1:text>
-        Dobra ideja je osnova uspešnog startapa, nije dovoljna
+      </ns1:text>
+            </ns1:content>
+            <ns1:comment>
+  Pomesani jezici
+</ns1:comment>
+        </ns1:section>
+        <ns1:section ns1:id="section2">
+            <ns1:heading>POČETNA IDEJA I NJENA POTVRDA</ns1:heading>
+            <ns1:content>
+                <ns1:text>
+               Dobra ideja je osnova uspešnog startapa, nije dovoljna
         za uspeh, ali je neophodna. Međutim, na prvu loptu mnoge ideje
         se učine mnogo boljim nego što zaista jesu, jer nismo u stanju
         sagledati sve faktore koji utiču na njenu ostvarivost. To je
@@ -113,7 +186,7 @@
         posao. Bez potencijalnih kupaca, vaša vizija neće značiti
         puno. Zato je veoma bitno validiranje tj. potvrđivanje vaše
         ideje.
-        Potvrđivanje vaše ideje trebalo bi da vam omogući
+         Potvrđivanje vaše ideje trebalo bi da vam omogući
         relaativnu sigurnost (nikad nećete imati potpunu sigurnost) da
         će vaše potencijalno poslovanje privući kupce koji su spremni
         da potroše novac na vašu ideju i osigurati da ne investirate u
@@ -127,7 +200,7 @@
         ideju. Na kraju krajeva, ono što tražite, je ono što će vam
         najviše koristiti - brutalno iskrene odgovore, samim tim stvaran
         uvid u situaciju.
-        Postavlja se pitanje šta vam je sve potrebno za
+         Postavlja se pitanje šta vam je sve potrebno za
         potvrđivanje ideje. Prvo, trebalo bi da identifikujete ciljnog
         kupca. Razmislite koja vrsta osobe će biti zainteresovana za
         kupovinu vaših proizvoda ili usluga? Koji su njihovi ciljevi,
@@ -137,42 +210,52 @@
         njihovim željama i težnjama? Zatim ubacite novac u razgovor,
         tako što će te pitati svog ciljnog kupca, koliko bi bili voljni da
         plate.
-        Ljudi se svakodnevno suočavaju sa raznim
+         Ljudi se svakodnevno suočavaju sa raznim
         problemima, ali vaša ideja treba da bue rešenje na neki od njima
         najbitnijih problema. Trebali biste takođe temeljno istražiti svoj
         koncept, da li je to učinjeno ranije? Ako ne, zašto ne? Da li je
         pokušano ranije i neuspešno? Ako nije zašto nije? Dobro
         iskoristite privilegiju učenja na greškama svojih prethodnika, jer
         bolje od učenja na svojim, je jedino učenje na tuđim greškama.
-        Iako ćete se najverovatnije fokusirate na druge,
+         Iako ćete se najverovatnije fokusirate na druge,
         uzbudljivije aspekte pokretanja vašeg startapa, potvrđivanje
         vaše poslovne ideje je neophodno za uspeh. Ono će vama
         pružiti neohodnu sigurnost, kako vama tako i potencijalnim
         investitorima, da je vaša ideja vredna uloženog vremena, napora
         i novca [4].
-      </p1:text>
-    </p1:content>
-  </p1:section>
-  <p1:section p1:id="id3">
-    <p1:heading>POČETNA FINANSIJSKA PODRŠKA </p1:heading>
-    <p1:content>
-      <p1:text>
-        Ako mi sami ili tim ljudi koji smo okupili nema
+          </ns1:text>
+        </ns1:content>
+    </ns1:section>
+    <ns1:section ns1:id="id3">
+        <ns1:heading>POČETNA FINANSIJSKA PODRŠKA </ns1:heading>
+            <ns1:content>
+                <ns1:text>
+              Ako mi sami ili tim ljudi koji smo okupili nema
         dovoljno novca za pokretanje startapa, jedino što vam preostaje
         je da zatražite finansijsku pomoć (podršku) od nekog ko ima i
-        ko je voljan da vas podrži. Osim članova vaše porodice,
+        ko je voljan da vas podrži. Kao sto smo videli u prethodnom
+        </ns1:text>
+            </ns1:content>
+        <ns1:content>
+            <ns1:link ns1:refId = "section2" ns1:samepage = "true"> 
+            poglavlju
+            </ns1:link>
+        </ns1:content>
+        <ns1:content>
+            <ns1:text>
+            Osim članova vaše porodice,
         naravno ukoliko su u mogućnosti, teško da bi neko drugi tek
         tako odlučio da nas finansijski podrži. Kakva je raspodela
         samofinansiranja, možemo videti na slici1. Terminologija sa
         slike: Borrowed from family and friends – pozajmica od strane
         porodice i prijatelja Family business – porodićni biznis, Own
         savings – ušteđevina
-      </p1:text>
-    </p1:content>
-    <p1:subsection>
-      <p1:heading>Anđeli investitori </p1:heading>
-      <p1:content>
-        <p1:text>
+        </ns1:text>
+    </ns1:content>
+    <ns1:subsection>
+      <ns1:heading>Anđeli investitori </ns1:heading>
+      <ns1:content>
+        <ns1:text>
           Reč je o uspešnim ljudima koji žele da investiraju u
           perspektivne projekte u zamenu za udeo u vlasništvu
           kompanije. Anđeli investitori često vole da se angažuju na
@@ -190,13 +273,13 @@
           startapa. Na kraju, bitno je reći i da se anđeli investitori često
           udružuju u grupe kako bi sredstva stavili u isti fond, jer je to
           najbolji način da podele rizike.
-        </p1:text>
-      </p1:content>
-    </p1:subsection>
-    <p1:subsection>
-      <p1:heading>Seed fondovi i akceleratori </p1:heading>
-      <p1:content>
-        <p1:text>
+        </ns1:text>
+      </ns1:content>
+    </ns1:subsection>
+    <ns1:subsection>
+      <ns1:heading>Seed fondovi i akceleratori </ns1:heading>
+      <ns1:content>
+        <ns1:text>
           Seed (engl. seed) akceleratori su vrsta poslovnih
           inkubatora. Program nekog seed akceleratora obično
           podrazumeva trajanje od 3 meseca, investicija dovoljna za
@@ -215,13 +298,13 @@
           Combinatora je 22.4 miliona dolara. Najuspešniji startap ovog
           inkubatora je “Dropbox”, čija se vrednost danas procenjuje da
           iznosi negde između pet i deset milijardi dolara.
-        </p1:text>
-      </p1:content>
-    </p1:subsection>
-    <p1:subsection>
-      <p1:heading> Venture kapital fondovi</p1:heading>
-      <p1:content>
-        <p1:text>
+        </ns1:text>
+      </ns1:content>
+    </ns1:subsection>
+    <ns1:subsection>
+      <ns1:heading> Venture kapital fondovi</ns1:heading>
+      <ns1:content>
+        <ns1:text>
           Venture kapital je finansiranje koje investitori pružaju
           startap preduzećima za koja veruju da imaju dugoročni
           potencijal rasta tj. velike nagrade za početno ulaganje. Ono
@@ -259,25 +342,168 @@
           rundu finansiranja. Fond izlazi iz kompanije nakon određenog
           vremenskog perioda, obično četiri do šest godina nakon početne
           investicije [6].
-        </p1:text>
-      </p1:content>
-      <p1:content>
-        <p1:imageContent>
-          <p1:image>image2</p1:image>
-          <p1:about>about2</p1:about>
-        </p1:imageContent>
-      </p1:content>
-    </p1:subsection>
-    <p1:comment>comment3</p1:comment>
-  </p1:section>
-  <p1:bibliography>
-    <p1:reference p1:refId="section2">http://startit.rs/media/prirucnik_startap_akademija1.pdf startit kompanija, 2017.</p1:reference>
-    <p1:reference p1:refId="section1"> Dishman, L.: The state of the american entrepreneur in
+        </ns1:text>
+      </ns1:content>
+      <ns1:content>
+        <ns1:imageContent>
+          <ns1:image>image</ns1:image>
+          <ns1:about>about</ns1:about>
+        </ns1:imageContent>
+      </ns1:content>
+    </ns1:subsection>
+    <ns1:comment>comment</ns1:comment>
+  </ns1:section>
+  <ns1:bibliography>
+    <ns1:reference ns1:refId="1" ns1:samepage = "false"> http://startit.rs/media/prirucnik_startap_akademija1.pdf startit kompanija, 2017.</ns1:reference>
+    <ns1:reference ns1:refId="2" ns1:samepage = "false" > Dishman, L.: The state of the american entrepreneur in
       2015. http://www.fastcompany.com/3046773/hit-the-groundrunning/the-state-of-the-american-entrepreneur-in-2015.
-      Accessed 15 Oct 2015</p1:reference>
-    <p1:reference p1:refId="id3">Salamzadeh, A. and Kawamorita Kesim, H., 2015.
+      Accessed 15 Oct 2015</ns1:reference>
+    <ns1:reference ns1:refId="id3" ns1:samepage = "false"> Salamzadeh, A. and Kawamorita Kesim, H., 2015.
       Startup Companies: Life Cycle and Challenges.
-    </p1:reference>
-  </p1:bibliography>
-  <p1:comment>comment1</p1:comment>
-</p1:publication>
+    </ns1:reference>
+  </ns1:bibliography>
+  <ns1:comment>comment1</ns1:comment>
+</ns1:publication>
+
+<ns1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="3">
+  <ns1:header>
+    <ns1:publicationDate>2020-10-04</ns1:publicationDate>
+    <ns1:revisionNumber>1/1</ns1:revisionNumber>
+    <ns1:status>ASSIGNED</ns1:status>
+  </ns1:header>
+  <ns1:title>We Have No Reason to Believe 5G Is Safe</ns1:title>
+  <ns1:authors>
+    <ns1:author username="john">
+    <ns1:name>John Mackie</ns1:name>
+    <ns1:university>MIT</ns1:university>
+  </ns1:author>
+    <ns1:author username="markoradovic">
+      <ns1:name>Marko Radovic</ns1:name>
+      <ns1:university>Faculty of Technical Sciences</ns1:university>
+    </ns1:author>
+  </ns1:authors>
+  <ns1:abstract>
+    <ns1:purpose>Understanding problematics of current subject,Understanding problematics of current subject, Understanding problematics of current subject,Understanding problematics of current subject,</ns1:purpose>
+    <ns1:problem>How to create dependable and secure xml publications system</ns1:problem>
+    <ns1:method>Java and C# with possible angular on backend and exist database</ns1:method>
+    <ns1:results>Results will be available at the end, we're in the middle of this paper</ns1:results>
+    <ns1:conclusions>Conclusions will also be available later</ns1:conclusions>
+  </ns1:abstract>
+  <ns1:keywords>5g, Data, Internet, Mobile</ns1:keywords>
+  <ns1:section ns1:id="section1">
+    <ns1:heading>Introduction</ns1:heading>
+    <ns1:content>
+        <ns1:text>
+       Fast 5G networks are supposed to take hold in 2019, as phones, providers and networks all begin to come online. Behind the scenes, studies modelling the absorption patterns of 5G electromagnetic energy in human tissue, authored by Professor Andrew Wood’s Swinburne team, has helped form the basis for international discussions on safety regulation and design. Wood’s team, which is part of the multi-institutional Australian Centre for Electromagnetic Bioeffects Research (ACEBR), is a key contributor to the International Commission on Non-Ionizing Radiation Protection (ICNIRP) review, which is expected to be released in 2019. As said
+        </ns1:text>
+    </ns1:content>
+    <ns1:content>
+        <ns1:link ns1:refId = "3" ns1:samepage = "false">
+            here
+         </ns1:link>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section2">
+    <ns1:heading> To fear or not</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+       5G mobile technology promises a ten-fold increase in data transmission rates compared to current 4G networks, which will be achieved by using a higher transmission frequency. The physiological effects of electromagnetic radiation change with frequency, so the advent of 5G triggered a major international review of relevant radiation safety guidelines, for which it’s agreed that there is insufficient data for a meaningful health risk assessment.
+
+But Wood’s team have yet to see major red flags at, or below, the commonly accepted electromagnetic radiation limit in the current international standards that apply to mobile technologies.
+As the frequency goes up, the depth of penetration into biological tissues goes down, so the skin and eyes, rather than the brain, become the main organs of health concern, Wood says. The major hurdle is that the power levels involved in mobile and wireless telecommunications are incredibly low, which, at most, produce temperature rises in tissue of a few tenths of a degree. Picking up unambiguous biological changes is therefore very difficult. However, it will be important to balance the risk and reward, he notes. “Wireless technologies bring enormous benefits, and being overcautious would potentially deny these benefits to needy communities.”Moving forward, the team plans to continue to model the bioeffects of 5G electromagnetic radiation. Their plans for future work range from building skin models and biomolecular work on cells using fluorescent dye, to computational simulations that scale up from single cells to humans.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section3">
+    <ns1:heading>So - is 5G linked to coronavirus?</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+       Prior to the outbreak of COVID-19, there were already discussions about the effects 5G could have on a person's health, due to these higher frequencies and the type of radiation it emits. But since the outbreak, the 5G conversation seems to have found itself linked to the disease with people claiming it could exacerbate the spread through its frequencies, or by suppressing the immune system.
+Others have claimed the virus is, in fact, being used to cover up dangerous effects of the mobile network. So - is 5G linked to coronavirus?
+The short answer is no. In fact, the UK government has gone further to say there is"absolutely no credible link between the two.
+Meanwhile, Mobile UK, a trade union for British mobile providers, also commented on the baseless claims that it said were not grounded in accepted scientific theory.
+More worryingly, it added: Some people are also abusing our key workers and making threats to damage infrastructure under the pretence of claims about 5G. This is not acceptable and only impacts on our ability as an industry to maintain the resilience and operational capacity of the networks to support mass home working and critical connectivity to the emergency services, vulnerable consumers and hospitals.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:bibliography>
+    <ns1:reference ns1:refId="1" ns1:samepage="false">reference1</ns1:reference>
+    <ns1:reference ns1:refId="2" ns1:samepage="false">reference3</ns1:reference>
+  </ns1:bibliography>
+</ns1:publication>
+<ns1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="4">
+  <ns1:header>
+    <ns1:publicationDate>2020-07-01</ns1:publicationDate>
+    <ns1:revisionNumber>1/1</ns1:revisionNumber>
+    <ns1:status>ACCEPTED</ns1:status>
+  </ns1:header>
+  <ns1:title>5g Modern Dilemma</ns1:title>
+  <ns1:authors>
+    <ns1:author username="vuk19">
+    <ns1:name>Vuk Barisic</ns1:name>
+    <ns1:university>Faculty of Technical Sciences</ns1:university>
+  </ns1:author>
+    <ns1:author username="markoradovic">
+      <ns1:name>Marko Radovic</ns1:name>
+      <ns1:university>Faculty of Technical Sciences</ns1:university>
+    </ns1:author>
+  </ns1:authors>
+  <ns1:abstract>
+    <ns1:purpose>Understanding problematics of current subject,Understanding problematics of current subject, Understanding problematics of current subject,Understanding problematics of current subject,</ns1:purpose>
+    <ns1:problem>How to create dependable and secure xml publications system</ns1:problem>
+    <ns1:method>Java and C# with possible angular on backend and exist database</ns1:method>
+    <ns1:results>Results will be available at the end, we're in the middle of this paper</ns1:results>
+    <ns1:conclusions>Conclusions will also be available later</ns1:conclusions>
+  </ns1:abstract>
+  <ns1:keywords>5g, Data, Internet, Mobile</ns1:keywords>
+  <ns1:section ns1:id="section1">
+    <ns1:heading>Introduction</ns1:heading>
+    <ns1:content>
+        <ns1:text>
+        In the 1970s, the bogeyman was power lines. Low-frequency electromagnetic fields were emanating from them all the time, and a shocking 1979 study suggested that children who developed cancer lived near power lines “unduly often.” Around the same time, because of Cold War panic about radiation in general, televisions and microwave ovens also became a possible human health catastrophe. Later, concern bubbled up around a slew of other household appliances, including hair dryers and electric blankets.Now the advance of cellphones and, more recently, the new high-speed networks built to serve them have given rise to a paranoid coalition who believe to varying degrees in a massive cover-up of deleterious harm. The devices are different, but the fears are the same: The radiation from the things we use every single day is destroying us; our modern world is a colossal mistake. The stakes are about as high as they could possibly be: If it were true that our cellphones were causing brain tumors, that our wireless devices were damaging our DNA, and that radiation emanating from cell towers was sickening us in any untold number of ways, this would be the greatest human health disaster the world has ever known. As well as, perhaps, its greatest capitalist conspiracy.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section2">
+    <ns1:heading> Too big to be true</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        It’s too big to be true. The science is confusing, but the World Health Organization, noting decades of research, has found no significant health risks from low-level electromagnetic fields. Yet amid a broader tech backlash—against screens, against social media, against power consolidating in a handful of companies, against a technology industry that rolls out new products and protocols faster than we can keep up or argue with, against the general fatigue and malaise associated with a life spent typing and scrolling—it’s just big enough to seem, to many, like the obvious explanation for so much being wrong.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section3">
+    <ns1:heading>Fear of science world</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        The ranks of the 5G-skeptical include environmental activists, politicians, celebrities, and fringe scientists. In 2015, 190 scientists, doctors, and engineers from about 40 countries sent an appeal to the United Nations, urging the World Health Organization to reconsider the international guidelines for human exposure to the kind of radiation emitted by cellphones and other wireless technologies. In 2017, some of the same group co-signed a letter to the European Union asking that 5G rollout be put on hold pending further investigation. Though this community is far from mainstream, it is large. And it is powerful: In April 2019, Brussels stopped work on its 5G network, with the environmental minister of the region saying that citizens wouldn’t be treated as “guinea pigs.” A few cities and towns in Northern California have passed ordinances to curb 5G deployment, explicitly because of health concerns, and three members of Congress have written to Federal Communications Commission Chairman Ajit Pai about their constituents’ worries over 5G safety.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section4">
+    <ns1:heading>Evidence without scientific proof</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+        Activists tend to cite the existence of “hundreds” or even “thousands” of studies that prove a connection between low-level radiation and various adverse health effects. They aren’t wrong about the volume of research. They aren’t even wrong that some of the studies find what they’re looking for. What is impossible to say in a sentence is that they find any one thing in particular, and no evidence supports the idea that global industry and governments have made a concerted effort to keep shocking findings from the public.
+Work that points to dangerous connections between electromagnetic radiation and negative human health outcomes tends to ignore much of what we know about electromagnetic waves and the way they interact with the body. Though the word radiation always conjures up a little something frantic in the gut, there is a diverse spectrum of electromagnetic waves, with big differences among them. Gamma rays and X-rays—waves with very short wavelengths and very high photon energies—can cause cellular damage because they can knock electrons out of atoms. It is very bad to be exposed to them for extended periods.
+But current wireless technology uses fields in the microwave range, and the FCC sets limits for radiofrequency exposure from cellphones well below the line at which we would expect heating to happen in human tissue. In 1991, the Yale physicist Robert K. Adair wrote in Physical Review that “there are good reasons to believe” that weak fields “can have no significant biological effect at the cell level—and no strong reason to believe otherwise.”
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:section ns1:id="section5">
+    <ns1:heading>Belief not facts</ns1:heading>
+    <ns1:content>
+       <ns1:text>
+       To believe that wireless technology is deadly, you can start by believing in a few simple, true things, and then go from there.
+“There is so much dishonesty in this field, and people paid by the industry,” one activist tells me coolly, a few moments after we first shake hands. Then she looks at me as if she’s about to take notes on the muscles in my face. “You have to dig for the truth. But are you interested in the truth?”  
+I am, which is how I end up reading a booklet by Norm Alster titled “Captured Agency,” subtitled “How the Federal Communications Commission Is Dominated by the Industries It Presumably Regulates.” It was published in 2015 and is a common reference point for activists. The accusations of corruption it contains are extreme, to say the least. Invoking “the hardball tactics of the tobacco industry,” Alster accuses the wireless industry of “bullying potential threats into submission,” and the FCC of allowing it to happen. The flamboyant prose, and the overreactions throughout the paper over minor connections and shared dinners, makes it rhetorically unpersuasive. But Alster is not wrong that the FCC has been accused, credibly, of blurring the lines between regulation and participation. “The path from a Commission seat to an aisle seat inside Comcast’s private jet and vice versa has been wide open for years,” the Verge editor in chief Nilay Patel wrote in his 2016 interview of the former FCC head Tom Wheeler.
+There is an argument to be made that the FCC overreaches, removing community agency and consolidating power. In October, a federal court of appeals upheld the commission’s wildly unpopular repeal of net neutrality, but shot down its claim that states were not allowed to pass net-neutrality laws of their own. The court also criticized the FCC for a “disregard of its duty,” in failing to assess the ways in which eroding an open internet might affect public safety and emergency services. There are also valid criticisms surrounding 5G technology, many of which have been made repeatedly by prominent politicians and mainstream journalists. Even Wheeler, one of 5G’s most prominent hype men only a few years ago, has come out against the current FCC administration’s handling of 5G cybersecurity.
+        </ns1:text>
+    </ns1:content>
+  </ns1:section>
+  <ns1:bibliography>
+    <ns1:reference ns1:refId="2" ns1:samepage="false">reference1</ns1:reference>
+    <ns1:reference ns1:refId="3" ns1:samepage="false">reference2</ns1:reference>
+  </ns1:bibliography>
+</ns1:publication>
+</publications>
