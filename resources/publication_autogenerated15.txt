@@ -1,0 +1,96 @@
+<pub:publication pub:id="string" xmlns:pub="http://ftn.uns.ac.rs/xml2019/publication">
+  <pub:header>
+    <pub:publicationDate>2008-09-29</pub:publicationDate>
+    <pub:revisionNumber>string</pub:revisionNumber>
+    <pub:status>string</pub:status>
+  </pub:header>
+  <pub:title>string</pub:title>
+  <pub:authors>
+    <pub:author username="anySimpleType">
+      <pub:name>string</pub:name>
+      <pub:university>string</pub:university>
+    </pub:author>
+	<pub:author username="anySimpleType">
+      <pub:name>string</pub:name>
+      <pub:university>string</pub:university>
+    </pub:author>
+  </pub:authors>
+  <pub:abstract>
+    <pub:purpose>string</pub:purpose>
+    <pub:problem>string</pub:problem>
+    <pub:method>string</pub:method>
+    <pub:results>string</pub:results>
+    <pub:conclusions>string</pub:conclusions>
+  </pub:abstract>
+  <pub:keywords>string</pub:keywords>
+  <!--1 or more repetitions:-->
+  <pub:section pub:id="string">
+    <pub:heading>string</pub:heading>
+    <!--1 or more repetitions:-->
+    <pub:content>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <pub:imageContent>
+        <pub:image>string</pub:image>
+        <pub:about>string</pub:about>
+      </pub:imageContent>
+      <pub:text>string</pub:text>
+      <pub:link pub:refId="anySimpleType" pub:samepage="true">string</pub:link>
+    </pub:content>
+    <!--Zero or more repetitions:-->
+    <pub:subsection>
+      <pub:heading>string</pub:heading>
+      <!--1 or more repetitions:-->
+      <pub:content>
+        <!--You have a CHOICE of the next 3 items at this level-->
+        <pub:imageContent>
+          <pub:image>string</pub:image>
+          <pub:about>string</pub:about>
+        </pub:imageContent>
+        <pub:text>string</pub:text>
+        <pub:link pub:refId="anySimpleType" pub:samepage="true">string</pub:link>
+      </pub:content>
+      <!--Optional:-->
+      <pub:comment>string</pub:comment>
+    </pub:subsection>
+    <!--Optional:-->
+    <pub:comment>string</pub:comment>
+  </pub:section>
+  <pub:section pub:id="string">
+    <pub:heading>string</pub:heading>
+    <!--1 or more repetitions:-->
+    <pub:content>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <pub:imageContent>
+        <pub:image>string</pub:image>
+        <pub:about>string</pub:about>
+      </pub:imageContent>
+      <pub:text>string</pub:text>
+      <pub:link pub:refId="anySimpleType" pub:samepage="true">string</pub:link>
+    </pub:content>
+    <!--Zero or more repetitions:-->
+    <pub:subsection>
+      <pub:heading>string</pub:heading>
+      <!--1 or more repetitions:-->
+      <pub:content>
+        <!--You have a CHOICE of the next 3 items at this level-->
+        <pub:imageContent>
+          <pub:image>string</pub:image>
+          <pub:about>string</pub:about>
+        </pub:imageContent>
+        <pub:text>string</pub:text>
+        <pub:link pub:refId="anySimpleType" pub:samepage="true">string</pub:link>
+      </pub:content>
+      <!--Optional:-->
+      <pub:comment>string</pub:comment>
+    </pub:subsection>
+    <!--Optional:-->
+    <pub:comment>string</pub:comment>
+  </pub:section>
+  <pub:bibliography>
+    <!--1 or more repetitions:-->
+    <pub:reference pub:refId="anySimpleType" pub:samepage="true">string</pub:reference>
+	<pub:reference pub:refId="anySimpleType" pub:samepage="true">string</pub:reference>
+  </pub:bibliography>
+  <!--Optional:-->
+  <pub:comment>string</pub:comment>
+</pub:publication>
