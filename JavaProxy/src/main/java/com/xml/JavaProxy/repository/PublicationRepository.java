@@ -122,7 +122,7 @@ public class PublicationRepository extends BaseRepository {
         SchemaFactory xsdFactory = SchemaFactory.newInstance(constant);
         Schema schema = xsdFactory.newSchema(file);
         */
-        Publication publication =  (Publication) XmlUtility.convertXMLToObject(Publication.class, publicationStr);
+        Publication publication =  XmlUtility.convertXMLToObject(Publication.class, publicationStr);
         if (publicationId.equals(commentedSegmentId)) {
             publication.setComment(comment);
         }

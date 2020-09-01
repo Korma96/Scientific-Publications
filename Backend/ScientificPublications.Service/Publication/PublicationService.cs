@@ -62,22 +62,6 @@ namespace ScientificPublications.Service.Publication
         {
             return _publicationDataAccess.FindByIdAsync(id);
         }
-
-        public async Task SendAcceptPublicationEmailAsync(string email, string authorName, string publicationTitle)
-        {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.EditorAcceptedMail);
-            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
-            var body = string.Format(emailData.Body, authorName, publicationTitle);
-            await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
-        }
-
-        public async Task SendDenyPublicationEmailAsync(string email, string authorName, string publicationTitle, string text)
-        {
-            var path = Path.Combine(AppSettings.Paths.BasePath, AppSettings.Paths.EditorDeniedMail);
-            var emailData = XmlUtility.DeserializeFromFile<EmailEntity>(path);
-            var body = string.Format(emailData.Body, authorName, publicationTitle, text);
-            await _emailService.SendEmailAsync(emailData.Subject, body, new string[] { email });
-        }
         
         public void ValidatePublicationFile(string fileContent)
         {
@@ -279,6 +263,16 @@ namespace ScientificPublications.Service.Publication
             await _workFlowService.InsertAsync(workflow);
         }
 
+        public async Task<MemoryStream> DownloadPublicationAsPdfAsync(string publicationId)
+        {
+            return await _publicationDataAccess.GetPublicationAsPdfAsync(publicationId);
+        }
+
+        public async Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId)
+        {
+            return await _publicationDataAccess.GetPublicationAsHtmlAsync(publicationId);
+        }
+
         private async Task<string> InsertRevisionAsync(string fileContent)
         {
             var publication = XmlUtility.Deserialize<publication>(fileContent);
@@ -286,6 +280,11 @@ namespace ScientificPublications.Service.Publication
             publication.header.status = PublicationStatus.REVISED.ToString().ToLower();
             await _publicationDataAccess.InsertAsync(publication);
             return publication.id;
+        }
+
+        public Task<Publications> GetReferencingPublications(string publicationId)
+        {
+            return _publicationDataAccess.GetReferencingPublicationsAsync(publicationId);
         }
     }
 }

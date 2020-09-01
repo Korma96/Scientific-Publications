@@ -7,10 +7,6 @@ namespace ScientificPublications.Service.Publication
 {
     public interface IPublicationService : ISingletonService
     {
-        Task SendAcceptPublicationEmailAsync(string email, string authorName, string publicationTitle);
-
-        Task SendDenyPublicationEmailAsync(string email, string authorName, string publicationTitle, string text);
-
         void ValidatePublicationFile(string fileContent);
 
         Task<MemoryStream> GetXsdSchemaAsync();
@@ -42,5 +38,11 @@ namespace ScientificPublications.Service.Publication
         Task SendAuthorRevisedPublicationMail(string publicationContent);
 
         Task InsertRevisionAsync(string fileContent, string previousPublicationId);
+
+        Task<MemoryStream> DownloadPublicationAsPdfAsync(string publicationId);
+
+        Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId);
+
+        Task<Publications> GetReferencingPublications(string publicationId);
     }
 }

@@ -17,17 +17,11 @@ using System.Threading.Tasks;
 
 namespace ScientificPublications.Publication
 {
-    /// <summary>
-    /// test
-    /// </summary>
     public class PublicationController : AbstractController
     {
         private readonly IPublicationService _publicationService;
         private readonly IMapper _mapper;
 
-        /// <summary>
-        /// test 2
-        /// </summary>
         public PublicationController(
             IOptions<AppSettings> appSettings, 
             IPublicationService publicationService,
@@ -173,6 +167,41 @@ namespace ScientificPublications.Publication
         public async Task<IActionResult> GetReviewerPublications([FromQuery] bool shortForm)
         {
             var publications = await _publicationService.FindByReviewerAsync(GetSession().Username);
+            return PublicationsResponse(publications, shortForm);
+        }
+
+        /// <summary>
+        /// Download publication in pdf format
+        /// </summary>
+        [HttpGet("download/pdf/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPublicationAsPDF([FromRoute] string publicationId)
+        {
+            var publication = await _publicationService.GetByIdWithValidationAsync(publicationId);
+            var publicationPDF = await _publicationService.DownloadPublicationAsPdfAsync(publicationId);
+            return File(publicationPDF, Constants.PdfContentType, publication.title);
+        }
+
+        /// <summary>
+        /// Download publication in html format
+        /// </summary>
+        [HttpGet("download/html/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPublicationAsHTML([FromRoute] string publicationId)
+        {
+            var publication = await _publicationService.GetByIdWithValidationAsync(publicationId);
+            var publicationHtml = await _publicationService.DownloadPublicationAsHtmlAsync(publicationId);
+            return File(publicationHtml, Constants.HtmlContentType, publication.title + ".html");
+        }
+
+        /// <summary>
+        /// Get publications which are referencing given publication
+        /// </summary>
+        [HttpGet("referencing/{publicationId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetReferencingPublications([FromRoute] string publicationId, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.GetReferencingPublications(publicationId);
             return PublicationsResponse(publications, shortForm);
         }
 

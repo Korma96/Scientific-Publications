@@ -4,6 +4,10 @@
     {
         public const string XmlContentType = "application/xml";
 
+        public const string PdfContentType = "application/pdf";
+
+        public const string HtmlContentType = "application/html";
+
         public const string AccessToken = "access-token";
 
         public const string SessionInfo = "session-info";
@@ -21,6 +25,8 @@
             public const string WorkFlow = "http://ftn.uns.ac.rs/xml2019/workflow";
 
             public const string Notification = "http://ftn.uns.ac.rs/xml2019/notification";
+
+            public const string Evaluation = "http://ftn.uns.ac.rs/xml2019/evaluation";
         }
 
         public static class ExceptionMessages
@@ -49,6 +55,8 @@
             public const string CoverLetter = "coverletter";
 
             public const string WorkFlow = "workflow";
+
+            public const string Evaluation = "evaluation";
         }
     }
 }

@@ -3,6 +3,7 @@ using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Models;
 using ScientificPublications.DataAccess.Model;
 using ScientificPublications.Publication;
+using ScientificPublications.Review;
 using ScientificPublications.WorkFlow;
 using System.Linq;
 
@@ -26,6 +27,7 @@ namespace ScientificPublications.Application
                         username = r,
                         status = ReviewerStatus.PENDING.ToString().ToLower()
                     }).ToArray()));
+            CreateMap<EvaluationDto, evaluation>().ReverseMap();
         }
     }
 }

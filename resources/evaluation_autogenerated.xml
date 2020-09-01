@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<evaluation author="author1" publicationId="publicationId1" xmlns="http://ftn.uns.ac.rs/xml2019/review">
+  <comments>
+    <originality>originality1</originality>
+    <abstract>abstract1</abstract>
+    <methodology>methodology1</methodology>
+    <results>results1</results>
+    <bibliography>bibliography1</bibliography>
+    <generalComment>generalComment1</generalComment>
+  </comments>
+  <grades>
+    <originality>1</originality>
+    <abstract>1</abstract>
+    <methodology>1</methodology>
+    <results>1</results>
+    <bibliography>1</bibliography>
+    <generalGrade>1</generalGrade>
+  </grades>
+</evaluation>

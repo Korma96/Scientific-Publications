@@ -8,6 +8,8 @@ using ScientificPublications.Common.Helpers;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.DataAccess.Model;
 using System;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ScientificPublications.DataAccess.Publication
@@ -116,6 +118,63 @@ namespace ScientificPublications.DataAccess.Publication
             {
                 var path = BaseUrl.UrlCombine(publicationId);
                 await HttpHelper.Put(path, new StatusDto { Status = status.ToString().ToLower() });
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<MemoryStream> GetPublicationAsPdfAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"getByIdPDF/{publicationId}");
+                using (var client = new HttpClient())
+                {
+                    var result = await client.GetAsync(path);
+                    result.EnsureSuccessStatusCode();
+                    var memory = new MemoryStream();
+                    var stream = await result.Content.ReadAsStreamAsync();
+                    await stream.CopyToAsync(memory);
+                    memory.Position = 0;
+                    return memory;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<MemoryStream> GetPublicationAsHtmlAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"getByIdHtml/{publicationId}");
+                using (var client = new HttpClient())
+                {
+                    var result = await client.GetAsync(path);
+                    result.EnsureSuccessStatusCode();
+                    var memory = new MemoryStream();
+                    var stream = await result.Content.ReadAsStreamAsync();
+                    await stream.CopyToAsync(memory);
+                    memory.Position = 0;
+                    return memory;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ProxyException(Constants.ExceptionMessages.DatabaseException, e);
+            }
+        }
+
+        public async Task<Publications> GetReferencingPublicationsAsync(string publicationId)
+        {
+            try
+            {
+                var path = BaseUrl.UrlCombine($"/referencing/{publicationId}");
+                return await HttpHelper.Get<Publications>(path);
             }
             catch (Exception e)
             {

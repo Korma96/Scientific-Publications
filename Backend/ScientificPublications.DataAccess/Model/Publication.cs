@@ -355,6 +355,8 @@ namespace ScientificPublications.DataAccess.Model
 
         private publicationSectionContent contentField;
 
+        private publicationSectionSubsection subsectionField;
+
         private string commentField;
 
         private string idField;
@@ -382,6 +384,19 @@ namespace ScientificPublications.DataAccess.Model
             set
             {
                 this.contentField = value;
+            }
+        }
+
+        /// <remarks/>
+        public publicationSectionSubsection subsection
+        {
+            get
+            {
+                return this.subsectionField;
+            }
+            set
+            {
+                this.subsectionField = value;
             }
         }
 
@@ -422,6 +437,10 @@ namespace ScientificPublications.DataAccess.Model
 
         private publicationSectionContentImageContent imageContentField;
 
+        private string textField;
+
+        private publicationSectionContentLink linkField;
+
         /// <remarks/>
         public publicationSectionContentImageContent imageContent
         {
@@ -432,6 +451,32 @@ namespace ScientificPublications.DataAccess.Model
             set
             {
                 this.imageContentField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string text
+        {
+            get
+            {
+                return this.textField;
+            }
+            set
+            {
+                this.textField = value;
+            }
+        }
+
+        /// <remarks/>
+        public publicationSectionContentLink link
+        {
+            get
+            {
+                return this.linkField;
+            }
+            set
+            {
+                this.linkField = value;
             }
         }
     }
@@ -478,10 +523,12 @@ namespace ScientificPublications.DataAccess.Model
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
-    public partial class publicationReference
+    public partial class publicationSectionContentLink
     {
 
         private string refIdField;
+
+        private bool samepageField;
 
         private string valueField;
 
@@ -500,6 +547,20 @@ namespace ScientificPublications.DataAccess.Model
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        public bool samepage
+        {
+            get
+            {
+                return this.samepageField;
+            }
+            set
+            {
+                this.samepageField = value;
+            }
+        }
+
+        /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
         public string Value
         {
@@ -514,5 +575,259 @@ namespace ScientificPublications.DataAccess.Model
         }
     }
 
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
+    public partial class publicationSectionSubsection
+    {
 
+        private string headingField;
+
+        private publicationSectionSubsectionContent contentField;
+
+        private string commentField;
+
+        /// <remarks/>
+        public string heading
+        {
+            get
+            {
+                return this.headingField;
+            }
+            set
+            {
+                this.headingField = value;
+            }
+        }
+
+        /// <remarks/>
+        public publicationSectionSubsectionContent content
+        {
+            get
+            {
+                return this.contentField;
+            }
+            set
+            {
+                this.contentField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string comment
+        {
+            get
+            {
+                return this.commentField;
+            }
+            set
+            {
+                this.commentField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
+    public partial class publicationSectionSubsectionContent
+    {
+
+        private publicationSectionSubsectionContentImageContent imageContentField;
+
+        private string textField;
+
+        private publicationSectionSubsectionContentLink linkField;
+
+        /// <remarks/>
+        public publicationSectionSubsectionContentImageContent imageContent
+        {
+            get
+            {
+                return this.imageContentField;
+            }
+            set
+            {
+                this.imageContentField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string text
+        {
+            get
+            {
+                return this.textField;
+            }
+            set
+            {
+                this.textField = value;
+            }
+        }
+
+        /// <remarks/>
+        public publicationSectionSubsectionContentLink link
+        {
+            get
+            {
+                return this.linkField;
+            }
+            set
+            {
+                this.linkField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
+    public partial class publicationSectionSubsectionContentImageContent
+    {
+
+        private string imageField;
+
+        private string aboutField;
+
+        /// <remarks/>
+        public string image
+        {
+            get
+            {
+                return this.imageField;
+            }
+            set
+            {
+                this.imageField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string about
+        {
+            get
+            {
+                return this.aboutField;
+            }
+            set
+            {
+                this.aboutField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
+    public partial class publicationSectionSubsectionContentLink
+    {
+
+        private string refIdField;
+
+        private bool samepageField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        public string refId
+        {
+            get
+            {
+                return this.refIdField;
+            }
+            set
+            {
+                this.refIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        public bool samepage
+        {
+            get
+            {
+                return this.samepageField;
+            }
+            set
+            {
+                this.samepageField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ftn.uns.ac.rs/xml2019/publication")]
+    public partial class publicationReference
+    {
+
+        private string refIdField;
+
+        private bool samepageField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        public string refId
+        {
+            get
+            {
+                return this.refIdField;
+            }
+            set
+            {
+                this.refIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        public bool samepage
+        {
+            get
+            {
+                return this.samepageField;
+            }
+            set
+            {
+                this.samepageField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
 }

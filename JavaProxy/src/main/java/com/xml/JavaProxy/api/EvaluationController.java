@@ -1,8 +1,6 @@
 package com.xml.JavaProxy.api;
 
-import com.xml.JavaProxy.model.CoverLetter;
 import com.xml.JavaProxy.model.Evaluation;
-import com.xml.JavaProxy.repository.CoverLetterRepository;
 import com.xml.JavaProxy.repository.EvaluationRepository;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
@@ -11,11 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/evaluation")
 public class EvaluationController {
+
     @Autowired
     private EvaluationRepository evaluationRepository;
 
@@ -24,9 +22,11 @@ public class EvaluationController {
         this.evaluationRepository = evaluationRepository;
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> insert(@RequestBody String evaluationStr) throws Exception {
+    @RequestMapping(value = "/insert/{reviewer}/{publicationId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> insert(@RequestBody String evaluationStr, @PathVariable("reviewer") String reviewer, @PathVariable("publicationId") String publicationId) throws Exception {
         Evaluation evaluation = XmlUtility.convertXMLToObject(Evaluation.class, evaluationStr);
+        evaluation.setAuthor(reviewer);
+        evaluation.setPublicationId(publicationId);
         evaluationRepository.insert(evaluation);
         return ResponseUtility.Ok("success");
     }
@@ -38,10 +38,8 @@ public class EvaluationController {
     }
 
     @RequestMapping(value = "by-publicationId-reviewer/{publicationId}/{reviewer}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> findByPublicationId(@PathVariable("publicationId") String publicationId, @PathVariable("reviewer") String reviewer) throws Exception{
+    public ResponseEntity<String> findByPublicationIdAndReviewer(@PathVariable("publicationId") String publicationId, @PathVariable("reviewer") String reviewer) throws Exception{
         String evaluation = evaluationRepository.findByPublicationIdAndReviewer(publicationId, reviewer);
         return ResponseUtility.Ok(evaluation);
     }
-
-
 }
