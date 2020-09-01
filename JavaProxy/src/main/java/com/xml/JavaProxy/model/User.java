@@ -13,24 +13,24 @@ import javax.xml.bind.annotation.*;
         "city",
         "country"
 })
-@XmlRootElement(name = "user", namespace = "http://ftn.uns.ac.rs/xml2019/user")
+@XmlRootElement(name = "user")
 public class User {
 
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String username;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String password;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String salt;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String role;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String name;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String email;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String city;
-    @XmlElement(namespace = "http://ftn.uns.ac.rs/xml2019/user", required = true)
+    @XmlElement(required = true)
     private String country;
 
     public String getUsername() {

@@ -1,54 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<users>
+﻿<users>
   <user>
     <username>editor</username>
-	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
-	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
     <role>Editor</role>
-	<name>Petar Petrovic</name>
-	<email>markoradovic996+1@gmail.com</email>
+    <name>Petar Petrovic</name>
+    <email>markoradovic996+1@gmail.com</email>
     <city>Novi Sad</city>
     <country>Serbia</country>
   </user>
   <user>
     <username>reviewer1</username>
-	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
-	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
     <role>Reviewer</role>
     <name>Luka Lukic</name>
-	<email>markoradovic996+2@gmail.com</email>
+    <email>markoradovic996+2@gmail.com</email>
     <city>Belgrade</city>
     <country>Serbia</country>
   </user>
   <user>
     <username>reviewer2</username>
-	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
-	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
     <role>Reviewer</role>
     <name>Nikola Nikolic</name>
-	<email>markoradovic996+3@gmail.com</email>
+    <email>markoradovic996+3@gmail.com</email>
     <city>Nis</city>
     <country>Serbia</country>
   </user>
   <user>
-    <username>author1</username>
-	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
-	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
-	<!--123-->
+    <username>markoradovic</username>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <!--123-->
     <role>Author</role>
-    <name>Marko Markovic</name>
-	<email>markoradovic996+4@gmail.com</email>
+    <name>Marko Radovic</name>
+    <email>markoradovic996@gmail.com</email>
     <city>Novi Sad</city>
     <country>Serbia</country>
   </user>
   <user>
-    <username>author2</username>
-	<password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
-	<salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <username>vuk19</username>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
     <role>Author</role>
-    <name>Vuk Vukic</name>
-	<email>setme@gmail.com</email>
+    <name>Vuk Barisic</name>
+    <email>vukbarisic@gmail.com</email>
     <city>Novi Sad</city>
     <country>Serbia</country>
+  </user>
+  <user>
+    <username>john</username>
+    <password>0891788bd2f824c22a25f1b68287e4bf9307dbcef95933f7c9b3ae0c3e316f79</password>
+    <salt>a61913b46885e2292d1f035df0233346fe1082c3d382d3a6107334a17083d82c</salt>
+    <role>Author</role>
+    <name>John Mackie</name>
+    <email>mackie@gmail.com</email>
+    <city>Denver</city>
+    <country>USA</country>
   </user>
 </users>
