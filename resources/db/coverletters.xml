@@ -1,11 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
 <coverLetters>
-  <p1:coverLetter p1:publicationId="id1" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
-    <p1:date>2020-01-02</p1:date>
-    <p1:content>content1</p1:content>
-  </p1:coverLetter>
-  <p1:coverLetter p1:publicationId="id2" xmlns:p1="http://ftn.uns.ac.rs/xml2019/coverletter" xmlns="http://ftn.uns.ac.rs/xml2019/coverletter">
-    <p1:date>2020-07-20</p1:date>
-    <p1:content>content2</p1:content>
-  </p1:coverLetter>
+    <coverLetter publicationId="1">
+        <date> 2020-08-08 </date>
+        <comment>Dear Editor-in-Chief, I am sending you our manuscript entitled “History of data”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+                Sincerely yours,
+                Researchers
+        </comment>
+    </coverLetter>
+    <coverLetter publicationId="2">
+        <date> 2020-10-08 </date>
+        <comment>Poštovani, šaljemo vam naš rad Xml i veb servisi koji smo pripremali u poslednje vreme, nadamo se da ćete imati vremena i strpljenja da rad pogledate i pregledate. Željno iščekujemo sve kritike i ispravke,
+        Sa Poštovanjem, 
+        Autori
+        </comment>
+    </coverLetter>
+    <coverLetter publicationId="4">
+        <date> 2020-07-01 </date>
+        <comment>Dear edior, I am sending you our manuscript entitled “5g Modern Dilemma”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+                Sincerely yours,
+                Researchers
+        </comment>
+    </coverLetter>
+    <coverLetter publicationId="3">
+        <date> 2020-10-04 </date>
+        <comment>Dear Editors, I am sending you our manuscript entitled “We Have No Reason to Believe 5G Is Safe”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+                Sincerely yours,
+                Researchers
+        </comment>
+    </coverLetter>
 </coverLetters>
