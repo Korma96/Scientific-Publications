@@ -5,7 +5,7 @@
   <ns1:header>
     <ns1:publicationDate>2020-08-08</ns1:publicationDate>
     <ns1:revisionNumber>1/1</ns1:revisionNumber>
-    <ns1:status>ACCEPTED</ns1:status>
+    <ns1:status>submitted</ns1:status>
   </ns1:header>
   <ns1:title>History of data</ns1:title>
   <ns1:authors>
@@ -78,7 +78,7 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
         <ns1:header>
             <ns1:publicationDate>2020-10-08</ns1:publicationDate>
             <ns1:revisionNumber>1/1</ns1:revisionNumber>
-            <ns1:status>ACCEPTED</ns1:status>
+            <ns1:status>accepted</ns1:status>
         </ns1:header>
         <ns1:title>XML i mikroservisi</ns1:title>
         <ns1:authors>
@@ -237,7 +237,7 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
         </ns1:text>
             </ns1:content>
         <ns1:content>
-            <ns1:link ns1:refId = "section2" ns1:samepage = "true"> 
+            <ns1:link ns1:refId="section2" ns1:samepage="true"> 
             poglavlju
             </ns1:link>
         </ns1:content>
@@ -354,11 +354,11 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
     <ns1:comment>comment</ns1:comment>
   </ns1:section>
   <ns1:bibliography>
-    <ns1:reference ns1:refId="1" ns1:samepage = "false"> http://startit.rs/media/prirucnik_startap_akademija1.pdf startit kompanija, 2017.</ns1:reference>
-    <ns1:reference ns1:refId="2" ns1:samepage = "false" > Dishman, L.: The state of the american entrepreneur in
+    <ns1:reference ns1:refId="1" ns1:samepage="false"> http://startit.rs/media/prirucnik_startap_akademija1.pdf startit kompanija, 2017.</ns1:reference>
+    <ns1:reference ns1:refId="2" ns1:samepage="false"> Dishman, L.: The state of the american entrepreneur in
       2015. http://www.fastcompany.com/3046773/hit-the-groundrunning/the-state-of-the-american-entrepreneur-in-2015.
       Accessed 15 Oct 2015</ns1:reference>
-    <ns1:reference ns1:refId="id3" ns1:samepage = "false"> Salamzadeh, A. and Kawamorita Kesim, H., 2015.
+    <ns1:reference ns1:refId="id3" ns1:samepage="false"> Salamzadeh, A. and Kawamorita Kesim, H., 2015.
       Startup Companies: Life Cycle and Challenges.
     </ns1:reference>
   </ns1:bibliography>
@@ -369,7 +369,7 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
   <ns1:header>
     <ns1:publicationDate>2020-10-04</ns1:publicationDate>
     <ns1:revisionNumber>1/1</ns1:revisionNumber>
-    <ns1:status>ASSIGNED</ns1:status>
+    <ns1:status>assigned</ns1:status>
   </ns1:header>
   <ns1:title>We Have No Reason to Believe 5G Is Safe</ns1:title>
   <ns1:authors>
@@ -398,7 +398,7 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
         </ns1:text>
     </ns1:content>
     <ns1:content>
-        <ns1:link ns1:refId = "3" ns1:samepage = "false">
+        <ns1:link ns1:refId="3" ns1:samepage="false">
             here
          </ns1:link>
     </ns1:content>
@@ -435,7 +435,7 @@ More worryingly, it added: Some people are also abusing our key workers and maki
   <ns1:header>
     <ns1:publicationDate>2020-07-01</ns1:publicationDate>
     <ns1:revisionNumber>1/1</ns1:revisionNumber>
-    <ns1:status>ACCEPTED</ns1:status>
+    <ns1:status>accepted</ns1:status>
   </ns1:header>
   <ns1:title>5g Modern Dilemma</ns1:title>
   <ns1:authors>
