@@ -1,30 +1,30 @@
 <coverLetters>
-    <coverLetter publicationId="1">
-        <date> 2020-08-08 </date>
-        <comment>Dear Editor-in-Chief, I am sending you our manuscript entitled “History of data”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
-                Sincerely yours,
-                Researchers
-        </comment>
-    </coverLetter>
-    <coverLetter publicationId="2">
-        <date> 2020-10-08 </date>
-        <comment>Poštovani, šaljemo vam naš rad Xml i veb servisi koji smo pripremali u poslednje vreme, nadamo se da ćete imati vremena i strpljenja da rad pogledate i pregledate. Željno iščekujemo sve kritike i ispravke,
-        Sa Poštovanjem, 
-        Autori
-        </comment>
-    </coverLetter>
-    <coverLetter publicationId="4">
-        <date> 2020-07-01 </date>
-        <comment>Dear edior, I am sending you our manuscript entitled “5g Modern Dilemma”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
-                Sincerely yours,
-                Researchers
-        </comment>
-    </coverLetter>
-    <coverLetter publicationId="3">
-        <date> 2020-10-04 </date>
-        <comment>Dear Editors, I am sending you our manuscript entitled “We Have No Reason to Believe 5G Is Safe”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
-                Sincerely yours,
-                Researchers
-        </comment>
-    </coverLetter>
+    <ns1:coverLetter xmlns:ns1="http://ftn.uns.ac.rs/xml2019/coverletter" ns1:publicationId="1">
+        <ns1:date>2020-08-08</ns1:date>
+        <ns1:content>Dear Editor-in-Chief, I am sending you our manuscript entitled “History of data”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+            Sincerely yours,
+            Researchers
+        </ns1:content>
+    </ns1:coverLetter>
+    <ns1:coverLetter xmlns:ns1="http://ftn.uns.ac.rs/xml2019/coverletter" ns1:publicationId="2">
+        <ns1:date>2020-10-08</ns1:date>
+        <ns1:content>Poštovani, šaljemo vam naš rad Xml i veb servisi koji smo pripremali u poslednje vreme, nadamo se da ćete imati vremena i      strpljenja da rad pogledate i pregledate. Željno iščekujemo sve kritike i ispravke,
+            Sa Poštovanjem, 
+            Autori
+        </ns1:content>
+    </ns1:coverLetter>
+    <ns1:coverLetter xmlns:ns1="http://ftn.uns.ac.rs/xml2019/coverletter" ns1:publicationId="3">
+        <ns1:date>2020-10-04</ns1:date>
+        <ns1:content>Dear Editors, I am sending you our manuscript entitled “We Have No Reason to Believe 5G Is Safe”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+            Sincerely yours,
+            Researchers
+        </ns1:content>
+    </ns1:coverLetter>
+    <ns1:coverLetter xmlns:ns1="http://ftn.uns.ac.rs/xml2019/coverletter" ns1:publicationId="4">
+        <ns1:date>2020-07-01</ns1:date>
+        <ns1:content>Dear edior, I am sending you our manuscript entitled “5g Modern Dilemma”.We would like to have the manuscript considered for publication in here. Please let me know of your decision  at your earliest convenience, With my best regards,
+            Sincerely yours,
+            Researchers
+        </ns1:content>
+    </ns1:coverLetter>
 </coverLetters>
