@@ -145,7 +145,7 @@ public class PublicationController {
     }
 
     @RequestMapping(value = "/advanced-search/{searchQuery}/{loggedName}", method = RequestMethod.GET)
-    public ResponseEntity<String> textSearchPublished(@PathVariable("searchQuery") String searchQuery, @PathVariable("loggedName") String loggedName) throws Exception{
+    public ResponseEntity<String> advancedSearch(@PathVariable("searchQuery") String searchQuery, @PathVariable("loggedName") String loggedName) throws Exception{
         List<String> publicationIds = rdfRepository.searchPublications(searchQuery, loggedName);
         String publications = "<publications>\n";
         publicationIds.add("3");
