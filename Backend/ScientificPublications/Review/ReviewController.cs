@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ScientificPublications.Application;
+using ScientificPublications.Common;
 using ScientificPublications.Common.Enums;
 using ScientificPublications.Common.Settings;
 using ScientificPublications.DataAccess.Model;
@@ -44,6 +45,7 @@ namespace ScientificPublications.Reviewer
         /// </summary>
         [HttpPost("evaluation/{publicationId}")]
         [AuthorizationFilter(Role.Reviewer)]
+        [Consumes(Constants.XmlContentType)]
         public async Task<IActionResult> AddEvaluationAsync([FromRoute] string publicationId, [FromBody] EvaluationDto evaluationDto)
         {
             var evaluation = _mapper.Map<evaluation>(evaluationDto);
