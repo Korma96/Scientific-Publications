@@ -41,7 +41,9 @@
         </member>
         <member name="M:ScientificPublications.Publication.PublicationController.UpdateStatus(System.String,System.String)">
             <summary>
-            Update publication status, see all available statuses on /api/Publication/statuses endpoint
+            Update publication status
+            Available statuses: /api/Publication/statuses
+            State diagram: https://github.com/Korma96/Scientific-Publications/blob/development/doc/state_diagram.jpg
             </summary>
         </member>
         <member name="M:ScientificPublications.Publication.PublicationController.GetAllStatuses">

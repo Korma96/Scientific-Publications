@@ -127,7 +127,9 @@ namespace ScientificPublications.Publication
         }
 
         /// <summary>
-        /// Update publication status, see all available statuses on /api/Publication/statuses endpoint
+        /// Update publication status
+        /// Available statuses: /api/Publication/statuses
+        /// State diagram: https://github.com/Korma96/Scientific-Publications/blob/development/doc/state_diagram.jpg
         /// </summary>
         [HttpPut("{nextStatus}/{publicationId}")]
         [AuthorizationFilter(Role.Author)]
