@@ -2,18 +2,23 @@
 Project for XML and web services course
 
 
-## Project description
+## Description
   1. Project specification [link](https://github.com/Korma96/Scientific-Publications/blob/development/doc/ProjectSpecification.pdf)
   2. Architecture [link](https://github.com/Korma96/Scientific-Publications/blob/development/doc/architecture.jpg)
   3. Use Case diagram [link](https://github.com/Korma96/Scientific-Publications/blob/development/doc/use_case_diagram.jpg)
   4. State diagram [link](https://github.com/Korma96/Scientific-Publications/blob/development/doc/state_diagram.jpg)
 
-## Project setup
+## Prerequisites
+  - Java 8
+  - .NET Core SDK 2.1
+  - Apache Tomee
+  - fuseki.war and exist.war are present in webapps folder
+ 
+## Setup
 
 1. Clone project
 
 2. Run Tomcat server
-    - Ensure that fuseki.war and exist.war are present in webapps folder
     
 3. Setup database
     - Navigate to http://localhost:8080/exist/apps/dashboard/index.html
@@ -32,4 +37,8 @@ Project for XML and web services course
     - navigate to https://localhost:5001/index.html
 
 ## Demo
-[link](https://github.com/Korma96/Scientific-Publications/blob/development/doc/ProjectSpecification.pdf)
+
+Short video demonstrates "happy flow" and shortest path
+through publication publish process.
+
+Youtube [link](https://youtu.be/FVLTCo4onAk)
