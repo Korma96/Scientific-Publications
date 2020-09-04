@@ -4,6 +4,7 @@ package com.xml.JavaProxy.api;
 import com.xml.JavaProxy.api.dto.StatusDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
+import com.xml.JavaProxy.repository.RdfRepository;
 import com.xml.JavaProxy.util.PdfUtil;
 import com.xml.JavaProxy.util.ResponseUtility;
 import com.xml.JavaProxy.util.XmlUtility;
@@ -15,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -23,6 +26,8 @@ public class PublicationController {
 
     @Autowired
     private PublicationRepository publicationRepository;
+    @Autowired
+    private RdfRepository rdfRepository;
 
     private PdfUtil pdfUtil;
     
@@ -137,6 +142,28 @@ public class PublicationController {
     public ResponseEntity<String> findReferencingPublications(@PathVariable("publicationId") String publicationId) throws Exception {
         String publications = publicationRepository.findReferencingPublications(publicationId);
         return ResponseUtility.Ok(publications);
+    }
+
+    @RequestMapping(value = "/advanced-search/{searchQuery}/{loggedName}", method = RequestMethod.GET)
+    public ResponseEntity<String> textSearchPublished(@PathVariable("searchQuery") String searchQuery, @PathVariable("loggedName") String loggedName) throws Exception{
+        List<String> publicationIds = rdfRepository.searchPublications(searchQuery, loggedName);
+        String publications = "<publications>\n";
+        publicationIds.add("3");
+        publicationIds.add("4");
+        if (publicationIds.isEmpty()) {
+            return ResponseUtility.Ok("No results");
+        }
+        else {
+
+            for (String id : publicationIds) {
+                String publication = publicationRepository.findById(id);
+                if (publication != null) {
+                    publications += publication;
+                }
+            }
+            publications += "\n</publications>";
+            return ResponseUtility.Ok(publications);
+        }
     }
 
 }

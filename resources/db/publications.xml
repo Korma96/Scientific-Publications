@@ -1,21 +1,22 @@
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
-<publications>
+<publications  xmlns="http://www.w3.org/ns/rdfa#" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+  xmlns:pred="http://ftn.uns.ac.rs/xml2019/predicate/">
 
-<ns1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="1">
+<ns1:publication xmlns="http://ftn.uns.ac.rs/xml2019/publication" xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="1" about = "1">
   <ns1:header>
     <ns1:publicationDate>2020-08-08</ns1:publicationDate>
     <ns1:revisionNumber>1/1</ns1:revisionNumber>
-    <ns1:status>submitted</ns1:status>
+    <ns1:status property = "pred:status">submitted</ns1:status>
   </ns1:header>
-  <ns1:title>History of data</ns1:title>
+  <ns1:title property="pred:title">History of data</ns1:title>
   <ns1:authors>
-    <ns1:author username="vuk19">
-    <ns1:name>Vuk Barisic</ns1:name>
-    <ns1:university>Faculty of Technical Sciences</ns1:university>
+    <ns1:author username="vuk19" about = "vuk19">
+      <ns1:name property="pred:name">Vuk Barisic</ns1:name>
+    <ns1:university property="pred:university">Faculty of Technical Sciences</ns1:university>
   </ns1:author>
-    <ns1:author username="markoradovic">
-      <ns1:name>Marko Radovic</ns1:name>
-      <ns1:university>Faculty of Technical Sciences</ns1:university>
+    <ns1:author username="markoradovic" about = "markoradovic">
+      <ns1:name property="pred:name">Marko Radovic</ns1:name>
+      <ns1:university property="pred:university">Faculty of Technical Sciences</ns1:university>
     </ns1:author>
   </ns1:authors>
   <ns1:abstract>
@@ -25,7 +26,7 @@
     <ns1:results>Results will be available at the end, we're in the middle of this paper</ns1:results>
     <ns1:conclusions>Conclusions will also be available later</ns1:conclusions>
   </ns1:abstract>
-  <ns1:keywords>Data, History, Storing</ns1:keywords>
+  <ns1:keywords property="pred:keywords">Data, History, Storing</ns1:keywords>
   <ns1:section ns1:id="section1">
     <ns1:heading>Introduction</ns1:heading>
     <ns1:content>
@@ -74,21 +75,21 @@ The 1960s saw the conception (but not the creation) of cloud data storage by Dr 
   <ns1:comment>comment1</ns1:comment>
 </ns1:publication>
 
-<ns1:publication xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="2">
+<ns1:publication xmlns:ns1="http://ftn.uns.ac.rs/xml2019/publication" ns1:id="2" about = "2">
         <ns1:header>
             <ns1:publicationDate>2020-10-08</ns1:publicationDate>
             <ns1:revisionNumber>1/1</ns1:revisionNumber>
-            <ns1:status>accepted</ns1:status>
+            <ns1:status property = "pred:status">accepted</ns1:status>
         </ns1:header>
         <ns1:title>XML i mikroservisi</ns1:title>
         <ns1:authors>
             <ns1:author username="vuk19">
                 <ns1:name>Vuk Barisic</ns1:name>
-                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</ns1:university>
+                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka</ns1:university>
             </ns1:author>
             <ns1:author username="markoradovic">
                 <ns1:name>Marko Radovic</ns1:name>
-                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka,</ns1:university>
+                <ns1:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka</ns1:university>
             </ns1:author>
         </ns1:authors>
         <ns1:abstract>
