@@ -17,22 +17,4 @@
             <ns1:generalGrade>5</ns1:generalGrade>
         </ns1:grades>
     </ns1:evaluation>
-    <ns1:evaluation xmlns:ns1="http://ftn.uns.ac.rs/xml2019/evaluation" ns1:author="reviewer2" ns1:publicationId="4">
-        <ns1:comments>
-            <ns1:originality>Very original idea</ns1:originality>
-            <ns1:abstract>Abstract</ns1:abstract>
-            <ns1:methodology>Superior methodology</ns1:methodology>
-            <ns1:results>Results are to be expected</ns1:results>
-            <ns1:bibliography>Refs</ns1:bibliography>
-            <ns1:generalComment>Great publication</ns1:generalComment>
-        </ns1:comments>
-        <ns1:grades>
-            <ns1:originality>5</ns1:originality>
-            <ns1:abstract>5</ns1:abstract>
-            <ns1:methodology>5</ns1:methodology>
-            <ns1:results>4</ns1:results>
-            <ns1:bibliography>5</ns1:bibliography>
-            <ns1:generalGrade>5</ns1:generalGrade>
-        </ns1:grades>
-    </ns1:evaluation>
 </evaluations>

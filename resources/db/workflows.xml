@@ -2,15 +2,15 @@
     <workflow xmlns="http://ftn.uns.ac.rs/xml2019/workflow">
         <publicationId>2</publicationId>
         <reviewers>
-            <reviewer>reviewer1</reviewer>
+            <reviewer status="pending">reviewer1</reviewer>
         </reviewers>
-        <editor> editor1 </editor>
+        <editor>editor</editor>
     </workflow>
     <workflow xmlns="http://ftn.uns.ac.rs/xml2019/workflow">
         <publicationId>4</publicationId>
         <reviewers>
-            <reviewer>reviewer2</reviewer>
+            <reviewer status="pending">reviewer2</reviewer>
         </reviewers>
     </workflow>
-    <editor> editor1 </editor>
+    <editor>editor</editor>
 </workflows>

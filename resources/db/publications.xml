@@ -435,6 +435,7 @@ More worryingly, it added: Some people are also abusing our key workers and maki
   <ns1:header>
     <ns1:publicationDate>2020-07-01</ns1:publicationDate>
     <ns1:revisionNumber>1/1</ns1:revisionNumber>
+	<ns1:status>assigned</ns1:status>
   </ns1:header>
   <ns1:title>5g Modern Dilemma</ns1:title>
   <ns1:authors>
