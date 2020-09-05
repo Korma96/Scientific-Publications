@@ -1,3 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <workflows>
+    <workflow xmlns="http://ftn.uns.ac.rs/xml2019/workflow">
+        <publicationId>2</publicationId>
+        <reviewers>
+            <reviewer>reviewer1</reviewer>
+        </reviewers>
+        <editor> editor1 </editor>
+    </workflow>
+    <workflow xmlns="http://ftn.uns.ac.rs/xml2019/workflow">
+        <publicationId>4</publicationId>
+        <reviewers>
+            <reviewer>reviewer2</reviewer>
+        </reviewers>
+    </workflow>
+    <editor> editor1 </editor>
 </workflows>
