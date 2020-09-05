@@ -11,7 +11,7 @@ namespace ScientificPublications.Service.Publication
 
         Task<MemoryStream> GetXsdSchemaAsync();
 
-        Task InsertAsync(string fileContent);
+        Task InsertAsync(string fileContent, string username);
 
         Task<Publications> FindByAuthorAsync(string author);
 
@@ -37,7 +37,7 @@ namespace ScientificPublications.Service.Publication
 
         Task SendAuthorRevisedPublicationMail(string publicationContent);
 
-        Task InsertRevisionAsync(string fileContent, string previousPublicationId);
+        Task InsertRevisionAsync(string fileContent, string previousPublicationId, string username);
 
         Task<MemoryStream> DownloadPublicationAsPdfAsync(string publicationId);
 

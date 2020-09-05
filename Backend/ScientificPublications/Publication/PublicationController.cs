@@ -55,7 +55,7 @@ namespace ScientificPublications.Publication
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
 
-            await _publicationService.InsertAsync(fileContent);
+            await _publicationService.InsertAsync(fileContent, GetSession().Username);
             await _publicationService.SendAuthorUploadPublicationMail(GetSession().Username, fileContent);
 
             return Ok();
@@ -74,7 +74,7 @@ namespace ScientificPublications.Publication
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
 
-            await _publicationService.InsertRevisionAsync(fileContent, previousPublicationId);
+            await _publicationService.InsertRevisionAsync(fileContent, previousPublicationId, GetSession().Username);
             await _publicationService.SendAuthorRevisedPublicationMail(fileContent);
             return Ok();
         }
