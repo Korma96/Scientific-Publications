@@ -21,17 +21,22 @@ Project for XML and web services course
 2. Run Tomcat server
     
 3. Setup database
-    - Navigate to http://localhost:8080/exist/apps/dashboard/index.html
+    - navigate to http://localhost:8080/exist/apps/dashboard/index.html
     - create test collection and upload all .xml documents from ScientificPublications/resources/db
     ![alt text](https://github.com/Korma96/Scientific-Publications/blob/development/doc/exist_documents.jpg)
+    - navigate to http://localhost:8080/fuseki/
+    - create 'PublicationDataset' dataset
+    - create named graph 'publications/metadata' and upload rdf file ScientificPublications\JavaProxy\src\main\resources\rdf\publication_metadata.rdf
     
 4. Run java backend
     - set current working directory on ScientificPublications
     - java -jar .\JavaProxy\target\JavaProxy-0.0.1-SNAPSHOT.jar .\target\classes\com\xml\JavaProxy\JavaProxyApplication
-
+    - or by using Intellij IDEA
+    
 5. Run .net backend
     - set current working directory on ScientificPublications
     - dotnet run -p .\Backend\ScientificPublications
+    - or by using Visual Studio
   
 6. Run frontend
     - navigate to https://localhost:5001/index.html
