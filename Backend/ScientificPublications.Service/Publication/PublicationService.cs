@@ -286,5 +286,10 @@ namespace ScientificPublications.Service.Publication
         {
             return _publicationDataAccess.GetReferencingPublicationsAsync(publicationId);
         }
+
+        public Task<Publications> FindByMetadataSearchQueryAsync(string username, string searchQuery)
+        {
+            return _publicationDataAccess.FindByMetadataSearchQueryAsync(username, searchQuery);
+        }
     }
 }

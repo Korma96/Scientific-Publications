@@ -44,5 +44,7 @@ namespace ScientificPublications.Service.Publication
         Task<MemoryStream> DownloadPublicationAsHtmlAsync(string publicationId);
 
         Task<Publications> GetReferencingPublications(string publicationId);
+
+        Task<Publications> FindByMetadataSearchQueryAsync(string username, string searchQuery);
     }
 }

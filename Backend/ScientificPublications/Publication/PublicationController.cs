@@ -102,6 +102,17 @@ namespace ScientificPublications.Publication
         }
 
         /// <summary>
+        /// Search publications by metadata
+        /// </summary>
+        [HttpGet("search/metadata/{searchQuery}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> FindByMetadataSearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.FindByMetadataSearchQueryAsync(GetSession().Username, searchQuery);
+            return PublicationsResponse(publications, shortForm);
+        }
+
+        /// <summary>
         /// Author: search my publications by text
         /// </summary>
         [HttpGet("search/my/{searchQuery}")]

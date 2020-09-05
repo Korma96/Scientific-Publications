@@ -28,5 +28,7 @@ namespace ScientificPublications.DataAccess.Publication
         Task<MemoryStream> GetPublicationAsHtmlAsync(string publicationId);
 
         Task<Publications> GetReferencingPublicationsAsync(string publicationId);
+
+        Task<Publications> FindByMetadataSearchQueryAsync(string username, string searchQuery);
     }
 }

@@ -2,6 +2,7 @@ package com.xml.JavaProxy.api;
 
 
 import com.xml.JavaProxy.api.dto.StatusDto;
+import com.xml.JavaProxy.model.FilePathDto;
 import com.xml.JavaProxy.model.Publication;
 import com.xml.JavaProxy.repository.PublicationRepository;
 import com.xml.JavaProxy.repository.RdfRepository;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -131,7 +133,6 @@ public class PublicationController {
                 HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "add-comment/{publicationId}/{commentedSegmentId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE )
     public ResponseEntity<String> addComment(@PathVariable("publicationId") String publicationId, @PathVariable("commentedSegmentId") String commentedSegmentId, @RequestBody String comment) throws Exception {
         String publication = publicationRepository.addComment(publicationId, commentedSegmentId, comment);
@@ -145,25 +146,28 @@ public class PublicationController {
     }
 
     @RequestMapping(value = "/advanced-search/{searchQuery}/{loggedName}", method = RequestMethod.GET)
-    public ResponseEntity<String> advancedSearch(@PathVariable("searchQuery") String searchQuery, @PathVariable("loggedName") String loggedName) throws Exception{
+    public ResponseEntity<String> advancedSearch(@PathVariable("searchQuery") String searchQuery, @PathVariable("loggedName") String loggedName) throws Exception {
         List<String> publicationIds = rdfRepository.searchPublications(searchQuery, loggedName);
         String publications = "<publications>\n";
-        publicationIds.add("3");
-        publicationIds.add("4");
-        if (publicationIds.isEmpty()) {
-            return ResponseUtility.Ok("No results");
-        }
-        else {
-
-            for (String id : publicationIds) {
-                String publication = publicationRepository.findById(id);
-                if (publication != null) {
-                    publications += publication;
-                }
+        for (String id : publicationIds) {
+            String publication = publicationRepository.findById(id);
+            if (publication != null) {
+                publications += publication;
             }
-            publications += "\n</publications>";
-            return ResponseUtility.Ok(publications);
         }
+        publications += "\n</publications>";
+        return ResponseUtility.Ok(publications);
     }
 
+    @PostMapping("/upload/rdf")
+    public ResponseEntity<String> uploadRdfFileToDataset(@RequestBody FilePathDto filePathDto) throws Exception {
+        rdfRepository.uploadMetadata(filePathDto.getInputPath());
+        return ResponseUtility.Ok();
+    }
+
+    @PostMapping("/xml-to-rdf/grddl")
+    public ResponseEntity<String> generateRdfFromXmlUsingGrddl(@RequestBody FilePathDto filePathDto) throws Exception {
+        rdfRepository.extractRdf(filePathDto.getInputPath(), filePathDto.getOutputPath());
+        return ResponseUtility.Ok();
+    }
 }
