@@ -1,0 +1,36 @@
+SELECT distinct ?publication FROM <%1$s>
+WHERE { 
+	{
+		?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/status> ?status 
+		FILTER (contains(lcase(?status), lcase('%2$s'))) .
+	}
+	UNION
+	{
+		?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/title> ?title 
+		FILTER (contains(lcase(?title), lcase('%2$s'))) .
+	}
+	UNION
+	{
+		?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/name> ?name
+		FILTER (contains(lcase(?name), lcase('%2$s'))) .
+	}
+	UNION
+	{
+		?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/keywords> ?keywords
+		FILTER (contains(lcase(?keywords), lcase('%2$s'))) .
+	}
+	FILTER EXISTS
+	{
+		{
+			?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/status> ?status 
+			FILTER (contains(lcase(?status), "accepted")) .
+		}
+
+	UNION 
+
+		{
+			?publication <http://www.ftn.uns.ac.rs/rdf/examples/predicate/name> ?name 
+			FILTER (contains(lcase(?name), lcase('%3$s'))) .
+		}
+	}
+}

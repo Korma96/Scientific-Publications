@@ -29,6 +29,11 @@
             Search published publications by text
             </summary>
         </member>
+        <member name="M:ScientificPublications.Publication.PublicationController.FindByMetadataSearchQuery(System.String,System.Boolean)">
+            <summary>
+            Search publications by metadata
+            </summary>
+        </member>
         <member name="M:ScientificPublications.Publication.PublicationController.FindMyBySearchQuery(System.String,System.Boolean)">
             <summary>
             Author: search my publications by text

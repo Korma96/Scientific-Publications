@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/1">
+    <pred:status>submitted</pred:status>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/1">
+    <pred:title >History of data</pred:title>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/1">
+    <pred:name>Vuk Barisic</pred:name>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/vuk19">
+    <pred:university>Faculty of Technical Sciences</pred:university>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/1">
+    <pred:name>Marko Radovic</pred:name>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/markoradovic">
+    <pred:university>Faculty of Technical Sciences</pred:university>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/1">
+    <pred:keywords>Data, History, Storing</pred:keywords>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/2">
+    <pred:status>accepted</pred:status>
+  </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/2">
+     <pred:title>XML i mikroservisi</pred:title>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/2">
+     <pred:name>Vuk Barisic</pred:name>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/vuk19">
+     <pred:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka</pred:university>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/2">
+     <pred:name>Marko Radovic</pred:name>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/markoradovic">
+     <pred:university>Univerzitet u Novom Sadu, Fakultet tehničkih nauka</pred:university>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/2">
+     <pred:keywords>XML, Web, Publikacija</pred:keywords>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/3">
+    <pred:status>assigned</pred:status>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/3">
+     <pred:title>We Have No Reason to Believe 5G Is Safe</pred:title>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/3">
+     <pred:name>John Mackie</pred:name>
+   </rdf:Description>
+
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/john">
+     <pred:university>MIT</pred:university>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/3">
+     <pred:name>Marko Radovic</pred:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/markoradovic">
+     <pred:university>Faculty of Technical Sciences</pred:university>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/3">
+     <pred:keywords>5g, Data, Internet, Mobile</pred:keywords>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/4">
+     <pred:status>accepted</pred:status>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/4">
+     <pred:title>5g Modern Dilemma</pred:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/4">
+     <pred:name>Vuk Barisic</pred:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/vuk19">
+     <pred:university>Faculty of Technical Sciences</pred:university>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/4">
+     <pred:name>Marko Radovic</pred:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/user/markoradovic">
+     <pred:university>Faculty of Technical Sciences</pred:university>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://ftn.uns.ac.rs/xml2019/publication/4">
+     <pred:keywords>5g, Data, Internet, Mobile</pred:keywords>
+   </rdf:Description>
+</rdf:RDF>

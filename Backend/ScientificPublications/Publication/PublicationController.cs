@@ -55,7 +55,7 @@ namespace ScientificPublications.Publication
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
 
-            await _publicationService.InsertAsync(fileContent);
+            await _publicationService.InsertAsync(fileContent, GetSession().Username);
             await _publicationService.SendAuthorUploadPublicationMail(GetSession().Username, fileContent);
 
             return Ok();
@@ -74,7 +74,7 @@ namespace ScientificPublications.Publication
             var fileContent = file.OpenReadStream().StreamToString();
             _publicationService.ValidatePublicationFile(fileContent);
 
-            await _publicationService.InsertRevisionAsync(fileContent, previousPublicationId);
+            await _publicationService.InsertRevisionAsync(fileContent, previousPublicationId, GetSession().Username);
             await _publicationService.SendAuthorRevisedPublicationMail(fileContent);
             return Ok();
         }
@@ -98,6 +98,17 @@ namespace ScientificPublications.Publication
         public async Task<IActionResult> FindBySearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
         {
             var publications = await _publicationService.FindBySearchQueryAsync(searchQuery);
+            return PublicationsResponse(publications, shortForm);
+        }
+
+        /// <summary>
+        /// Search publications by metadata
+        /// </summary>
+        [HttpGet("search/metadata/{searchQuery}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> FindByMetadataSearchQuery([FromRoute] string searchQuery, [FromQuery] bool shortForm)
+        {
+            var publications = await _publicationService.FindByMetadataSearchQueryAsync(GetSession().Username, searchQuery);
             return PublicationsResponse(publications, shortForm);
         }
 

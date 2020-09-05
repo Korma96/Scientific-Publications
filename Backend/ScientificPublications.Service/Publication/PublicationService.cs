@@ -76,9 +76,13 @@ namespace ScientificPublications.Service.Publication
             return await FileUtility.ReadAsStreamAsync(path);
         }
 
-        public Task InsertAsync(string fileContent)
+        public Task InsertAsync(string fileContent, string username)
         {
             var publication = XmlUtility.Deserialize<publication>(fileContent);
+            if (!publication.authors.Select(a => a.username).Contains(username))
+            {
+                throw new ValidationException("Invalid author username");
+            }
             publication.id = Guid.NewGuid().ToString();
             publication.header.status = PublicationStatus.SUBMITED.ToString().ToLower();
             return _publicationDataAccess.InsertAsync(publication);
@@ -247,7 +251,7 @@ namespace ScientificPublications.Service.Publication
             }
         }
 
-        public async Task InsertRevisionAsync(string fileContent, string previousPublicationId)
+        public async Task InsertRevisionAsync(string fileContent, string previousPublicationId, string username)
         {
             // TODO: add relationship between publication versions
             var currentStatus = await GetStatusAsync(previousPublicationId);
@@ -256,7 +260,7 @@ namespace ScientificPublications.Service.Publication
 
             var workflow = HelperMethods.ThrowIfNullOtherwiseReturn(
                 await _workFlowService.FindByPublicationIdAsync(previousPublicationId)) as workflow;
-            var revisionId = await InsertRevisionAsync(fileContent);
+            var revisionId = await InsertRevisionAsync(fileContent, username);
 
             await _workFlowService.DeleteByPublicationIdAsync(previousPublicationId);
             workflow.publicationId = revisionId;
@@ -273,9 +277,13 @@ namespace ScientificPublications.Service.Publication
             return await _publicationDataAccess.GetPublicationAsHtmlAsync(publicationId);
         }
 
-        private async Task<string> InsertRevisionAsync(string fileContent)
+        private async Task<string> InsertRevisionAsync(string fileContent, string username)
         {
             var publication = XmlUtility.Deserialize<publication>(fileContent);
+            if (!publication.authors.Select(a => a.username).Contains(username))
+            {
+                throw new ValidationException("Invalid author username");
+            }
             publication.id = Guid.NewGuid().ToString();
             publication.header.status = PublicationStatus.REVISED.ToString().ToLower();
             await _publicationDataAccess.InsertAsync(publication);
@@ -285,6 +293,11 @@ namespace ScientificPublications.Service.Publication
         public Task<Publications> GetReferencingPublications(string publicationId)
         {
             return _publicationDataAccess.GetReferencingPublicationsAsync(publicationId);
+        }
+
+        public Task<Publications> FindByMetadataSearchQueryAsync(string username, string searchQuery)
+        {
+            return _publicationDataAccess.FindByMetadataSearchQueryAsync(username, searchQuery);
         }
     }
 }
